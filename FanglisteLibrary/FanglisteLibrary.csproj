@@ -86,6 +86,7 @@
     <Compile Include="Secure.cs" />
     <Compile Include="Sicherheit.cs" />
     <Compile Include="SoundInfo.cs" />
+    <Compile Include="SQLCollection.cs" />
     <Compile Include="Statistik.cs" />
     <Compile Include="TrialVersion.cs" />
     <Compile Include="Trophy.cs" />

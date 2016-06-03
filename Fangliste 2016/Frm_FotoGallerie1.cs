@@ -72,8 +72,8 @@ namespace Fangliste_2016
 
             fangliste = new List<Fangliste1>();
 
-            string ConnectionString =
-             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
             try
             {
@@ -148,8 +148,8 @@ namespace Fangliste_2016
         {
             fotoliste = new List<Foto1>();
 
-            string ConnectionString =
-             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
             try
@@ -213,8 +213,8 @@ namespace Fangliste_2016
         {
             fotoliste = new List<Foto1>();
 
-            string ConnectionString =
-             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
             try
@@ -828,8 +828,8 @@ namespace Fangliste_2016
             cb_gewässer.Text = "Alle Fotos";
             Ordner = cb_gewässer.Text;
 
-            string ConnectionString =
-             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Directory.GetCurrentDirectory() + @"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
             try
@@ -958,8 +958,8 @@ namespace Fangliste_2016
             {
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString =
-                 @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+                con.ConnectionString = SQLCollection.GetConnectionString();
+                //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
                 Image imag = Image.FromFile(openFileDialog1.FileName);
                 Image icon = ResizeImage(imag, 100, 100);
@@ -1023,7 +1023,8 @@ namespace Fangliste_2016
         {
             try
             {
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+                string connectionString = SQLCollection.GetConnectionString();
+                //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 using (SqlCommand command = connection.CreateCommand())

@@ -153,8 +153,8 @@ namespace Fangliste_2016
             {
                 try
                 {
-                    string ConnectionString =
-             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+                    string ConnectionString = SQLCollection.GetConnectionString();
+             //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+System.IO.Directory.GetCurrentDirectory()+@"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
                     using (var sc = new SqlConnection(ConnectionString))
                     using (var cmd = sc.CreateCommand())
@@ -329,8 +329,8 @@ namespace Fangliste_2016
             listView_Fischer.Items.Clear();
             int count = 0;
 
-            string ConnectionString =
-             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
             try

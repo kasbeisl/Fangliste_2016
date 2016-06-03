@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Drawing.Imaging;
+using FanglisteLibrary;
 
 namespace Fangliste_2016
 {
@@ -25,8 +26,8 @@ namespace Fangliste_2016
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string ConnectionString =
-             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
             try
@@ -102,8 +103,8 @@ namespace Fangliste_2016
             if (textBox1.Text != "")
             {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString =
-                 @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+                con.ConnectionString = SQLCollection.GetConnectionString();
+                //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
                 Image imag = Image.FromFile(pictureBox1.ImageLocation);
 

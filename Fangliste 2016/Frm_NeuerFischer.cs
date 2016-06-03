@@ -95,8 +95,8 @@ namespace Fangliste_2016
                     if (namenlänge)
                     {
                         SqlConnection con = new SqlConnection();
-                        con.ConnectionString =
-                         @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+                        con.ConnectionString = SQLCollection.GetConnectionString();
+                        //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
                         openFileDialog1.FileName = "Dein Foto";
                         DialogResult r = openFileDialog1.ShowDialog();
