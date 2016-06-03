@@ -1,0 +1,83 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Fangliste_2016.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fangliste</Value>
+    </Setting>
+    <Setting Name="Passwort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fUuEnhQ67A</Value>
+    </Setting>
+    <Setting Name="Fangliste" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fangliste</Value>
+    </Setting>
+    <Setting Name="Fotoliste" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fotoliste</Value>
+    </Setting>
+    <Setting Name="Anglerliste" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Anglerliste</Value>
+    </Setting>
+    <Setting Name="Fischartenliste" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fischartenliste</Value>
+    </Setting>
+    <Setting Name="FotoOrdner" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fotos</Value>
+    </Setting>
+    <Setting Name="DatenOrdner" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Datein</Value>
+    </Setting>
+    <Setting Name="MusikOrdner" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Musik</Value>
+    </Setting>
+    <Setting Name="FanglisteOrdner" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fangliste</Value>
+    </Setting>
+    <Setting Name="HitparadeSound" Type="System.String" Scope="User">
+      <Value Profile="(Default)">intro3.wav</Value>
+    </Setting>
+    <Setting Name="JubelSound" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jubel1.wav</Value>
+    </Setting>
+    <Setting Name="LoserSound" Type="System.String" Scope="User">
+      <Value Profile="(Default)">loser1.wav</Value>
+    </Setting>
+    <Setting Name="TrophySound" Type="System.String" Scope="User">
+      <Value Profile="(Default)">champions.wav</Value>
+    </Setting>
+    <Setting Name="Datentyp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.csv</Value>
+    </Setting>
+    <Setting Name="Data" Type="System.String" Scope="User">
+      <Value Profile="(Default)">data</Value>
+    </Setting>
+    <Setting Name="FangVorlageAutomatik" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Hostname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ftp:\\ftp.lima-city.de</Value>
+    </Setting>
+    <Setting Name="Port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">21</Value>
+    </Setting>
+    <Setting Name="FotoDiashowSpeed" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="PlaySound" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ClickSound" Type="System.String" Scope="User">
+      <Value Profile="(Default)">click1.wav</Value>
+    </Setting>
+    <Setting Name="HitparadeFischAuswahl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Best of Three</Value>
+    </Setting>
+    <Setting Name="FanglisteDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

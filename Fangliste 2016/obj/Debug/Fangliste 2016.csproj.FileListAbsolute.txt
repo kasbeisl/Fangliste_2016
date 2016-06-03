@@ -1,0 +1,183 @@
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\Fangliste 2016.exe.config
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\FanglisteDB.mdf
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\FanglisteDB_log.ldf
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\Fangliste 2016.exe
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\Fangliste 2016.pdb
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste 2016.csprojResolveAssemblyReference.cache
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Form1.resources
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Properties.Resources.resources
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.GenerateResource.Cache
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste 2016.exe
+c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste 2016.pdb
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Interop.WMPLib.dll
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.ResolveComReference.cache
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\FanglisteLibrary.dll
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\XnaFan.ImageComparison.dll
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\bin\Debug\FanglisteLibrary.pdb
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_AboutBox.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_alleFänge_nur_Liste.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Alle_Fänge.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Anglerdaten.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_DoppelteFotos.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Download.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Einstellungen.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteBearbeiten.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteExportExcel.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteImportieren.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fangliste_Backup.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fang_bearbeiten.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Files.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fischartenliste.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischartenÜberblick.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischartHinzufügen.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fischeintragen.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischKalkulator.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoGallerie1.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoinfoEditor.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fotoliste.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotolisteExportieren.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotolisteImportieren.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoOrdnerDialog.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoSuche.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotosVonFang.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoÜbersicht1.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fänge_je_Jahr.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Hauptmenu.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Hit_Parade.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LakeTrophy.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LoadDialog.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NamenAuswählen.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeueFischart.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeuerFischer.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_PersönlFangliste_Detail.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_PersönlicheFangliste.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Statistik.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Umrechner.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Upload.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Vollbild.resources
+C:\Users\Kasi\Documents\Visual Studio 2015\Projects\Fangliste 2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Vorlage.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Fangliste 2016.exe.config
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Interop.WMPLib.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.ResolveComReference.cache
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.exe
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.pdb
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csprojResolveAssemblyReference.cache
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Form1.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_AboutBox.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_alleFänge_nur_Liste.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Alle_Fänge.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Anglerdaten.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_DoppelteFotos.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Download.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Einstellungen.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteBearbeiten.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteExportExcel.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteImportieren.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fangliste_Backup.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fang_bearbeiten.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Files.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fischartenliste.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischartenÜberblick.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischartHinzufügen.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fischeintragen.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischKalkulator.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoGallerie1.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoinfoEditor.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fotoliste.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotolisteExportieren.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotolisteImportieren.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoOrdnerDialog.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoSuche.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotosVonFang.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoÜbersicht1.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fänge_je_Jahr.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Hauptmenu.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Hit_Parade.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LakeTrophy.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LoadDialog.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NamenAuswählen.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeueFischart.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeuerFischer.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_PersönlFangliste_Detail.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_PersönlicheFangliste.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Statistik.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Umrechner.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Upload.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Vollbild.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Vorlage.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Properties.Resources.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.GenerateResource.Cache
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteDB.mdf
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteDB_log.ldf
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Fangliste 2016.exe
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Fangliste 2016.pdb
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteLibrary.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\XnaFan.ImageComparison.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteLibrary.pdb
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Fangliste 2016.exe.config
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Interop.WMPLib.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.ResolveComReference.cache
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.exe
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.pdb
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\Fangliste 2016.exe.config
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Interop.WMPLib.dll
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.ResolveComReference.cache
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.exe
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.pdb
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteDB.mdf
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteDB_log.ldf
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\Fangliste 2016.exe
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\Fangliste 2016.pdb
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteLibrary.dll
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\XnaFan.ImageComparison.dll
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\bin\Debug\FanglisteLibrary.pdb
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csprojResolveAssemblyReference.cache
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Form1.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_AboutBox.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_alleFänge_nur_Liste.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Alle_Fänge.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Anglerdaten.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_DoppelteFotos.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Download.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Einstellungen.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteBearbeiten.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteExportExcel.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FanglisteImportieren.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fangliste_Backup.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fang_bearbeiten.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Files.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fischartenliste.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischartenÜberblick.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischartHinzufügen.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fischeintragen.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FischKalkulator.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoGallerie1.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoinfoEditor.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fotoliste.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotolisteExportieren.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotolisteImportieren.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoOrdnerDialog.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoSuche.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotosVonFang.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_FotoÜbersicht1.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Fänge_je_Jahr.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Hauptmenu.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Hit_Parade.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LakeTrophy.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LoadDialog.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NamenAuswählen.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeueFischart.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeuerFischer.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_PersönlFangliste_Detail.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_PersönlicheFangliste.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Statistik.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Umrechner.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Upload.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Vollbild.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Vorlage.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Properties.Resources.resources
+C:\Users\Kasi\Documents\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.GenerateResource.Cache

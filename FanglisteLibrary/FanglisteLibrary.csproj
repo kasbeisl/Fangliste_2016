@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{245D1152-4340-4732-A39C-69B552E7C871}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FanglisteLibrary</RootNamespace>
+    <AssemblyName>FanglisteLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>fangliste.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XnaFan.ImageComparison">
+      <HintPath>C:\Users\Julia Frombach\Downloads\XnaFan.ImageComparison.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Angeltour.cs" />
+    <Compile Include="Angler.cs" />
+    <Compile Include="Angler1.cs" />
+    <Compile Include="Boot.cs" />
+    <Compile Include="Demo.cs" />
+    <Compile Include="Dropbox.cs" />
+    <Compile Include="Drucken.cs" />
+    <Compile Include="Einstellungen.cs" />
+    <Compile Include="Fanggerät.cs" />
+    <Compile Include="Foto1.cs" />
+    <Compile Include="PersönlicheFanglisteView.cs" />
+    <Compile Include="Fangliste1.cs" />
+    <Compile Include="Fangliste.cs" />
+    <Compile Include="Fischarten.cs" />
+    <Compile Include="FischKalkulator.cs" />
+    <Compile Include="Foto.cs" />
+    <Compile Include="Frm_Aktivieren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Aktivieren.designer.cs">
+      <DependentUpon>Frm_Aktivieren.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gewässer.cs" />
+    <Compile Include="Köder.cs" />
+    <Compile Include="Lizenz.cs" />
+    <Compile Include="MyVersion.cs" />
+    <Compile Include="Network.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegEdit.cs" />
+    <Compile Include="Rolle.cs" />
+    <Compile Include="Rute.cs" />
+    <Compile Include="Schnur.cs" />
+    <Compile Include="Secure.cs" />
+    <Compile Include="Sicherheit.cs" />
+    <Compile Include="SoundInfo.cs" />
+    <Compile Include="Statistik.cs" />
+    <Compile Include="TrialVersion.cs" />
+    <Compile Include="Trophy.cs" />
+    <Compile Include="TrophyTeilnehmer.cs" />
+    <Compile Include="Umrechner.cs" />
+    <Compile Include="Wetter.cs" />
+    <Compile Include="Wind.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Frm_Aktivieren.resx">
+      <DependentUpon>Frm_Aktivieren.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fangliste.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
