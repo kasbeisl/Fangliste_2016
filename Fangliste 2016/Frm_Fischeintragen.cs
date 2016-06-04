@@ -442,8 +442,8 @@ namespace Fangliste_2016
             {
                 con.ConnectionString = ConnectionString;
 
-                string strSQL = "SELECT Gewässer.Name " +
-                                "FROM Foto JOIN Fang ON (Foto.Fang_ID = Fang.ID)";
+                string strSQL = "SELECT Id, Name " +
+                                "FROM Gewässer";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
