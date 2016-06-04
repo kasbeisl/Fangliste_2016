@@ -19,6 +19,8 @@ namespace Fangliste_2016
         List<Fangliste> alleFänge;
         List<Fischarten> fischartenliste;
 
+        string connectionString = SQLCollection.GetConnectionString();
+
         #endregion
 
         #region Konstruktor
@@ -27,15 +29,67 @@ namespace Fangliste_2016
         {
             InitializeComponent();
 
-            this.alleFänge = alleFänge;
-            this.fischartenliste = fischartenliste;
+            //this.alleFänge = alleFänge;
+            //this.fischartenliste = fischartenliste;
         }
 
         private void Frm_Statistik_Load(object sender, EventArgs e)
         {
             GetFischartenlisteFromDB();
-
             ComboBox_Fischart_mit_Daten_füllen();
+
+
+
+            //Test
+            SqlConnection con = new SqlConnection();
+            try
+            {
+
+                con.ConnectionString = this.connectionString;
+
+                //// Abfrage liest alle Fische aus und gruppiert nach Stunde (unsortiert)
+                //string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(HOUR, [Uhrzeit]) FROM Fang "
+                //    + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
+                //    + "GROUP BY Fisch.Name, DATEPART(HOUR, [Uhrzeit])";
+
+                // Abfrage liest Hechte aus und gruppiert nach Stunde
+                string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(HOUR, [Uhrzeit]) FROM Fang "
+                    + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
+                    + "WHERE Fisch.Name = 'Hecht'"
+                    + "GROUP BY Fisch.Name, DATEPART(HOUR, [Uhrzeit]) "
+                    + "ORDER BY DATEPART(HOUR, [Uhrzeit])";
+
+
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                textBox1.Text = "";
+                while (reader.Read())
+                {
+                    //textBox1.Text += "Anzahl "+reader["C"].ToString() +"  Fischart " +reader["Fischart_ID"].ToString();
+                    //textBox1.Text += Environment.NewLine;
+                    textBox1.Text += "Anzahl "+reader[0].ToString() + " Fisch " + reader[1].ToString() + " Uhr " + reader[2].ToString();
+                    textBox1.Text += Environment.NewLine;
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+
+
+
+
+
+
         }
 
         #endregion
@@ -75,13 +129,13 @@ namespace Fangliste_2016
         {
             List<Fischarten> liste = new List<Fischarten>();
 
-            string ConnectionString = SQLCollection.GetConnectionString();
+            //string ConnectionString = SQLCollection.GetConnectionString();
             //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
             try
             {
-                con.ConnectionString = ConnectionString;
+                con.ConnectionString = this.connectionString;
 
                 //string text = "SELECT COUNT(*) FROM Angler";
 
@@ -662,5 +716,13 @@ namespace Fangliste_2016
         }
 
         #endregion
+
+        private void anglerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            //this.Validate();
+            //this.anglerBindingSource.EndEdit();
+            //this.tableAdapterManager.UpdateAll(this.fanglisteDBDataSet);
+
+        }
     }
 }
