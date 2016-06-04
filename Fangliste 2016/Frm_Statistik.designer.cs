@@ -32,7 +32,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Statistik));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_brechnen = new System.Windows.Forms.Button();
             this.cb_Kategorie = new System.Windows.Forms.ComboBox();
@@ -40,10 +39,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,35 +51,20 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 716F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 343F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.listView1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.chart1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.88317F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.11683F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.32545F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.67455F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1529, 719);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // chart1
-            // 
-            this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea1.AxisY.Title = "Anzahl der Fänge";
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(4, 262);
-            this.chart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(262, 204);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
             // 
             // groupBox1
             // 
@@ -91,10 +76,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(805, 250);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1178, 94);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -102,7 +87,7 @@
             // 
             this.btn_brechnen.Enabled = false;
             this.btn_brechnen.Location = new System.Drawing.Point(392, 43);
-            this.btn_brechnen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_brechnen.Margin = new System.Windows.Forms.Padding(4);
             this.btn_brechnen.Name = "btn_brechnen";
             this.btn_brechnen.Size = new System.Drawing.Size(100, 30);
             this.btn_brechnen.TabIndex = 5;
@@ -124,7 +109,7 @@
             "Uhrzeit",
             "Wetter"});
             this.cb_Kategorie.Location = new System.Drawing.Point(225, 43);
-            this.cb_Kategorie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_Kategorie.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Kategorie.Name = "cb_Kategorie";
             this.cb_Kategorie.Size = new System.Drawing.Size(139, 28);
             this.cb_Kategorie.Sorted = true;
@@ -137,7 +122,7 @@
             this.cb_Fischart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Fischart.FormattingEnabled = true;
             this.cb_Fischart.Location = new System.Drawing.Point(8, 43);
-            this.cb_Fischart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_Fischart.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Fischart.Name = "cb_Fischart";
             this.cb_Fischart.Size = new System.Drawing.Size(183, 28);
             this.cb_Fischart.Sorted = true;
@@ -168,21 +153,39 @@
             // 
             // listView1
             // 
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.listView1.Location = new System.Drawing.Point(817, 262);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Location = new System.Drawing.Point(1190, 106);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(224, 453);
+            this.listView1.Size = new System.Drawing.Size(335, 609);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
             // 
+            // chart1
+            // 
+            this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea1.AxisY.Title = "Anzahl der Fänge";
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(4, 106);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(1178, 609);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(816, 3);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(1189, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(352, 251);
+            this.textBox1.Size = new System.Drawing.Size(337, 96);
             this.textBox1.TabIndex = 3;
             // 
             // Frm_Statistik
@@ -193,7 +196,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Frm_Statistik";
             this.ShowInTaskbar = false;
@@ -202,9 +205,9 @@
             this.Load += new System.EventHandler(this.Frm_Statistik_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }

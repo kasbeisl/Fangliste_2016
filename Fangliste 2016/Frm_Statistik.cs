@@ -19,7 +19,11 @@ namespace Fangliste_2016
         List<Fangliste> alleFänge;
         List<Fischarten> fischartenliste;
 
+        //SQL Variablen
         string connectionString = SQLCollection.GetConnectionString();
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader reader;
 
         #endregion
 
@@ -40,56 +44,49 @@ namespace Fangliste_2016
 
 
 
-            //Test
-            SqlConnection con = new SqlConnection();
-            try
-            {
+            ////Test 
+            ////(wird in der Textbox rechts oben angezeigt)
+            //this.con = new SqlConnection();
+            //try
+            //{
 
-                con.ConnectionString = this.connectionString;
+            //    this.con.ConnectionString = this.connectionString;
 
-                //// Abfrage liest alle Fische aus und gruppiert nach Stunde (unsortiert)
-                //string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(HOUR, [Uhrzeit]) FROM Fang "
-                //    + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
-                //    + "GROUP BY Fisch.Name, DATEPART(HOUR, [Uhrzeit])";
+            //    // Abfrage liest alle Fische aus und gruppiert nach Stunde (unsortiert)
+            //    string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(HOUR, [Uhrzeit]) FROM Fang "
+            //        + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
+            //        + "GROUP BY Fisch.Name, DATEPART(HOUR, [Uhrzeit])";
 
-                // Abfrage liest Hechte aus und gruppiert nach Stunde
-                string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(HOUR, [Uhrzeit]) FROM Fang "
-                    + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
-                    + "WHERE Fisch.Name = 'Hecht'"
-                    + "GROUP BY Fisch.Name, DATEPART(HOUR, [Uhrzeit]) "
-                    + "ORDER BY DATEPART(HOUR, [Uhrzeit])";
-
-
-                SqlCommand cmd = new SqlCommand(strSQL, con);
-                con.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                textBox1.Text = "";
-                while (reader.Read())
-                {
-                    //textBox1.Text += "Anzahl "+reader["C"].ToString() +"  Fischart " +reader["Fischart_ID"].ToString();
-                    //textBox1.Text += Environment.NewLine;
-                    textBox1.Text += "Anzahl "+reader[0].ToString() + " Fisch " + reader[1].ToString() + " Uhr " + reader[2].ToString();
-                    textBox1.Text += Environment.NewLine;
-                }
-                reader.Close();
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-            }
+            //    //// Abfrage liest Hechte aus und gruppiert nach Stunde
+            //    //string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(HOUR, [Uhrzeit]) FROM Fang "
+            //    //    + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
+            //    //    + "WHERE Fisch.Name = 'Hecht'"
+            //    //    + "GROUP BY Fisch.Name, DATEPART(HOUR, [Uhrzeit]) "
+            //    //    + "ORDER BY DATEPART(HOUR, [Uhrzeit])";
 
 
-
-
-
-
-
-
+            //    this.cmd = new SqlCommand(strSQL, con);
+            //    this.con.Open();
+            //    this.reader = cmd.ExecuteReader();
+            //    this.textBox1.Text = "";
+            //    while (reader.Read())
+            //    {
+            //        //textBox1.Text += "Anzahl "+reader["C"].ToString() +"  Fischart " +reader["Fischart_ID"].ToString();
+            //        //textBox1.Text += Environment.NewLine;
+            //        this.textBox1.Text += "Anzahl "+reader[0].ToString() + " Fisch " + reader[1].ToString() + " Uhr " + reader[2].ToString();
+            //        this.textBox1.Text += Environment.NewLine;
+            //    }
+            //    this.reader.Close();
+            //    this.con.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
+            //finally
+            //{
+            //    this.con.Close();
+            //}
         }
 
         #endregion
@@ -114,7 +111,7 @@ namespace Fangliste_2016
 
         private void btn_brechnen_Click(object sender, EventArgs e)
         {
-            //DatenAuswerten();
+            DatenAuswerten();
         }
 
         #endregion
@@ -125,6 +122,10 @@ namespace Fangliste_2016
 
         #region Methoden
 
+        /// <summary>
+        /// Diese Funktion lest alle Fischarten aus der DB und speichert sie in der 
+        /// Liste ab.
+        /// </summary>
         private void GetFischartenlisteFromDB()
         {
             List<Fischarten> liste = new List<Fischarten>();
@@ -176,6 +177,9 @@ namespace Fangliste_2016
             }
         }
 
+        /// <summary>
+        /// Füllt die Fischarten-Combobox mit den Fischarten
+        /// </summary>
         private void ComboBox_Fischart_mit_Daten_füllen()
         {
             if (this.fischartenliste != null)
@@ -187,6 +191,10 @@ namespace Fangliste_2016
             }
         }
 
+        /// <summary>
+        /// Wertet die eingegebenen Daten aus den Comboboxen aus und 
+        /// zeigt sie im Chart an
+        /// </summary>
         private void DatenAuswerten()
         {
             chart1.Series.Clear();
@@ -221,53 +229,78 @@ namespace Fangliste_2016
 
         private void Uhrzeit()
         {
-            Statistik.Uhrzeit uhrzeit = new Statistik.Uhrzeit(this.alleFänge, cb_Fischart.Text);
+            string[] xWerte = new string[] 
+            { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00"
+            , "06:00", "07:00", "08:00", "09:00", "10:00", "11:00"
+            , "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"
+            , "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" };
 
-            bool keineWerte = true;
-            int anzahl_derFäge = 0;
+            int[] yWerte = new int[xWerte.Length];
 
-            for (int i = 0; i < uhrzeit.Y_Werte.Length; i++)
+            for (int i = 0; i < yWerte.Length; i++)
             {
-                if (uhrzeit.Y_Werte[i] != 0)
+                yWerte[i] = 0;
+            }
+
+
+            string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(HOUR, [Uhrzeit]) FROM Fang "
+            + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
+            + "WHERE Fisch.Name = '" + this.cb_Fischart.Text + "' "
+            + "GROUP BY Fisch.Name, DATEPART(HOUR, [Uhrzeit]) "
+            + "ORDER BY DATEPART(HOUR, [Uhrzeit])";
+            
+            try
+            {
+                this.ExecuteSQLCommand(strSQL);
+
+                while (this.reader.Read())
                 {
-                    keineWerte = false;
+                    yWerte[Convert.ToInt32(this.reader[2])] = Convert.ToInt32(this.reader[0]);
                 }
-
-                if (uhrzeit.Y_Werte[i] != 0)
-                {
-                    anzahl_derFäge++;
-                }
+                this.reader.Close();
+                this.con.Close();
             }
-
-            if (keineWerte)
+            catch (Exception ex)
             {
-                MessageBox.Show("Keine Werte vorhanden.", "Information");
+                MessageBox.Show(ex.ToString());
             }
-            else
+            finally
             {
-                //if (anzahl_derFäge < 3)
-                //{
-                //    MessageBox.Show("Es sind zu wengige Werte vorhanden.", "Information");
-                //}
+                this.con.Close();
             }
-
-            string[] xWerte = new string[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" };
 
             listView1.Items.Clear();
 
             for (int i = 0; i < xWerte.Length; i++)
             {
-                listView1.Items.Add(xWerte[i] + " Uhr = " + uhrzeit.Y_Werte[i]);
+                listView1.Items.Add(xWerte[i] + " Uhr = " + yWerte[i]);
             }
 
-            chart1.Series[cb_Fischart.Text].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            //chart1.Series[cb_Fischart.Text].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chart1.Series[cb_Fischart.Text].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            chart1.Series[0].BorderWidth = 10;
+            chart1.Series[0].Color = Color.DarkGreen;
 
-            chart1.Series[cb_Fischart.Text].Points.DataBindXY(xWerte ,uhrzeit.Y_Werte);
+
+
+
+            chart1.Series[cb_Fischart.Text].Points.DataBindXY(xWerte ,yWerte);
 
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisX.Maximum = 24;
 
             chart1.ChartAreas[0].AxisX.Title = Environment.NewLine + "Uhrzeit";
+        }
+
+        private void ExecuteSQLCommand(string strSQL)
+        {
+            this.con = new SqlConnection();
+
+            this.con.ConnectionString = this.connectionString;
+
+            this.cmd = new SqlCommand(strSQL, con);
+            this.con.Open();
+            this.reader = cmd.ExecuteReader();
         }
 
         private void Datum()
@@ -716,13 +749,5 @@ namespace Fangliste_2016
         }
 
         #endregion
-
-        private void anglerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            //this.Validate();
-            //this.anglerBindingSource.EndEdit();
-            //this.tableAdapterManager.UpdateAll(this.fanglisteDBDataSet);
-
-        }
     }
 }
