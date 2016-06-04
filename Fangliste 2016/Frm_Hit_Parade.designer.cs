@@ -186,6 +186,7 @@
             this.hitparade_HechtDataGridView.ShowRowErrors = false;
             this.hitparade_HechtDataGridView.Size = new System.Drawing.Size(1217, 428);
             this.hitparade_HechtDataGridView.TabIndex = 6;
+            this.hitparade_HechtDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.hitparade_HechtDataGridView_CellMouseDoubleClick);
             // 
             // dataGridViewImageColumn1
             // 
@@ -248,6 +249,7 @@
             this.tableAdapterManager.FischTableAdapter = null;
             this.tableAdapterManager.FotoTableAdapter = null;
             this.tableAdapterManager.GewässerTableAdapter = null;
+            this.tableAdapterManager.OrdnerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // hitparade_HechtTableAdapter

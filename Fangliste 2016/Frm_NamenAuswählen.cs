@@ -151,6 +151,7 @@ namespace Fangliste_2016
 
             if (löschen == DialogResult.Yes)
             {
+
                 try
                 {
                     string ConnectionString = SQLCollection.GetConnectionString();
@@ -163,13 +164,14 @@ namespace Fangliste_2016
                         cmd.CommandText = "DELETE FROM Angler WHERE Name = @name";
                         cmd.Parameters.AddWithValue("@name", listView_Fischer.SelectedItems[0].Text);
                         cmd.ExecuteNonQuery();
+                        sc.Close();
                     }
 
                     Aktualisieren();
                 }
-                catch (SystemException ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
+                    MessageBox.Show(ex.ToString());
                 }
             }
 
@@ -327,6 +329,7 @@ namespace Fangliste_2016
         {
             imageList_Fischer.Images.Clear();
             listView_Fischer.Items.Clear();
+            anglerliste = new List<Angler1>();
             int count = 0;
 
             string ConnectionString = SQLCollection.GetConnectionString();

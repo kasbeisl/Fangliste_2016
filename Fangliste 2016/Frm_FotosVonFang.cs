@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using FanglisteLibrary;
+using System.Drawing.Imaging;
+using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
-using FanglisteLibrary;
+using System.IO;
+using System.Threading;
 
 namespace Fangliste_2016
 {
@@ -14,73 +19,108 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        string[] fotos;
         int foto_jetzt = 0;
-        List<Foto> alleFotos;
-        int index;
-        List<Fangliste> fangliste;
+        List<Foto1> fotoliste;
+        List<Fangliste1> fangliste;
+        int fang_ID;
         int position;
 
         #endregion
 
         #region Konstruktor
 
-        public Frm_FotosVonFang(List<Foto> alleFotos, string[] fotos, int index)
+        public Frm_FotosVonFang(int fang_ID)
         {
             InitializeComponent();
 
-            this.alleFotos = alleFotos;
-            this.fotos = fotos;
-            this.index = index;
+            this.fang_ID = fang_ID;
+            fotoliste = new List<Foto1>();
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
 
-            pictureBox1.ImageLocation = Frm_Hauptmenu.FotoOrdner + "\\" + this.fotos[foto_jetzt];
-        }
+            try
+            {
+                con.ConnectionString = ConnectionString;
 
-        public Frm_FotosVonFang(List<Foto> alleFotos, int index, string pfad)
-        {
-            InitializeComponent();
+                //string text = "SELECT COUNT(*) FROM Angler";
 
-            this.alleFotos = alleFotos;
-            this.index = index;
-            //pictureBox1.ImageLocation = pfad + alleFotos[index].DateinameDest;
-        }
+                string strSQL = "SELECT * " +
+                                "FROM Foto WHERE Fang_ID = '" + fang_ID + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    try
+                    {
 
-        public Frm_FotosVonFang(List<Fangliste> fangliste, List<Foto> alleFotos, int index)
-        {
-            InitializeComponent();
+                        byte[] picData = reader["Bild"] as byte[] ?? null;
+                        Bitmap bmp = null;
 
-            this.alleFotos = alleFotos;
-            this.fangliste = fangliste;
-            this.index = index;
-            //pictureBox1.ImageLocation = pfad + alleFotos[index].DateinameDest;
-        }
+                        if (picData != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream(picData))
+                            {
+                                // Load the image from the memory stream. How you do it depends
+                                // on whether you're using Windows Forms or WPF.
+                                // For Windows Forms you could write:
+                                bmp = new System.Drawing.Bitmap(ms);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                                //MessageBox.Show("Drücken Sie OK um das nächste Bild anzuzeigen.");
+                            }
+                        }
+                        else
+                        {
+                            if (File.Exists(Properties.Settings.Default.Data + "\\" + "error.png"))
+                            {
+                                //this.imageList_Fischer.Images.Add(Image.FromFile(Properties.Settings.Default.Data + "\\" + "error.png"));
+                                bmp = new Bitmap(Properties.Settings.Default.Data + "\\" + "error.png");
+                                //imageList_Fischer.Images.Add(b);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                            }
+                        }
 
-        public Frm_FotosVonFang(string titel, string bilddatei)
-        {
-            InitializeComponent();
+                        fotoliste.Add(new Foto1(Convert.ToInt16(reader["Id"]), Convert.ToInt16(reader["Angler_ID"]), Convert.ToInt16(reader["Fang_ID"]), Convert.ToInt16(reader["Ordner_ID"]), reader["Kommentar"].ToString(), bmp));
+                        //listView_Fischer.Items.Add(anglerliste[count].Name, count);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Fehler");
+                    }
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
 
-            this.Text = titel;
-            pictureBox1.ImageLocation = bilddatei;
-            button_back.Visible = false;
-            button_vor.Visible = false;
+            //pictureBox1.ImageLocation = Frm_Hauptmenu.FotoOrdner + "\\" + this.fotos[foto_jetzt];
         }
 
         private void Frm_FotosVonFang_Load(object sender, EventArgs e)
         {
             try
             {
-                pictureBox1.ImageLocation = Frm_Hauptmenu.FotoOrdner + "\\" + this.alleFotos[foto_jetzt].Dateiname;
+                pictureBox1.Image = fotoliste[foto_jetzt].Bild;
             }
             catch { }
 
             position = foto_jetzt + 1;
-            this.Text = "Gefangen von " + fangliste[index].Name + " am " + fangliste[index].Datum.ToShortDateString() + " um " + fangliste[index].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[index].Gewicht + "kg, Größe: " + fangliste[index].Größe + "cm, Gewässer: " + fangliste[index].Gewässer + ") " + position + " von " + alleFotos.Count;
+            //this.Text = "Gefangen von " + fangliste[fang_ID].Name + " am " + fangliste[fang_ID].Datum.ToShortDateString() + " um " + fangliste[fang_ID].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[fang_ID].Gewicht + "kg, Größe: " + fangliste[fang_ID].Größe + "cm, Gewässer: " + fangliste[fang_ID].Gewässer + ") " + position + " von " + alleFotos.Count;
 
             button_back.Enabled = false;
 
-            if (alleFotos != null)
+            if (fotoliste != null)
             {
-                if (alleFotos.Count == 1)
+                if (fotoliste.Count == 1)
                 {
                     button_vor.Enabled = false;
                 }
@@ -98,7 +138,7 @@ namespace Fangliste_2016
         private void button_vor_Click(object sender, EventArgs e)
         {
             int zahl;
-            if (foto_jetzt < alleFotos.Count - 1)
+            if (foto_jetzt < fotoliste.Count - 1)
             {
                 zahl = foto_jetzt + 1;
                 button_back.Enabled = true;
@@ -107,16 +147,16 @@ namespace Fangliste_2016
             {
                 zahl = foto_jetzt;
             }
-            if (zahl == alleFotos.Count - 1)
+            if (zahl == fotoliste.Count - 1)
             {
                 button_vor.Enabled = false;
             }
 
             foto_jetzt = zahl;
-            pictureBox1.ImageLocation = Frm_Hauptmenu.FotoOrdner + "\\" + this.alleFotos[foto_jetzt].Dateiname;
+            pictureBox1.Image = this.fotoliste[foto_jetzt].Bild;
 
             position = foto_jetzt + 1;
-            this.Text = "Gefangen von " + fangliste[index].Name + " am " + fangliste[index].Datum.ToShortDateString() + " um " + fangliste[index].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[index].Gewicht + "kg, Größe: " + fangliste[index].Größe + "cm, Gewässer: " + fangliste[index].Gewässer + ") " + position + " von " + alleFotos.Count;
+            //this.Text = "Gefangen von " + fangliste[fang_ID].Name + " am " + fangliste[fang_ID].Datum.ToShortDateString() + " um " + fangliste[fang_ID].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[fang_ID].Gewicht + "kg, Größe: " + fangliste[fang_ID].Größe + "cm, Gewässer: " + fangliste[fang_ID].Gewässer + ") " + position + " von " + fotoliste.Count;
 
         }
 
@@ -138,10 +178,10 @@ namespace Fangliste_2016
             }
 
             foto_jetzt = zahl;
-            pictureBox1.ImageLocation = Frm_Hauptmenu.FotoOrdner + "\\" + this.alleFotos[foto_jetzt].Dateiname;
+            pictureBox1.Image = this.fotoliste[foto_jetzt].Bild;
 
             position = foto_jetzt + 1;
-            this.Text = "Gefangen von " + fangliste[index].Name + " am " + fangliste[index].Datum.ToShortDateString() + " um " + fangliste[index].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[index].Gewicht + "kg, Größe: " + fangliste[index].Größe + "cm, Gewässer: " + fangliste[index].Gewässer + ") " + position + " von " + alleFotos.Count;
+            //this.Text = "Gefangen von " + fangliste[fang_ID].Name + " am " + fangliste[fang_ID].Datum.ToShortDateString() + " um " + fangliste[fang_ID].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[fang_ID].Gewicht + "kg, Größe: " + fangliste[fang_ID].Größe + "cm, Gewässer: " + fangliste[fang_ID].Gewässer + ") " + position + " von " + fotoliste.Count;
         }
 
 

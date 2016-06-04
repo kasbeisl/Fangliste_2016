@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using FanglisteLibrary;
 using System.IO;
 using System.Data.SqlClient;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace Fangliste_2016
 {
@@ -104,85 +106,110 @@ namespace Fangliste_2016
 
         private void btn_fischerBearbeiten_Click(object sender, EventArgs e)
         {
-           /* if (tbx_kürzel.Text != "")
+            if (tbx_kürzel.Text != "")
             {
-                bool ersterBuchstabGroß = ErsterBuchstabGroß_Prüfen();
-                bool textOK = PrüfeEingabe(tbx_kürzel.Text);
-                bool namenlänge = NamenLänge_Prüfen();
-                bool fischerexist = FischerExist_Prüfen();
-
-                if (ersterBuchstabGroß)
+                try
                 {
-                    if (namenlänge)
+                    string connectionString = SQLCollection.GetConnectionString();
+                    //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using (SqlCommand command = connection.CreateCommand())
                     {
-                        if (textOK)
-                        {
-                            if ((fischerexist == false) || (this.name == tbx_kürzel.Text))
-                            {
-                                if (this.name != tbx_kürzel.Text)
-                                {
-                                    try
-                                    {
-                                        if (File.Exists(Frm_Hauptmenu.DatenOrdner + "\\" +this.anglerliste[index].FotoDateiname))
-                                        {
-                                            FileInfo f = new FileInfo(Frm_Hauptmenu.DatenOrdner + "\\" + this.anglerliste[index].FotoDateiname);
-                                            this.neuerFischerName = new Angler1(tbx_kürzel.Text, tbx_kürzel.Text + f.Extension);
-                                        }
-                                        else
-                                        {
-                                            this.neuerFischerName = new Angler1(tbx_kürzel.Text, "");
-                                        }
+                        command.CommandText = "UPDATE Angler SET Name = @Name WHERE Id = '" + aktuellerFischer.ID + "'";
+                        command.Parameters.Add("Name", SqlDbType.VarChar, 0).Value = tbx_kürzel.Text;
 
-                                        if (File.Exists(Frm_Hauptmenu.DatenOrdner + "\\" + this.anglerliste[index].FotoDateiname))
-                                            File.Copy(Frm_Hauptmenu.DatenOrdner + "\\" + this.anglerliste[index].FotoDateiname, Frm_Hauptmenu.DatenOrdner + "\\" + neuerFischerName.FotoDateiname, true);
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        MessageBox.Show(ex.ToString(), "Fehler");
-                                    }
+                        connection.Open();
 
-                                    this.anglerliste[index] = neuerFischerName;
-                                    //name_ändern = true;
-                                    Name_in_Liste_ändern();
-                                }
+                        command.ExecuteNonQuery();
 
-                                if (foto_ändern)
-                                {
-                                    if (File.Exists(pic_Fischer.ImageLocation))
-                                    {
-                                        FileInfo f = new FileInfo(pic_Fischer.ImageLocation);
-                                        File.Copy(pic_Fischer.ImageLocation, Frm_Hauptmenu.DatenOrdner + "\\" + tbx_kürzel.Text + f.Extension, true);
-                                        this.neuerFischerName = new Angler(tbx_kürzel.Text, tbx_kürzel.Text + f.Extension);
-                                    }
-                                    else
-                                    {
-                                        this.neuerFischerName = new Angler(tbx_kürzel.Text, "");
-                                    }
-
-                                    this.anglerliste[index] = neuerFischerName;
-                                }
-
-                                BenutzerDaten_speichern();
-                                this.geändert = DialogResult.OK;
-                                this.Close();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Der Name des Fischers existiert bereits.\n\nBitte geben Sie einen anderen Namen ein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                this.tbx_kürzel.Text = this.name;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Es sind nur Buchstaben und Zahlen erlaubt.", "Fehler");
-                        }
+                        connection.Close();
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                this.Close();
+
+                /* bool ersterBuchstabGroß = ErsterBuchstabGroß_Prüfen();
+                 bool textOK = PrüfeEingabe(tbx_kürzel.Text);
+                 bool namenlänge = NamenLänge_Prüfen();
+                 bool fischerexist = FischerExist_Prüfen();
+
+                 if (ersterBuchstabGroß)
+                 {
+                     if (namenlänge)
+                     {
+                         if (textOK)
+                         {
+                             if ((fischerexist == false) || (this.name == tbx_kürzel.Text))
+                             {
+                                 if (this.name != tbx_kürzel.Text)
+                                 {
+                                     try
+                                     {
+                                         if (File.Exists(Frm_Hauptmenu.DatenOrdner + "\\" +this.anglerliste[index].FotoDateiname))
+                                         {
+                                             FileInfo f = new FileInfo(Frm_Hauptmenu.DatenOrdner + "\\" + this.anglerliste[index].FotoDateiname);
+                                             this.neuerFischerName = new Angler1(tbx_kürzel.Text, tbx_kürzel.Text + f.Extension);
+                                         }
+                                         else
+                                         {
+                                             this.neuerFischerName = new Angler1(tbx_kürzel.Text, "");
+                                         }
+
+                                         if (File.Exists(Frm_Hauptmenu.DatenOrdner + "\\" + this.anglerliste[index].FotoDateiname))
+                                             File.Copy(Frm_Hauptmenu.DatenOrdner + "\\" + this.anglerliste[index].FotoDateiname, Frm_Hauptmenu.DatenOrdner + "\\" + neuerFischerName.FotoDateiname, true);
+                                     }
+                                     catch (Exception ex)
+                                     {
+                                         MessageBox.Show(ex.ToString(), "Fehler");
+                                     }
+
+                                     this.anglerliste[index] = neuerFischerName;
+                                     //name_ändern = true;
+                                     Name_in_Liste_ändern();
+                                 }
+
+                                 if (foto_ändern)
+                                 {
+                                     if (File.Exists(pic_Fischer.ImageLocation))
+                                     {
+                                         FileInfo f = new FileInfo(pic_Fischer.ImageLocation);
+                                         File.Copy(pic_Fischer.ImageLocation, Frm_Hauptmenu.DatenOrdner + "\\" + tbx_kürzel.Text + f.Extension, true);
+                                         this.neuerFischerName = new Angler(tbx_kürzel.Text, tbx_kürzel.Text + f.Extension);
+                                     }
+                                     else
+                                     {
+                                         this.neuerFischerName = new Angler(tbx_kürzel.Text, "");
+                                     }
+
+                                     this.anglerliste[index] = neuerFischerName;
+                                 }
+
+                                 BenutzerDaten_speichern();
+                                 this.geändert = DialogResult.OK;
+                                 this.Close();
+                             }
+                             else
+                             {
+                                 MessageBox.Show("Der Name des Fischers existiert bereits.\n\nBitte geben Sie einen anderen Namen ein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                 this.tbx_kürzel.Text = this.name;
+                             }
+                         }
+                         else
+                         {
+                             MessageBox.Show("Es sind nur Buchstaben und Zahlen erlaubt.", "Fehler");
+                         }
+                     }
+                 }*/
             }
             else
             {
                 MessageBox.Show("Geben Sie einen Namen ein.", "Fehler");
-            }*/
+            }
         }
 
         private void btn_fischerPicLöschen_Click(object sender, EventArgs e)
@@ -191,41 +218,53 @@ namespace Fangliste_2016
 
             if (löschen == DialogResult.Yes)
             {
-
                 try
                 {
-
                     string connectionString = SQLCollection.GetConnectionString();
                     //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
-                    using (SqlConnection conn =
-                        new SqlConnection(connectionString))
-                    {
-                        conn.Open();
-                        using (SqlCommand cmd =
-                            new SqlCommand("UPDATE Angler SET Bild=@Bild" +
-                                " WHERE Id=@Id", conn))
-                        {
-                            cmd.Parameters.AddWithValue("@Id", aktuellerFischer.ID);
-                            cmd.Parameters.AddWithValue("@Bild", "");
 
-                            cmd.ExecuteNonQuery();
-                            conn.Close();
-                            //rows number of record got updated
-                        }
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE Angler SET Bild = @Pic WHERE Id = '" + aktuellerFischer.ID + "'";
+                        command.Parameters.Add("Pic", SqlDbType.Image, 0).Value = DBNull.Value;
+                            //ConvertImageToByteArray(img, ImageFormat.Jpeg);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                        connection.Close();
                     }
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), "Fehler");
+                    MessageBox.Show(ex.ToString());
                 }
 
 
-                /*pic_Fischer.ImageLocation = Properties.Settings.Default.Data + "\\" + "error.png";
-                this.anglerliste[index].FotoDateiname = "";
+                pic_Fischer.ImageLocation = Properties.Settings.Default.Data + "\\" + "error.png";
+                /*this.anglerliste[index].FotoDateiname = "";
                 this.foto_löschen = true;
                 btn_löschen.Enabled = false;
                 btn_ok.Enabled = true;*/
             }
+        }
+
+        private byte[] ConvertImageToByteArray(System.Drawing.Image imageToConvert,
+                                       System.Drawing.Imaging.ImageFormat formatOfImage)
+        {
+            byte[] Ret;
+            try
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    imageToConvert.Save(ms, formatOfImage);
+                    Ret = ms.ToArray();
+                }
+            }
+            catch (Exception) { throw; }
+            return Ret;
         }
 
         private void tbx_kürzel_TextChanged(object sender, EventArgs e)
@@ -242,7 +281,35 @@ namespace Fangliste_2016
 
             if (ok == DialogResult.OK)
             {
-                string _File = openFileDialog1.FileName;
+                try
+                {
+                    Image imag = Image.FromFile(openFileDialog1.FileName);
+
+                    string connectionString = SQLCollection.GetConnectionString();
+                    //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE Angler SET Bild = @Pic WHERE Id = '" + aktuellerFischer.ID + "'";
+                        command.Parameters.Add("Pic", SqlDbType.Image, 0).Value = 
+                        ConvertImageToByteArray(imag, ImageFormat.Jpeg);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                        connection.Close();
+
+                        pic_Fischer.Image = imag;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                /*string _File = openFileDialog1.FileName;
                 FileInfo fi = new FileInfo(_File);
 
                 if (fi.Length > file_max)
@@ -259,7 +326,7 @@ namespace Fangliste_2016
 
                     btn_löschen.Enabled = true;
                     btn_ok.Enabled = true;
-                }
+                }*/
             }
         }
 

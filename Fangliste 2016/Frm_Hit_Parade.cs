@@ -146,6 +146,8 @@ namespace Fangliste_2016
         {
             if (e.Button == MouseButtons.Left)
             {
+
+
                 int index = listHecht.SelectedIndices[0];
                 List<Foto> fangFotos = new List<Foto>();
 
@@ -157,7 +159,7 @@ namespace Fangliste_2016
 
                 if ((fangFotos != null) && (fangFotos.Count != 0))
                 {
-                    frm_fotosVonFang = new Frm_FotosVonFang(this.spezialliste, fangFotos, index);
+                    frm_fotosVonFang = new Frm_FotosVonFang(0);
                     frm_fotosVonFang.ShowDialog();
                 }
             }
@@ -279,6 +281,12 @@ namespace Fangliste_2016
             }
 
             tbx_fischart.Items.AddRange(fischAuswahl);
+        }
+
+        private void hitparade_HechtDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            frm_fotosVonFang = new Frm_FotosVonFang(1);
+            frm_fotosVonFang.ShowDialog();
         }
     }
 }

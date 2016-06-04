@@ -276,7 +276,7 @@ namespace Fangliste_2016
 
         #endregion
 
-        private void DatenLaden()
+       private void DatenLaden()
         {
             trackBar_speed.Value = Properties.Settings.Default.FotoDiashowSpeed;
             label_speed.Text = trackBar_speed.Value + " sec./ Foto";
@@ -819,7 +819,7 @@ namespace Fangliste_2016
 
         #endregion
 
-        #region Methoden
+       #region Methoden
 
         private void ComboBoxFüllen()
         {
@@ -956,7 +956,6 @@ namespace Fangliste_2016
 
             if (r == DialogResult.OK)
             {
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = SQLCollection.GetConnectionString();
                 //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
@@ -1049,40 +1048,62 @@ namespace Fangliste_2016
 
         private void FotoLöschen()
         {
-           /* try
+            try
             {
-                for (int i = 0; i < fotoliste.Count; i++)
+                string ConnectionString = SQLCollection.GetConnectionString();
+                //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+System.IO.Directory.GetCurrentDirectory()+@"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+                using (var sc = new SqlConnection(ConnectionString))
+                using (var cmd = sc.CreateCommand())
                 {
-                    if (Frm_Hauptmenu.FotoOrdner + fotoliste[i].Dateiname == images[foto_jetzt])
-                    {
-                        fotoliste.RemoveAt(i);
-                        Foto.Speichere_Fotoliste(this.fotoliste, Frm_Hauptmenu.DatenOrdner, Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp);
-                        break;
-                    }
+                    sc.Open();
+                    cmd.CommandText = "DELETE FROM Foto WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("@id", fotoliste[foto_jetzt].ID);
+                    cmd.ExecuteNonQuery();
+                    sc.Close();
                 }
 
-                File.Delete(images[foto_jetzt]);
-
-                images.RemoveAt(foto_jetzt);
-
-                if (foto_jetzt >= images.Count)
-                    foto_jetzt = images.Count - 1;
-
-                if ((images != null) && (images.Count != 0))
-                {
-                    pictureBox1.ImageLocation = images[foto_jetzt];
-                    
-                }
-                else
-                {
-                    pictureBox1.ImageLocation = "";
-                    ZeigeToolTipKeinFoto(true);
-                }
-
-                Label_foto_nr_setzen();
-                FotoInfos_Set();
+                Aktualisieren();
             }
-            catch { }*/
+            catch (SystemException ex)
+            {
+                MessageBox.Show(string.Format("An error occurred: {0}", ex.Message));
+            }
+
+            /* try
+             {
+                 for (int i = 0; i < fotoliste.Count; i++)
+                 {
+                     if (Frm_Hauptmenu.FotoOrdner + fotoliste[i].Dateiname == images[foto_jetzt])
+                     {
+                         fotoliste.RemoveAt(i);
+                         Foto.Speichere_Fotoliste(this.fotoliste, Frm_Hauptmenu.DatenOrdner, Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp);
+                         break;
+                     }
+                 }
+
+                 File.Delete(images[foto_jetzt]);
+
+                 images.RemoveAt(foto_jetzt);
+
+                 if (foto_jetzt >= images.Count)
+                     foto_jetzt = images.Count - 1;
+
+                 if ((images != null) && (images.Count != 0))
+                 {
+                     pictureBox1.ImageLocation = images[foto_jetzt];
+
+                 }
+                 else
+                 {
+                     pictureBox1.ImageLocation = "";
+                     ZeigeToolTipKeinFoto(true);
+                 }
+
+                 Label_foto_nr_setzen();
+                 FotoInfos_Set();
+             }
+             catch { }*/
         }
 
         private void ZeigeToolTipKeinFoto(bool show)

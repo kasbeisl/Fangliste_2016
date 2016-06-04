@@ -302,7 +302,7 @@ namespace Fangliste_2016
 
                 if (import)
                 {
-                    frm_fotoVonFang = new Frm_FotosVonFang(this.alleFotos, index, this.pfad);
+                    frm_fotoVonFang = new Frm_FotosVonFang(0);
                     frm_fotoVonFang.ShowDialog();
                 }
             }
