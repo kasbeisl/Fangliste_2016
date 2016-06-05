@@ -305,51 +305,61 @@ namespace Fangliste_2016
 
         private void Datum()
         {
-            Statistik.Datum datum = new Statistik.Datum(this.alleFänge, cb_Fischart.Text);
 
-            bool keineWerte = true;
-            int anzahl_derFäge = 0;
+            string[] xWerte = new string[] 
+            { "Jänner", "Februar", "März", "April", "Mai", "Juni", "July"
+            , "August", "September", "Oktober", "November", "Dezember" };
 
-            for (int i = 0; i < datum.Y_Werte.Length; i++)
+
+            int[] yWerte = new int[xWerte.Length];
+
+            for (int i = 0; i < yWerte.Length; i++)
             {
-                if (datum.Y_Werte[i] != 0)
+                yWerte[i] = 0;
+            }
+
+            string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, DATEPART(MONTH, [Datum]) FROM Fang "
+            + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
+            + "WHERE Fisch.Name = '" + this.cb_Fischart.Text + "' "
+            + "GROUP BY Fisch.Name, DATEPART(MONTH, [Datum]) "
+            + "ORDER BY DATEPART(MONTH, [Datum])";
+
+            try
+            {
+                this.ExecuteSQLCommand(strSQL);
+
+                while (this.reader.Read())
                 {
-                    keineWerte = false;
+                    yWerte[Convert.ToInt32(this.reader[2])-1] = Convert.ToInt32(this.reader[0]);
                 }
-
-                if (datum.Y_Werte[i] != 0)
-                {
-                    anzahl_derFäge++;
-                }
+                this.reader.Close();
+                this.con.Close();
             }
-
-            if (keineWerte)
+            catch (Exception ex)
             {
-                MessageBox.Show("Keine Werte vorhanden.", "Information");
+                MessageBox.Show(ex.ToString());
             }
-            else
+            finally
             {
-                //if (anzahl_derFäge < 3)
-                //{
-                //    MessageBox.Show("Es sind zu wengige Werte vorhanden.", "Information");
-                //}
+                this.con.Close();
             }
 
-            string[] xWerte = new string[] { "Jänner", "Februar", "März", "April", "Mai", "Juni", "July", "August", "September", "Oktober", "November", "Dezember" };
+
+
 
             listView1.Items.Clear();
 
             for (int i = 0; i < xWerte.Length; i++)
             {
-                listView1.Items.Add(xWerte[i] + " = " + datum.Y_Werte[i]);
+                listView1.Items.Add(xWerte[i] + " = " + yWerte[i]);
             }
 
             chart1.Series[cb_Fischart.Text].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
 
-            chart1.Series[cb_Fischart.Text].Points.DataBindXY(xWerte, datum.Y_Werte);
+            chart1.Series[cb_Fischart.Text].Points.DataBindXY(xWerte, yWerte);
 
-            chart1.ChartAreas[0].AxisX.Minimum = 1;
-            chart1.ChartAreas[0].AxisX.Maximum = 12;
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisX.Maximum = 13;
 
             chart1.ChartAreas[0].AxisX.Title = Environment.NewLine + "Datum";
         }
