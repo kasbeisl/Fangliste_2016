@@ -400,7 +400,7 @@ namespace Fangliste_2016
                         foto_jetzt = i;
                         foto_vorher = i;
                         pictureBox1.Image = fotoliste[i].Bild;
-                        //FotoInfos_Set();
+                        FotoInfos_Set();
                         Thread.Sleep(diashow_time);
 
                         if (i == this.fotoliste.Count - 1)
@@ -449,7 +449,7 @@ namespace Fangliste_2016
             pictureBox1.Image = fotoliste[zahl].Bild;
             foto_jetzt = zahl;
 
-            //FotoInfos_Set();
+            FotoInfos_Set();
 
             //btn_extras.Text = "v";
             //panel_extras.Visible = false;
@@ -476,7 +476,7 @@ namespace Fangliste_2016
                 pictureBox1.Image = fotoliste[zahl].Bild;
                 foto_jetzt = zahl;
 
-                //FotoInfos_Set();
+                FotoInfos_Set();
             }
             catch (Exception ex)
             {
@@ -1188,28 +1188,28 @@ namespace Fangliste_2016
         {
             lb_fotoInfo.Text = "";
             label_kommentar.Text = "";
+            Label_foto_nr_setzen();
 
             try
             {
                 if ((fotoliste != null) || (fotoliste.Count != 0))
                 {
-                    for (int j = 0; j < fotoliste.Count; j++)
-                    {
-                        int id = 0;
-                        if (id == fotoliste[foto_jetzt].ID)
-                        {
-                            label_kommentar.Text = fotoliste[j].Kommentar;
+                    //for (int j = 0; j < fotoliste.Count; j++)
+                    //{
+                        //if (fotoliste[j].ID == fotoliste[foto_jetzt].ID)
+                        //{
+                            label_kommentar.Text = fotoliste[foto_jetzt].Kommentar;
                             for (int i = 0; i < fangliste.Count; i++)
                             {
-                                if (fangliste[i].ID == fotoliste[j].ID)
+                                if (fangliste[i].ID == fotoliste[foto_jetzt].Fang_ID)
                                 {
-                                    lb_fotoInfo.Text = "Name: " + this.fangliste[i].ID + ", Fischart: " + this.fangliste[i].Fischart_ID + ", gefangen am: " + this.fangliste[i].Datum.ToShortDateString() + " um " + this.fangliste[i].Uhrzeit.ToShortTimeString() + ", Größe: " + this.fangliste[i].Größe + "cm und einem Gewicht von: " + this.fangliste[i].Gewicht + "kg.";
+                                    lb_fotoInfo.Text = "Name: " + this.fangliste[i].Angler_ID + ", Fischart: " + this.fangliste[i].Fischart_ID + ", gefangen am: " + this.fangliste[i].Datum.ToShortDateString() + " um " + this.fangliste[i].Uhrzeit.ToShortTimeString() + ", Größe: " + this.fangliste[i].Größe + "cm und einem Gewicht von: " + this.fangliste[i].Gewicht + "kg.";
                                     break;
                                 }
                             }
-                            break;
-                        }
-                    }
+                           // break;
+                        //}
+                   // }
                 }
             }
             catch { }
