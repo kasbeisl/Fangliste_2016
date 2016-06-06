@@ -19,7 +19,7 @@ namespace Fangliste_2016
         List<Angler> anglerliste;
         Angler1 aktueller_Fischer;
         List<Fischarten> fischartenliste;
-        List<Fangliste> fangliste;
+        List<Fangliste1> fangliste;
         List<Foto> fotoliste = null;
 
         //
@@ -86,6 +86,8 @@ namespace Fangliste_2016
 
             NamenWählen();
 
+            LadeAlteFanglisteInDatenbank();
+
             /*if (frm_loadDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 this.fangliste = frm_loadDialog.GetFangliste;
@@ -101,6 +103,202 @@ namespace Fangliste_2016
                 Application.Exit();
             }*/
         }
+
+        private void LadeAlteFanglisteInDatenbank()
+        {
+            List<Gewässer> g = new List<Gewässer>();
+            List<Fischarten> f = new List<Fischarten>();
+            List<Angler1> a = new List<Angler1>();
+
+            string ConnectionString = SQLCollection.GetConnectionString();
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                string strSQL = "SELECT * " +
+                                "FROM Gewässer";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    g.Add(new Gewässer(Convert.ToInt16(reader["Id"]), reader["Name"].ToString()));
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            //-----------------------------------------
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                string strSQL = "SELECT * " +
+                                "FROM Fisch";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    f.Add(new Fischarten(Convert.ToInt16(reader["Id"]), reader["Name"].ToString(), Convert.ToDouble(reader["KF"])));
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                string strSQL = "SELECT * " +
+                                "FROM Angler";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                Bitmap bmp = null;
+
+                while (reader.Read())
+                {
+                    byte[] picData = reader["Bild"] as byte[] ?? null;
+
+                    if (picData != null)
+                    {
+                        using (MemoryStream ms = new MemoryStream(picData))
+                        {
+                            // Load the image from the memory stream. How you do it depends
+                            // on whether you're using Windows Forms or WPF.
+                            // For Windows Forms you could write:
+                            bmp = new System.Drawing.Bitmap(ms);
+                        }
+                    }
+
+                    a.Add(new Angler1(Convert.ToInt16(reader["Id"]), reader["Name"].ToString(), bmp));
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            OpenFileDialog op = new OpenFileDialog();
+            DialogResult r = op.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+                fangliste = new List<Fangliste1>();
+                List<Fangliste> fanglisteZuLaden;
+                StreamReader leser1 = new StreamReader(op.FileName);
+                fanglisteZuLaden = new List<Fangliste>();
+
+                while (leser1.Peek() >= 0)
+                {
+                    fanglisteZuLaden.Add(new Fangliste(leser1.ReadLine()));
+                }
+
+                int angler_id = 0;
+                int fisch_id = 0;
+                int gewässer_id = 0;
+
+                for (int i = 0; i < fanglisteZuLaden.Count; i++)
+                {
+                    for (int j = 0; j < a.Count; j++)
+                    {
+                        if (a[j].Name == fanglisteZuLaden[i].Name)
+                        {
+                            angler_id = a[j].ID;
+                            break;
+                        }
+                    }
+
+                    for (int j = 0; j < f.Count; j++)
+                    {
+                        if (f[j].Name == fanglisteZuLaden[i].Fischart)
+                        {
+                            fisch_id = f[j].ID;
+                            break;
+                        }
+                    }
+
+                    for (int j = 0; j < g.Count; j++)
+                    {
+                        if (g[j].Name == fanglisteZuLaden[i].Gewässer)
+                        {
+                            gewässer_id = g[j].ID;
+                            break;
+                        }
+                    }
+
+                    try
+                    {
+                        fangliste.Add(new Fangliste1(i++, angler_id, fisch_id, fanglisteZuLaden[i].Größe, fanglisteZuLaden[i].Gewicht, gewässer_id, fanglisteZuLaden[i].Datum, fanglisteZuLaden[i].Uhrzeit, fanglisteZuLaden[i].Platzbesch, fanglisteZuLaden[i].Köderbeschr, fanglisteZuLaden[i].Tiefe, fanglisteZuLaden[i].Lufttemperatur, 0, fanglisteZuLaden[i].Wetter, fanglisteZuLaden[i].Zurückgesetzt, ""));
+                    }
+                    catch { }
+                    
+                }
+
+                leser1.Close();
+            }
+
+            for (int i = 0; i < fangliste.Count; i++)
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand insertCommand = new SqlCommand(
+                "Insert into Fang (Angler_ID, Fischart_ID, Länge, Gewicht, Gewässer_ID, Köder, Angelplatz, Tiefe, Lufttemperatur, Wassertemperatur, Datum, Uhrzeit, Zurückgesetzt, Wetter, Kommentar) Values (@Angler_ID, @Fischart_ID, @Länge, @Gewicht, @Gewässer_ID, @Köder, @Angelplatz, @Tiefe, @Lufttemperatur, @Wassertemperatur, @Datum, @Uhrzeit, @Zurückgesetzt, @Wetter, @Kommentar)", con);
+                    insertCommand.Parameters.Add("Angler_ID", SqlDbType.Int, 0).Value = fangliste[i].Angler_ID;
+                    insertCommand.Parameters.Add("Fischart_ID", SqlDbType.Int, 0).Value = Fischarten.Get_ID(fischartenliste, tbx_Fischart.Text);
+                    insertCommand.Parameters.Add("Länge", SqlDbType.Float).Value = tbx_Größe.Value;
+                    insertCommand.Parameters.Add("Gewicht", SqlDbType.Float).Value = tbx_Gewicht.Value;
+                    insertCommand.Parameters.Add("Gewässer_ID", SqlDbType.Int, 0).Value = gewässer_id;
+                    insertCommand.Parameters.Add("Köder", SqlDbType.Text, 0).Value = tbx_Köderbeschreibung.Text;
+                    insertCommand.Parameters.Add("Angelplatz", SqlDbType.Text, 0).Value = tbx_Platzbeschreibung.Text;
+                    insertCommand.Parameters.Add("Tiefe", SqlDbType.Float).Value = tbx_Tiefe.Value;
+                    insertCommand.Parameters.Add("Lufttemperatur", SqlDbType.Float).Value = tbx_wassertemperatur.Value;
+                    insertCommand.Parameters.Add("Wassertemperatur", SqlDbType.Float).Value = tbx_Gewicht.Value;
+                    insertCommand.Parameters.Add("Datum", SqlDbType.Date, 0).Value = tbx_Datum.Value;
+                    insertCommand.Parameters.Add("Uhrzeit", SqlDbType.DateTime, 0).Value = tbx_Uhrzeit.Value;
+                    insertCommand.Parameters.Add("Zurückgesetzt", SqlDbType.Bit, 0).Value = tbx_zurückgesetzt.Checked;
+                    insertCommand.Parameters.Add("Wetter", SqlDbType.VarChar, 0).Value = tbx_Wetter.Text;
+                    insertCommand.Parameters.Add("Kommentar", SqlDbType.Text, 0).Value = tbx_kommentar.Text;
+
+                    int queryResult = insertCommand.ExecuteNonQuery();
+                    if (queryResult == 1)
+                        Console.WriteLine("Erfolgreich aktualisiert.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Fehler");
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+        }
+
 
         #endregion
 

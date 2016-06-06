@@ -98,7 +98,7 @@ namespace FanglisteLibrary
         }
 
         /// <summary>
-        /// Löscht den Angler mit dem angegebenen Name.
+        /// Löscht den Angler mit dem angegebenen Namen.
         /// </summary>
         /// <param name="name">Der Name des Anglers der gelöscht werden soll.</param>
         public static void DeleteAngler(string name)
@@ -123,6 +123,31 @@ namespace FanglisteLibrary
                 throw new Exception("Der Angler konnte nicht von der Datenbank gelöscht werden.\n\nFolgende Fehler wurden erkannt:\n" + ex.ToString());
             }
             
+        }
+
+        public static void DeleteTabel(string tabelle, string id)
+        {
+            try
+            {
+                string ConnectionString = SQLCollection.GetConnectionString();
+                //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="+System.IO.Directory.GetCurrentDirectory()+@"\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+                using (var sc = new SqlConnection(ConnectionString))
+                using (var cmd = sc.CreateCommand())
+                {
+                    sc.Open();
+                    cmd.CommandText = "DELETE FROM @tabelle WHERE @id" ;
+                    cmd.Parameters.AddWithValue("@tabelle", tabelle);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                    sc.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Der Angler konnte nicht von der Datenbank gelöscht werden.\n\nFolgende Fehler wurden erkannt:\n" + ex.ToString());
+            }
+
         }
 
         /// <summary>
@@ -183,6 +208,52 @@ namespace FanglisteLibrary
             catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
+            }
+        }
+
+        public static void FillDatabaseWithDATAFromAFangliste(List<Fangliste1> fangliste, string connectionString)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = connectionString;
+
+            try
+            {
+                con.Open();
+
+                Console.WriteLine("Fänge werden in die Datenbank geschrieben...");
+
+                for (int i = 0; i < fangliste.Count; i++)
+                {
+                    SqlCommand insertCommand = new SqlCommand(
+                "Insert into Fang (Angler_ID, Fischart_ID, Länge, Gewicht, Gewässer_ID, Köder, Angelplatz, Tiefe, Lufttemperatur, Wassertemperatur, Datum, Uhrzeit, Zurückgesetzt, Wetter, Kommentar) Values (@Angler_ID, @Fischart_ID, @Länge, @Gewicht, @Gewässer_ID, @Köder, @Angelplatz, @Tiefe, @Lufttemperatur, @Wassertemperatur, @Datum, @Uhrzeit, @Zurückgesetzt, @Wetter, @Kommentar)", con);
+                    insertCommand.Parameters.Add("Angler_ID", SqlDbType.Int, 0).Value = fangliste[i].Angler_ID;
+                    insertCommand.Parameters.Add("Fischart_ID", SqlDbType.Int, 0).Value = fangliste[i].Fischart_ID;
+                    insertCommand.Parameters.Add("Länge", SqlDbType.Float).Value = fangliste[i].Größe;
+                    insertCommand.Parameters.Add("Gewicht", SqlDbType.Float).Value = fangliste[i].Gewicht;
+                    insertCommand.Parameters.Add("Gewässer_ID", SqlDbType.Int, 0).Value = fangliste[i].Gewässer_ID;
+                    insertCommand.Parameters.Add("Köder", SqlDbType.Text, 0).Value = fangliste[i].Köderbeschr;
+                    insertCommand.Parameters.Add("Angelplatz", SqlDbType.Text, 0).Value = fangliste[i].Platzbesch;
+                    insertCommand.Parameters.Add("Tiefe", SqlDbType.Float).Value = fangliste[i].Tiefe;
+                    insertCommand.Parameters.Add("Lufttemperatur", SqlDbType.Float).Value = fangliste[i].Lufttemperatur;
+                    insertCommand.Parameters.Add("Wassertemperatur", SqlDbType.Float).Value = fangliste[i].Wassertemperatur;
+                    insertCommand.Parameters.Add("Datum", SqlDbType.Date, 0).Value = fangliste[i].Datum;
+                    insertCommand.Parameters.Add("Uhrzeit", SqlDbType.DateTime, 0).Value = fangliste[i].Uhrzeit;
+                    insertCommand.Parameters.Add("Zurückgesetzt", SqlDbType.Bit, 0).Value = fangliste[i].Zurückgesetzt;
+                    insertCommand.Parameters.Add("Wetter", SqlDbType.VarChar, 0).Value = fangliste[i].Wetter;
+                    insertCommand.Parameters.Add("Kommentar", SqlDbType.Text, 0).Value = fangliste[i].Kommentar;
+
+                    int queryResult = insertCommand.ExecuteNonQuery();
+                    if (queryResult == 1)
+                        Console.WriteLine("Erfolgreich eingetragen. ({0})", i);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }
