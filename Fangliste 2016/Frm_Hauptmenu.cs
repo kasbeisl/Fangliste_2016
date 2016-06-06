@@ -261,7 +261,7 @@ namespace Fangliste_2016
                 leser1.Close();
             }
 
-            for (int i = 0; i < fangliste.Count; i++)
+            /*for (int i = 0; i < fangliste.Count; i++)
             {
                 try
                 {
@@ -296,7 +296,7 @@ namespace Fangliste_2016
                 {
                     con.Close();
                 }
-            }
+            }*/
         }
 
 
@@ -350,14 +350,14 @@ namespace Fangliste_2016
 
         private void Fangliste_auslesen()
         {
-            try
+            /*try
             {
                 this.fangliste = Fangliste.LadenAsList(DatenOrdner, Properties.Settings.Default.Fangliste + Properties.Settings.Default.Datentyp);
             }
             catch
             {
                 this.fangliste = new List<Fangliste>();
-            }
+            }*/
         }
 
         private void GesAnzahlderFänge_Hecht_Zander_Barsch_Andere()
@@ -589,13 +589,13 @@ namespace Fangliste_2016
 
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_exportExcel = new Frm_FanglisteExportExcel(this.fangliste, this.aktueller_Fischer);
-            frm_exportExcel.ShowDialog();
+           /* frm_exportExcel = new Frm_FanglisteExportExcel(this.fangliste, this.aktueller_Fischer);
+            frm_exportExcel.ShowDialog();*/
         }
 
         private void nachFangWählenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_alleFänge_nur_Liste nachFangExport = new Frm_alleFänge_nur_Liste(this.fangliste, true);
+           /* Frm_alleFänge_nur_Liste nachFangExport = new Frm_alleFänge_nur_Liste(this.fangliste, true);
             nachFangExport.ShowDialog();
 
             if (nachFangExport.Ausgewählt == DialogResult.OK)
@@ -641,36 +641,36 @@ namespace Fangliste_2016
                         MessageBox.Show("Unbekannter Fehler.\n\nInformationen:\n" + ex.ToString(), "Fehler.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
+            }*/
         }
 
         private void lb_Hitparade_Click(object sender, EventArgs e)
         {
-            hitparade = new Frm_Hit_Parade(this.fangliste, this.fotoliste);
+            hitparade = new Frm_Hit_Parade();
             hitparade.ShowDialog();
         }
 
         private void lb_jahresfänge_Click(object sender, EventArgs e)
         {
-            frm_fäng_je_jahr = new Frm_Fänge_je_Jahr(fangliste, this.fotoliste);
+            frm_fäng_je_jahr = new Frm_Fänge_je_Jahr();
             frm_fäng_je_jahr.ShowDialog();
         }
 
         private void lb_alleFänge_Click(object sender, EventArgs e)
         {
-            frm_alleFänge = new Frm_Alle_Fänge(this.fangliste, this.anglerliste, this.fotoliste);
+            frm_alleFänge = new Frm_Alle_Fänge();
             frm_alleFänge.ShowDialog();
         }
 
         private void lb_persönlicheFangliste_Click(object sender, EventArgs e)
         {
-            frm_persönlicheFangliste = new Frm_PersönlicheFangliste(fangliste, this.fotoliste, aktueller_Fischer);
+            frm_persönlicheFangliste = new Frm_PersönlicheFangliste();
             frm_persönlicheFangliste.ShowDialog();
         }
 
         private void lb_fisch_eintragen_Click(object sender, EventArgs e)
         {
-            frm_fischEintragen = new Frm_Fischeintragen(this.fangliste, this.fotoliste, this.aktueller_Fischer, this.fischartenliste);
+            frm_fischEintragen = new Frm_Fischeintragen();
             frm_fischEintragen.ShowDialog();
             GesAnzahlderFänge_Hecht_Zander_Barsch_Andere();
             /*if (frm_fischEintragen.DialogResult == DialogResult.OK)
@@ -708,7 +708,7 @@ namespace Fangliste_2016
 
         private void lb_statistik_Click(object sender, EventArgs e)
         {
-            frm_statistik = new Frm_Statistik(this.fangliste, this.fischartenliste);
+            frm_statistik = new Frm_Statistik();
             frm_statistik.ShowDialog();
         }
 
@@ -805,21 +805,21 @@ namespace Fangliste_2016
 
         private void bearbeitenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frm_fanglisteBearbeiten = new Frm_FanglisteBearbeiten(this.fangliste, this.fischartenliste);
+            frm_fanglisteBearbeiten = new Frm_FanglisteBearbeiten();
             DialogResult fangliste_speichern = frm_fanglisteBearbeiten.ShowDialog();
 
             if (fangliste_speichern == DialogResult.OK)
             {
-                this.fangliste = frm_fanglisteBearbeiten.Aktuelle_Fangliste;
+                //this.fangliste = frm_fanglisteBearbeiten.Aktuelle_Fangliste;
 
-                try
+                /*try
                 {
                     Fangliste.SpeichernAsList(this.fangliste, DatenOrdner, Properties.Settings.Default.Fangliste + Properties.Settings.Default.Datentyp);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Fangliste konnte nicht gespeichert werden\n\nInformation: " + ex.ToString(), "Fehler");
-                }
+                }*/
 
                 //frm_datenSpeichern = new Frm_Daten_Speichern(frm_fanglisteBearbeiten.Aktuelle_Fangliste, this.einstellungen);
 
@@ -839,7 +839,7 @@ namespace Fangliste_2016
 
         private void importierentoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_importieren = new Frm_FanglisteImportieren(this.fangliste);
+            frm_importieren = new Frm_FanglisteImportieren();
             frm_importieren.ShowDialog();
 
             if (frm_importieren.DialogResult == DialogResult.OK)
@@ -847,7 +847,7 @@ namespace Fangliste_2016
                 File.Copy(DatenOrdner + "\\" + Properties.Settings.Default.Fangliste + Properties.Settings.Default.Datentyp,
                     DatenOrdner + "\\" + "Backup\\" + Properties.Settings.Default.Fangliste + "_" + DateTime.Now.ToShortDateString() + Properties.Settings.Default.Datentyp, true);
 
-                this.fangliste = frm_importieren.AlleFänge;
+                //this.fangliste = frm_importieren.AlleFänge;
                 GesAnzahlderFänge_Hecht_Zander_Barsch_Andere();
             }
         }
@@ -1229,7 +1229,7 @@ namespace Fangliste_2016
             //Get the document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
-                List<Fangliste> hecht = Fangliste.Spezifische_Fischart_Liste("Hecht", Frm_Hit_Parade.GetFanglisteNachFischart(this.fangliste, "Hecht"));
+                /*List<Fangliste> hecht = Fangliste.Spezifische_Fischart_Liste("Hecht", Frm_Hit_Parade.GetFanglisteNachFischart(this.fangliste, "Hecht"));
                 List<Fangliste> zander = Fangliste.Spezifische_Fischart_Liste("Zander", Frm_Hit_Parade.GetFanglisteNachFischart(this.fangliste, "Hecht"));
                 List<Fangliste> barsch = Fangliste.Spezifische_Fischart_Liste("Barsch", Frm_Hit_Parade.GetFanglisteNachFischart(this.fangliste, "Hecht"));
                 List<Fangliste> andere = Fangliste.Andere_Fischarten_Liste(this.fangliste);
@@ -1237,7 +1237,7 @@ namespace Fangliste_2016
                 DruckerMethode("Hitparade - Hecht", hecht);
                 DruckerMethode("Hitparade - Zander", zander);
                 DruckerMethode("Hitparade - Barsch", barsch);
-                DruckerMethode("Hitparade - Andere", andere);
+                DruckerMethode("Hitparade - Andere", andere);*/
             }
         }
 
@@ -1252,9 +1252,9 @@ namespace Fangliste_2016
             //Get the document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
-                List<Fangliste> heurige_Fänge = Fangliste.Fangliste_je_jahr(this.fangliste);
+                //List<Fangliste> heurige_Fänge = Fangliste.Fangliste_je_jahr(this.fangliste);
 
-                DruckerMethode("Fangliste " + DateTime.Today.Year, heurige_Fänge);
+                //DruckerMethode("Fangliste " + DateTime.Today.Year, heurige_Fänge);
             }
         }
 
@@ -1269,7 +1269,7 @@ namespace Fangliste_2016
             //Get the document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
-                DruckerMethode("Fangliste", this.fangliste);
+                //DruckerMethode("Fangliste", this.fangliste);
             }
         }
 
@@ -1284,9 +1284,9 @@ namespace Fangliste_2016
             //Get the document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
-                List<Fangliste> persönliche_Liste = Fangliste.PersönlicheFangliste(this.fangliste, this.aktueller_Fischer);
+                //List<Fangliste> persönliche_Liste = Fangliste.PersönlicheFangliste(this.fangliste, this.aktueller_Fischer);
 
-                DruckerMethode("Fangliste von " + aktueller_Fischer.Name, persönliche_Liste);
+                //DruckerMethode("Fangliste von " + aktueller_Fischer.Name, persönliche_Liste);
             }
         }
 

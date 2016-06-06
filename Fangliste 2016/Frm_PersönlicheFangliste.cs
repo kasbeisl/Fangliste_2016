@@ -31,13 +31,9 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_PersönlicheFangliste(List<Fangliste> fangliste, List<Foto> fotoliste, Angler1 name)
+        public Frm_PersönlicheFangliste()
         {
             InitializeComponent();
-
-            this.alleFänge = fangliste;
-            this.fotoliste = fotoliste;
-            this.name = name;
 
             schade = new SoundPlayer(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.LoserSound);
             jubel = new SoundPlayer(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.JubelSound);

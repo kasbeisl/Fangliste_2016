@@ -34,11 +34,9 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_FanglisteImportieren(List<Fangliste> alleFänge)
+        public Frm_FanglisteImportieren()
         {
             InitializeComponent();
-
-            this.alleFänge = alleFänge;
         }
 
         private void Frm_Importieren_Load(object sender, EventArgs e)

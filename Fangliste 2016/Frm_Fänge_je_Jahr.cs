@@ -24,12 +24,10 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_Fänge_je_Jahr(List<Fangliste> alleFänge, List<Foto> fotoliste)
+        public Frm_Fänge_je_Jahr()
         {
             InitializeComponent();
 
-            this.alleFänge = alleFänge;
-            this.fotoliste = fotoliste;
         }
 
         private void Frm_Fänge_je_Jahr_Load(object sender, EventArgs e)

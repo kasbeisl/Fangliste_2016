@@ -32,13 +32,9 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_Fischeintragen(List<Fangliste> alleFänge, List<Foto> fotoliste, Angler1 aktueller_Fischer, List<Fischarten> fischartenliste)
+        public Frm_Fischeintragen()
         {
             InitializeComponent();
-
-            this.fangliste = alleFänge;
-            this.fotoliste = fotoliste;
-            this.aktueller_Fischer = aktueller_Fischer;
         }
 
         private void Frm_Fischeintragen_Load(object sender, EventArgs e)

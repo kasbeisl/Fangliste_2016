@@ -26,13 +26,9 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_Alle_Fänge(List<Fangliste> alleFänge, List<Angler> anglerliste, List<Foto> fotoliste)
+        public Frm_Alle_Fänge()
         {
             InitializeComponent();
-
-            this.alleFänge = alleFänge;
-            this.anglerliste = anglerliste;
-            this.fotoliste = fotoliste;
         }
 
         private void Frm_Alle_Fänge_Load(object sender, EventArgs e)

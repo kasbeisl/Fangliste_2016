@@ -38,12 +38,9 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_FanglisteBearbeiten(List<Fangliste> alleFänge, List<Fischarten> fischartenliste)
+        public Frm_FanglisteBearbeiten()
         {
             InitializeComponent();
-
-            this.alleFänge = alleFänge;
-            this.fischartenliste = fischartenliste;
         }
 
         private void Frm_FanglisteBearbeiten_Load(object sender, EventArgs e)

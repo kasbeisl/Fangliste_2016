@@ -30,12 +30,9 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_Hit_Parade(List<Fangliste> fangliste, List<Foto> fotoliste)
+        public Frm_Hit_Parade()
         {
             InitializeComponent();
-
-            this.fangliste = fangliste;
-            this.fotoliste = fotoliste;
 
             simpleSound_Hitparade = new SoundPlayer(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.HitparadeSound);
         }
