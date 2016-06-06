@@ -125,7 +125,7 @@ namespace FanglisteLibrary
             
         }
 
-        public static void DeleteTabel(string tabelle, string id)
+        public static void DeleteTabel()
         {
             try
             {
@@ -136,9 +136,8 @@ namespace FanglisteLibrary
                 using (var cmd = sc.CreateCommand())
                 {
                     sc.Open();
-                    cmd.CommandText = "DELETE FROM @tabelle WHERE @id" ;
-                    cmd.Parameters.AddWithValue("@tabelle", tabelle);
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.CommandText = "DELETE FROM Fang";
+                    //cmd.Parameters.AddWithValue("@tabelle", tabelle);
                     cmd.ExecuteNonQuery();
                     sc.Close();
                 }

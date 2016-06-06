@@ -17,7 +17,7 @@ namespace Fangliste_2016
         List<Fangliste> alleFänge;
         List<Foto> fotoliste;
         List<Fangliste> persönliche_Liste; 
-        Angler1 name;
+        Angler1 angler;
 
         List<PersönlicheFanglisteView> view = new List<PersönlicheFanglisteView>();
 
@@ -31,9 +31,11 @@ namespace Fangliste_2016
 
         #region Konstruktor
 
-        public Frm_PersönlicheFangliste()
+        public Frm_PersönlicheFangliste(Angler1 angler)
         {
             InitializeComponent();
+
+            this.angler = angler;
 
             schade = new SoundPlayer(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.LoserSound);
             jubel = new SoundPlayer(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.JubelSound);
@@ -51,7 +53,7 @@ namespace Fangliste_2016
                 con.ConnectionString = ConnectionString;
 
                 string strSQL = "SELECT Fang.Icon, Fisch.Name AS Fischart, Gewässer.Name AS Gewässer, Angler.Name, Fang.Länge, Fang.Gewicht, Fang.Köder, Fang.Angelplatz, Fang.Tiefe, Fang.Lufttemperatur, Fang.Wassertemperatur, Fang.Datum, Fang.Uhrzeit, Fang.Wetter, Fang.Kommentar  " +
-                                "FROM Fang JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) JOIN Gewässer ON (Fang.Gewässer_ID = Gewässer.Id) JOIN Angler ON (Fang.Angler_ID = Angler.ID) WHERE Fang.Angler_ID = '" + name.ID + "'";
+                                "FROM Fang JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) JOIN Gewässer ON (Fang.Gewässer_ID = Gewässer.Id) JOIN Angler ON (Fang.Angler_ID = Angler.ID) WHERE Fang.Angler_ID = '" + angler.ID + "'";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 SqlDataAdapter dataAdapterPers = new SqlDataAdapter(strSQL, con.ConnectionString);
 
@@ -84,7 +86,7 @@ namespace Fangliste_2016
 
             //SpezifischeFotolisteErstellen();
 
-            this.Text = "Persönliche Fangliste von " + name.Name;
+            this.Text = "Persönliche Fangliste von " + angler.Name;
 
             comboBox1.Items.Add("Alle");
 
@@ -258,7 +260,7 @@ namespace Fangliste_2016
             {
                 if (Properties.Settings.Default.PlaySound == true)
                 {
-                    if (!Fangliste.HeuerEtwasGefangen(Fangliste.Fangliste_je_jahr(alleFänge), name.Name))
+                    if (!Fangliste.HeuerEtwasGefangen(Fangliste.Fangliste_je_jahr(alleFänge), angler.Name))
                     {
                         schade.Play();
                     }
@@ -330,7 +332,7 @@ namespace Fangliste_2016
 
         private void btn_details_Click(object sender, EventArgs e)
         {
-            frm_perönlFanglisteDetail = new Frm_PersönlFangliste_Detail(this.persönliche_Liste);
+            frm_perönlFanglisteDetail = new Frm_PersönlFangliste_Detail(angler);
             frm_perönlFanglisteDetail.ShowDialog();
         }
 

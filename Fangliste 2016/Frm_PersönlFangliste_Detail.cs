@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FanglisteLibrary;
+using System.Data.SqlClient;
 
 namespace Fangliste_2016
 {
@@ -14,30 +15,30 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        List<Fangliste> persönlicheFangliste;
+        Angler1 angler;
         int[] jahre = null;
 
         #endregion
 
         #region Konstruktor
 
-        public Frm_PersönlFangliste_Detail(List<Fangliste> persönlicheFangliste)
+        public Frm_PersönlFangliste_Detail(Angler1 angler)
         {
             InitializeComponent();
 
-            this.persönlicheFangliste = persönlicheFangliste;
+            this.angler = angler;
         }
 
         private void Frm_PersönlFangliste_Detail_Load(object sender, EventArgs e)
         {
             lb_gesAnzahlAktuell_Info.Text = "Gesamtanzahl der gefangenen Fische (" + DateTime.Now.Year + ")";
 
-            /*GesAnzahlFänge();
+            GesAnzahlFänge();
             GesGewichtFänge();
             GesLängeFänge();
             FängeProJahr();
             GesAnzahlFängeAktuell();
-            BesteJahr();*/
+            BesteJahr();
         }
 
         #endregion
@@ -48,11 +49,34 @@ namespace Fangliste_2016
         {
             int anzahl = 0;
 
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
             try
+            {
+                con.ConnectionString = ConnectionString;
+                string strSQL = "SELECT COUNT(*) Angler_ID FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                anzahl = Convert.ToInt32(cmd.ExecuteScalar());
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            /*try
             {
                 anzahl = this.persönlicheFangliste.Count;
             }
-            catch { }
+            catch { }*/
 
             lb_gesAnzahl.Text = anzahl.ToString();
         }
@@ -61,14 +85,40 @@ namespace Fangliste_2016
         {
             double gewicht = 0;
 
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
             try
             {
-                for (int i = 0; i < this.persönlicheFangliste.Count; i++)
-                {
-                    gewicht += this.persönlicheFangliste[i].Gewicht;
-                }
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                string strSQL = "SELECT Angler_ID, SUM(Gewicht) " +
+                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "' GROUP BY Angler_ID ";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                gewicht = Convert.ToDouble(cmd.ExecuteReader());
+                con.Close();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            /* try
+             {
+                 for (int i = 0; i < this.persönlicheFangliste.Count; i++)
+                 {
+                     gewicht += this.persönlicheFangliste[i].Gewicht;
+                 }
+             }
+             catch { }*/
 
             gewicht = Math.Round(gewicht, 2);
             lb_gesGewicht.Text = gewicht.ToString() + " kg";
@@ -78,14 +128,40 @@ namespace Fangliste_2016
         {
             double länge = 0;
 
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
             try
+            {
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                string strSQL = "SELECT SUM(Länge), Angler_ID " +
+                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                länge = Convert.ToDouble(cmd.ExecuteReader());
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            /*try
             {
                 for (int i = 0; i < this.persönlicheFangliste.Count; i++)
                 {
                     länge += this.persönlicheFangliste[i].Größe;
                 }
             }
-            catch { }
+            catch { }*/
 
             lb_gesLänge.Text = länge.ToString() + " cm";
         }
@@ -93,8 +169,58 @@ namespace Fangliste_2016
         private void FängeProJahr()
         {
             int fängeJahr = 0;
+            int zähler2 = 0;
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
 
-            if ((persönlicheFangliste.Count == 0) || (persönlicheFangliste == null))
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                string strSQL = "SELECT COUNT(*) Angler_ID " +
+                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                zähler2 = Convert.ToInt16(cmd.ExecuteReader());
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                string strSQL = "SELECT COUNT(*) Angler_ID " +
+                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                fängeJahr = Convert.ToInt16(cmd.ExecuteReader());
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            /*if ((persönlicheFangliste.Count == 0) || (persönlicheFangliste == null))
             {
             }
             else
@@ -148,7 +274,14 @@ namespace Fangliste_2016
                 fängeJahr = this.persönlicheFangliste.Count / zähler2;
 
                 lb_gesJahre.Text = zähler2.ToString();
-            }
+            }*/
+
+            //Durschnittliche Fänge pro Jahr = Gesamtanzahler der Fänge / Die Anzahl der Jahre
+
+            if (fängeJahr != 0 && zähler2 != 0)
+                fängeJahr = fängeJahr / zähler2;
+
+            lb_gesJahre.Text = zähler2.ToString();
 
             lb_fängeJahr.Text = fängeJahr.ToString();
         }
@@ -157,24 +290,48 @@ namespace Fangliste_2016
         {
             int anzahl = 0;
 
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
             try
             {
-                for (int i = 0; i < this.persönlicheFangliste.Count; i++)
-                {
-                    if (this.persönlicheFangliste[i].Datum.Year == DateTime.Now.Year)
-                    {
-                        anzahl++;
-                    }
-                }
+                con.ConnectionString = ConnectionString;
+
+                string strSQL = "SELECT COUNT(*) Angler_ID " +
+                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "' AND Datum BETWEEN '201´6/01/01' and '2017/01/01'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                anzahl = Convert.ToInt16(cmd.ExecuteReader());
+                con.Close();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            /* try
+             {
+                 for (int i = 0; i < this.persönlicheFangliste.Count; i++)
+                 {
+                     if (this.persönlicheFangliste[i].Datum.Year == DateTime.Now.Year)
+                     {
+                         anzahl++;
+                     }
+                 }
+             }
+             catch { }*/
 
             lb_gesAnzahlAktuell.Text = anzahl.ToString();
         }
 
         private void BesteJahr()
         {
-            try
+            /*try
             {
                 int[] anzahlJahr = new int[jahre.Length];;
                 int anzahl = 0;
@@ -208,7 +365,7 @@ namespace Fangliste_2016
 
                 lb_besteJahr.Text = _jahr.ToString() + " (" + mehr.ToString() + ")";
             }
-            catch { }
+            catch { }*/
         }
 
         #endregion

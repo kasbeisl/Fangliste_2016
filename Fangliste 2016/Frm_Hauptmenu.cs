@@ -9,6 +9,8 @@ using System.Diagnostics;
 using FanglisteLibrary;
 using System.Collections;
 using System.Data.SqlClient;
+using System.Data;
+using System.Drawing.Imaging;
 
 namespace Fangliste_2016
 {
@@ -86,7 +88,7 @@ namespace Fangliste_2016
 
             NamenWählen();
 
-            LadeAlteFanglisteInDatenbank();
+            //LadeAlteFanglisteInDatenbank();
 
             /*if (frm_loadDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
@@ -106,6 +108,8 @@ namespace Fangliste_2016
 
         private void LadeAlteFanglisteInDatenbank()
         {
+            SQLCollection.DeleteTabel();
+
             List<Gewässer> g = new List<Gewässer>();
             List<Fischarten> f = new List<Fischarten>();
             List<Angler1> a = new List<Angler1>();
@@ -252,16 +256,19 @@ namespace Fangliste_2016
 
                     try
                     {
-                        fangliste.Add(new Fangliste1(i++, angler_id, fisch_id, fanglisteZuLaden[i].Größe, fanglisteZuLaden[i].Gewicht, gewässer_id, fanglisteZuLaden[i].Datum, fanglisteZuLaden[i].Uhrzeit, fanglisteZuLaden[i].Platzbesch, fanglisteZuLaden[i].Köderbeschr, fanglisteZuLaden[i].Tiefe, fanglisteZuLaden[i].Lufttemperatur, 0, fanglisteZuLaden[i].Wetter, fanglisteZuLaden[i].Zurückgesetzt, ""));
+                        fangliste.Add(new Fangliste1(0, angler_id, fisch_id, fanglisteZuLaden[i].Größe, fanglisteZuLaden[i].Gewicht, gewässer_id, fanglisteZuLaden[i].Datum, fanglisteZuLaden[i].Uhrzeit, fanglisteZuLaden[i].Platzbesch, fanglisteZuLaden[i].Köderbeschr, fanglisteZuLaden[i].Tiefe, fanglisteZuLaden[i].Lufttemperatur, 0, fanglisteZuLaden[i].Wetter, fanglisteZuLaden[i].Zurückgesetzt, ""));
                     }
-                    catch { }
+                    catch ( Exception ex )
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
                     
                 }
 
                 leser1.Close();
             }
 
-            /*for (int i = 0; i < fangliste.Count; i++)
+            for (int i = 0; i < fangliste.Count; i++)
             {
                 try
                 {
@@ -269,20 +276,20 @@ namespace Fangliste_2016
                     SqlCommand insertCommand = new SqlCommand(
                 "Insert into Fang (Angler_ID, Fischart_ID, Länge, Gewicht, Gewässer_ID, Köder, Angelplatz, Tiefe, Lufttemperatur, Wassertemperatur, Datum, Uhrzeit, Zurückgesetzt, Wetter, Kommentar) Values (@Angler_ID, @Fischart_ID, @Länge, @Gewicht, @Gewässer_ID, @Köder, @Angelplatz, @Tiefe, @Lufttemperatur, @Wassertemperatur, @Datum, @Uhrzeit, @Zurückgesetzt, @Wetter, @Kommentar)", con);
                     insertCommand.Parameters.Add("Angler_ID", SqlDbType.Int, 0).Value = fangliste[i].Angler_ID;
-                    insertCommand.Parameters.Add("Fischart_ID", SqlDbType.Int, 0).Value = Fischarten.Get_ID(fischartenliste, tbx_Fischart.Text);
-                    insertCommand.Parameters.Add("Länge", SqlDbType.Float).Value = tbx_Größe.Value;
-                    insertCommand.Parameters.Add("Gewicht", SqlDbType.Float).Value = tbx_Gewicht.Value;
-                    insertCommand.Parameters.Add("Gewässer_ID", SqlDbType.Int, 0).Value = gewässer_id;
-                    insertCommand.Parameters.Add("Köder", SqlDbType.Text, 0).Value = tbx_Köderbeschreibung.Text;
-                    insertCommand.Parameters.Add("Angelplatz", SqlDbType.Text, 0).Value = tbx_Platzbeschreibung.Text;
-                    insertCommand.Parameters.Add("Tiefe", SqlDbType.Float).Value = tbx_Tiefe.Value;
-                    insertCommand.Parameters.Add("Lufttemperatur", SqlDbType.Float).Value = tbx_wassertemperatur.Value;
-                    insertCommand.Parameters.Add("Wassertemperatur", SqlDbType.Float).Value = tbx_Gewicht.Value;
-                    insertCommand.Parameters.Add("Datum", SqlDbType.Date, 0).Value = tbx_Datum.Value;
-                    insertCommand.Parameters.Add("Uhrzeit", SqlDbType.DateTime, 0).Value = tbx_Uhrzeit.Value;
-                    insertCommand.Parameters.Add("Zurückgesetzt", SqlDbType.Bit, 0).Value = tbx_zurückgesetzt.Checked;
-                    insertCommand.Parameters.Add("Wetter", SqlDbType.VarChar, 0).Value = tbx_Wetter.Text;
-                    insertCommand.Parameters.Add("Kommentar", SqlDbType.Text, 0).Value = tbx_kommentar.Text;
+                    insertCommand.Parameters.Add("Fischart_ID", SqlDbType.Int, 0).Value = fangliste[i].Fischart_ID;
+                    insertCommand.Parameters.Add("Länge", SqlDbType.Float).Value = fangliste[i].Größe;
+                    insertCommand.Parameters.Add("Gewicht", SqlDbType.Float).Value = fangliste[i].Gewicht;
+                    insertCommand.Parameters.Add("Gewässer_ID", SqlDbType.Int, 0).Value = fangliste[i].Gewässer_ID;
+                    insertCommand.Parameters.Add("Köder", SqlDbType.Text, 0).Value = fangliste[i].Köderbeschr;
+                    insertCommand.Parameters.Add("Angelplatz", SqlDbType.Text, 0).Value = fangliste[i].Platzbesch;
+                    insertCommand.Parameters.Add("Tiefe", SqlDbType.Float).Value = fangliste[i].Tiefe;
+                    insertCommand.Parameters.Add("Lufttemperatur", SqlDbType.Float).Value = fangliste[i].Lufttemperatur;
+                    insertCommand.Parameters.Add("Wassertemperatur", SqlDbType.Float).Value = fangliste[i].Wassertemperatur;
+                    insertCommand.Parameters.Add("Datum", SqlDbType.Date, 0).Value = fangliste[i].Datum;
+                    insertCommand.Parameters.Add("Uhrzeit", SqlDbType.DateTime, 0).Value = fangliste[i].Uhrzeit;
+                    insertCommand.Parameters.Add("Zurückgesetzt", SqlDbType.Bit, 0).Value = fangliste[i].Zurückgesetzt;
+                    insertCommand.Parameters.Add("Wetter", SqlDbType.VarChar, 0).Value = fangliste[i].Wetter;
+                    insertCommand.Parameters.Add("Kommentar", SqlDbType.Text, 0).Value = fangliste[i].Kommentar;
 
                     int queryResult = insertCommand.ExecuteNonQuery();
                     if (queryResult == 1)
@@ -296,7 +303,7 @@ namespace Fangliste_2016
                 {
                     con.Close();
                 }
-            }*/
+            }
         }
 
 
@@ -664,7 +671,7 @@ namespace Fangliste_2016
 
         private void lb_persönlicheFangliste_Click(object sender, EventArgs e)
         {
-            frm_persönlicheFangliste = new Frm_PersönlicheFangliste();
+            frm_persönlicheFangliste = new Frm_PersönlicheFangliste(this.aktueller_Fischer);
             frm_persönlicheFangliste.ShowDialog();
         }
 
@@ -737,13 +744,13 @@ namespace Fangliste_2016
             //}
 
             frm_anglerdaten = new Frm_Anglerdaten(this.aktueller_Fischer);
-            frm_anglerdaten.ShowDialog();
+            DialogResult r = frm_anglerdaten.ShowDialog();
 
-            if (frm_anglerdaten.Geändert == DialogResult.OK)
+            if (r == DialogResult.OK)
             {
 
-
-
+                this.aktueller_Fischer = frm_anglerdaten.AktuellerAngler;
+                label_fischername.Text = this.aktueller_Fischer.Name;
 
                 /*this.fangliste = frm_anglerdaten.AlleFänge_geändert;
                 if (frm_anglerdaten.Neuer_FischerName != null)

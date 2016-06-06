@@ -133,7 +133,7 @@ namespace Fangliste_2016
 
                     int queryResult = insertCommand.ExecuteNonQuery();
                     if (queryResult == 1)
-                        Console.WriteLine("Erfolgreich aktualisiert.");
+                        MessageBox.Show("Petri Heil!", "Fang eintragen");
                 }
                 catch (Exception ex)
                 {

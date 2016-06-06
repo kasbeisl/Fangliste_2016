@@ -108,6 +108,67 @@ namespace Fangliste_2016
         {
             if (tbx_kürzel.Text != "")
             {
+                if (name_ändern)
+                {
+                    try
+                    {
+                        this.aktuellerFischer.Name = tbx_kürzel.Text;
+                        
+
+                        string connectionString = SQLCollection.GetConnectionString();
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        using (SqlCommand command = connection.CreateCommand())
+                        {
+                            command.CommandText = "UPDATE Angler SET Name = @name WHERE Id = '" + aktuellerFischer.ID + "'";
+                            command.Parameters.Add("name", SqlDbType.VarChar, 0).Value = tbx_kürzel.Text;
+
+                            connection.Open();
+
+                            command.ExecuteNonQuery();
+
+                            connection.Close();
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+
+                if (foto_ändern)
+                {
+                    try
+                    {
+                        Image imag = pic_Fischer.Image;
+                        this.aktuellerFischer.Bild = pic_Fischer.Image;
+                        string connectionString = SQLCollection.GetConnectionString();
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        using (SqlCommand command = connection.CreateCommand())
+                        {
+                         command.CommandText = "UPDATE Angler SET Bild = @Pic WHERE Id = '" + aktuellerFischer.ID + "'";
+                        command.Parameters.Add("Pic", SqlDbType.Image, 0).Value = 
+                        ConvertImageToByteArray(imag, ImageFormat.Jpeg);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                        connection.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+
+
+
+            if (foto_löschen)
+            {
                 try
                 {
                     string connectionString = SQLCollection.GetConnectionString();
@@ -116,8 +177,9 @@ namespace Fangliste_2016
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     using (SqlCommand command = connection.CreateCommand())
                     {
-                        command.CommandText = "UPDATE Angler SET Name = @Name WHERE Id = '" + aktuellerFischer.ID + "'";
-                        command.Parameters.Add("Name", SqlDbType.VarChar, 0).Value = tbx_kürzel.Text;
+                        this.aktuellerFischer.Bild = null;
+                        command.CommandText = "UPDATE Angler SET Bild = @Pic WHERE Id = '" + aktuellerFischer.ID + "'";
+                        command.Parameters.Add("Pic", SqlDbType.Image, 0).Value = DBNull.Value;
 
                         connection.Open();
 
@@ -130,7 +192,9 @@ namespace Fangliste_2016
                 {
                     MessageBox.Show(ex.ToString());
                 }
+                }
 
+                this.DialogResult = DialogResult.OK;
                 this.Close();
 
                 /* bool ersterBuchstabGroß = ErsterBuchstabGroß_Prüfen();
@@ -218,7 +282,7 @@ namespace Fangliste_2016
 
             if (löschen == DialogResult.Yes)
             {
-                try
+               /* try
                 {
                     string connectionString = SQLCollection.GetConnectionString();
                     //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
@@ -226,6 +290,7 @@ namespace Fangliste_2016
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     using (SqlCommand command = connection.CreateCommand())
                     {
+                        this.aktuellerFischer.Bild = null;
                         command.CommandText = "UPDATE Angler SET Bild = @Pic WHERE Id = '" + aktuellerFischer.ID + "'";
                         command.Parameters.Add("Pic", SqlDbType.Image, 0).Value = DBNull.Value;
                             //ConvertImageToByteArray(img, ImageFormat.Jpeg);
@@ -240,14 +305,15 @@ namespace Fangliste_2016
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                }
+                }*/
 
 
                 pic_Fischer.ImageLocation = Properties.Settings.Default.Data + "\\" + "error.png";
                 /*this.anglerliste[index].FotoDateiname = "";
+                 * btn_löschen.Enabled = false;*/
                 this.foto_löschen = true;
-                btn_löschen.Enabled = false;
-                btn_ok.Enabled = true;*/
+                
+                btn_ok.Enabled = true;
             }
         }
 
@@ -269,6 +335,7 @@ namespace Fangliste_2016
 
         private void tbx_kürzel_TextChanged(object sender, EventArgs e)
         {
+            this.name_ändern = true;
             btn_ok.Enabled = true;
         }
 
@@ -285,24 +352,26 @@ namespace Fangliste_2016
                 {
                     Image imag = Image.FromFile(openFileDialog1.FileName);
 
-                    string connectionString = SQLCollection.GetConnectionString();
+                    //string connectionString = SQLCollection.GetConnectionString();
                     //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    using (SqlCommand command = connection.CreateCommand())
-                    {
-                        command.CommandText = "UPDATE Angler SET Bild = @Pic WHERE Id = '" + aktuellerFischer.ID + "'";
-                        command.Parameters.Add("Pic", SqlDbType.Image, 0).Value = 
-                        ConvertImageToByteArray(imag, ImageFormat.Jpeg);
+                    //using (SqlConnection connection = new SqlConnection(connectionString))
+                    //using (SqlCommand command = connection.CreateCommand())
+                    //{
+                      //  command.CommandText = "UPDATE Angler SET Bild = @Pic WHERE Id = '" + aktuellerFischer.ID + "'";
+                        //command.Parameters.Add("Pic", SqlDbType.Image, 0).Value = 
+                        //ConvertImageToByteArray(imag, ImageFormat.Jpeg);
 
-                        connection.Open();
+                        //connection.Open();
 
-                        command.ExecuteNonQuery();
+                        //command.ExecuteNonQuery();
 
-                        connection.Close();
+                        //connection.Close();
 
                         pic_Fischer.Image = imag;
-                    }
+                    btn_ok.Enabled = true;
+                    this.foto_ändern = true;
+                    //}
                 }
                 catch (Exception ex)
                 {
@@ -333,6 +402,14 @@ namespace Fangliste_2016
         #endregion
 
         #region Eigenschaften
+
+        public Angler1 AktuellerAngler
+        {
+            get
+            {
+                return this.aktuellerFischer;
+            }
+        }
 
         public Angler1 Neuer_FischerName
         {
