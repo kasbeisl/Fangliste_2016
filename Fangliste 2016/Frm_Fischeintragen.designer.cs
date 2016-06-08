@@ -33,6 +33,7 @@
             this.lb_Temperatur = new System.Windows.Forms.Label();
             this.tbx_Köderbeschreibung = new System.Windows.Forms.TextBox();
             this.tbx_Platzbeschreibung = new System.Windows.Forms.TextBox();
+            this.tbx_kommentar = new System.Windows.Forms.TextBox();
             this.lb_Köderbeshreibung = new System.Windows.Forms.Label();
             this.lb_Tiefe = new System.Windows.Forms.Label();
             this.lb_Platzbeschreibung = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.tbx_Gewässer = new System.Windows.Forms.ComboBox();
             this.tbx_Tiefe = new System.Windows.Forms.NumericUpDown();
             this.tbx_Temperatur = new System.Windows.Forms.NumericUpDown();
+            this.tbx_wassertemperatur = new System.Windows.Forms.NumericUpDown();
             this.tbx_Datum = new System.Windows.Forms.DateTimePicker();
             this.tbx_Uhrzeit = new System.Windows.Forms.DateTimePicker();
             this.tbx_Größe = new System.Windows.Forms.NumericUpDown();
@@ -58,16 +60,14 @@
             this.btn_eintragen = new System.Windows.Forms.Button();
             this.btn_vorlage1 = new System.Windows.Forms.Button();
             this.btn_vorlage2 = new System.Windows.Forms.Button();
-            this.tbx_wassertemperatur = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbx_kommentar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epFehlermeldungen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbx_Gewicht)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbx_Tiefe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbx_Temperatur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbx_Größe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbx_wassertemperatur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbx_Größe)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_Temperatur
@@ -108,6 +108,17 @@
             this.tbx_Platzbeschreibung.TabIndex = 4;
             this.tbx_Platzbeschreibung.Validating += new System.ComponentModel.CancelEventHandler(this.tbx_Platzbeschreibung_Validating);
             this.tbx_Platzbeschreibung.Validated += new System.EventHandler(this.tbx_Platzbeschreibung_Validated);
+            // 
+            // tbx_kommentar
+            // 
+            this.tbx_kommentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbx_kommentar.Location = new System.Drawing.Point(175, 393);
+            this.tbx_kommentar.Margin = new System.Windows.Forms.Padding(4);
+            this.tbx_kommentar.Multiline = true;
+            this.tbx_kommentar.Name = "tbx_kommentar";
+            this.tbx_kommentar.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbx_kommentar.Size = new System.Drawing.Size(264, 47);
+            this.tbx_kommentar.TabIndex = 6;
             // 
             // lb_Köderbeshreibung
             // 
@@ -281,7 +292,7 @@
             0});
             this.tbx_Tiefe.Name = "tbx_Tiefe";
             this.tbx_Tiefe.Size = new System.Drawing.Size(163, 22);
-            this.tbx_Tiefe.TabIndex = 7;
+            this.tbx_Tiefe.TabIndex = 9;
             // 
             // tbx_Temperatur
             // 
@@ -299,8 +310,31 @@
             -2147483648});
             this.tbx_Temperatur.Name = "tbx_Temperatur";
             this.tbx_Temperatur.Size = new System.Drawing.Size(163, 22);
-            this.tbx_Temperatur.TabIndex = 6;
+            this.tbx_Temperatur.TabIndex = 7;
             this.tbx_Temperatur.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            // 
+            // tbx_wassertemperatur
+            // 
+            this.tbx_wassertemperatur.DecimalPlaces = 1;
+            this.tbx_wassertemperatur.Location = new System.Drawing.Point(659, 99);
+            this.tbx_wassertemperatur.Maximum = new decimal(new int[] {
+            45,
+            0,
+            0,
+            0});
+            this.tbx_wassertemperatur.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.tbx_wassertemperatur.Name = "tbx_wassertemperatur";
+            this.tbx_wassertemperatur.Size = new System.Drawing.Size(163, 22);
+            this.tbx_wassertemperatur.TabIndex = 8;
+            this.tbx_wassertemperatur.Value = new decimal(new int[] {
             15,
             0,
             0,
@@ -314,7 +348,7 @@
             this.tbx_Datum.MinDate = new System.DateTime(2005, 1, 1, 0, 0, 0, 0);
             this.tbx_Datum.Name = "tbx_Datum";
             this.tbx_Datum.Size = new System.Drawing.Size(163, 22);
-            this.tbx_Datum.TabIndex = 8;
+            this.tbx_Datum.TabIndex = 10;
             this.tbx_Datum.ValueChanged += new System.EventHandler(this.tbx_Datum_ValueChanged);
             this.tbx_Datum.Validating += new System.ComponentModel.CancelEventHandler(this.tbx_Datum_Validating);
             this.tbx_Datum.Validated += new System.EventHandler(this.tbx_Datum_Validated);
@@ -329,7 +363,7 @@
             this.tbx_Uhrzeit.Name = "tbx_Uhrzeit";
             this.tbx_Uhrzeit.ShowUpDown = true;
             this.tbx_Uhrzeit.Size = new System.Drawing.Size(163, 22);
-            this.tbx_Uhrzeit.TabIndex = 9;
+            this.tbx_Uhrzeit.TabIndex = 11;
             this.tbx_Uhrzeit.Value = new System.DateTime(2014, 3, 23, 5, 0, 0, 0);
             this.tbx_Uhrzeit.ValueChanged += new System.EventHandler(this.tbx_Uhrzeit_ValueChanged);
             this.tbx_Uhrzeit.Validating += new System.ComponentModel.CancelEventHandler(this.tbx_Uhrzeit_Validating);
@@ -376,7 +410,7 @@
             this.tbx_Wetter.Name = "tbx_Wetter";
             this.tbx_Wetter.Size = new System.Drawing.Size(163, 24);
             this.tbx_Wetter.Sorted = true;
-            this.tbx_Wetter.TabIndex = 42;
+            this.tbx_Wetter.TabIndex = 12;
             // 
             // openFileDialog1
             // 
@@ -390,7 +424,7 @@
             this.tbx_zurückgesetzt.Location = new System.Drawing.Point(659, 345);
             this.tbx_zurückgesetzt.Name = "tbx_zurückgesetzt";
             this.tbx_zurückgesetzt.Size = new System.Drawing.Size(110, 20);
-            this.tbx_zurückgesetzt.TabIndex = 43;
+            this.tbx_zurückgesetzt.TabIndex = 13;
             this.tbx_zurückgesetzt.Text = "Zurückgesetzt";
             this.tbx_zurückgesetzt.UseVisualStyleBackColor = false;
             // 
@@ -400,7 +434,7 @@
             this.btn_eintragen.Margin = new System.Windows.Forms.Padding(4);
             this.btn_eintragen.Name = "btn_eintragen";
             this.btn_eintragen.Size = new System.Drawing.Size(163, 47);
-            this.btn_eintragen.TabIndex = 44;
+            this.btn_eintragen.TabIndex = 14;
             this.btn_eintragen.Text = "eintragen";
             this.btn_eintragen.UseVisualStyleBackColor = true;
             this.btn_eintragen.Click += new System.EventHandler(this.btn_eintragen_Click);
@@ -425,29 +459,6 @@
             this.btn_vorlage2.UseVisualStyleBackColor = true;
             this.btn_vorlage2.Click += new System.EventHandler(this.btn_vorlage2_Click);
             // 
-            // tbx_wassertemperatur
-            // 
-            this.tbx_wassertemperatur.DecimalPlaces = 1;
-            this.tbx_wassertemperatur.Location = new System.Drawing.Point(659, 99);
-            this.tbx_wassertemperatur.Maximum = new decimal(new int[] {
-            45,
-            0,
-            0,
-            0});
-            this.tbx_wassertemperatur.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.tbx_wassertemperatur.Name = "tbx_wassertemperatur";
-            this.tbx_wassertemperatur.Size = new System.Drawing.Size(163, 22);
-            this.tbx_wassertemperatur.TabIndex = 47;
-            this.tbx_wassertemperatur.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -460,17 +471,6 @@
             this.label1.Size = new System.Drawing.Size(143, 16);
             this.label1.TabIndex = 48;
             this.label1.Text = "Wassertemperatur [°C]";
-            // 
-            // tbx_kommentar
-            // 
-            this.tbx_kommentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbx_kommentar.Location = new System.Drawing.Point(175, 393);
-            this.tbx_kommentar.Margin = new System.Windows.Forms.Padding(4);
-            this.tbx_kommentar.Multiline = true;
-            this.tbx_kommentar.Name = "tbx_kommentar";
-            this.tbx_kommentar.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbx_kommentar.Size = new System.Drawing.Size(264, 47);
-            this.tbx_kommentar.TabIndex = 49;
             // 
             // label2
             // 
@@ -537,8 +537,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbx_Gewicht)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbx_Tiefe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbx_Temperatur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbx_Größe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbx_wassertemperatur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbx_Größe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,6 +548,7 @@
 
         private System.Windows.Forms.Label lb_Temperatur;
         private System.Windows.Forms.TextBox tbx_Köderbeschreibung;
+        private System.Windows.Forms.TextBox tbx_kommentar;
         private System.Windows.Forms.TextBox tbx_Platzbeschreibung;
         private System.Windows.Forms.Label lb_Köderbeshreibung;
         private System.Windows.Forms.Label lb_Tiefe;
@@ -562,6 +563,7 @@
         private System.Windows.Forms.ComboBox tbx_Fischart;
         private System.Windows.Forms.DateTimePicker tbx_Datum;
         private System.Windows.Forms.NumericUpDown tbx_Temperatur;
+        private System.Windows.Forms.NumericUpDown tbx_wassertemperatur;
         private System.Windows.Forms.NumericUpDown tbx_Tiefe;
         private System.Windows.Forms.ComboBox tbx_Gewässer;
         private System.Windows.Forms.NumericUpDown tbx_Gewicht;
@@ -574,9 +576,8 @@
         private System.Windows.Forms.Button btn_eintragen;
         private System.Windows.Forms.Button btn_vorlage2;
         private System.Windows.Forms.Button btn_vorlage1;
-        private System.Windows.Forms.NumericUpDown tbx_wassertemperatur;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbx_kommentar;
+        
     }
 }

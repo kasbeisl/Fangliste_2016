@@ -40,7 +40,7 @@ namespace Fangliste_2016
         private void Frm_Hit_Parade_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Andere' table. You can move, or remove it, as needed.
-            this.hitparade_AndereTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Andere);
+            //this.hitparade_AndereTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Andere);
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Hecht' table. You can move, or remove it, as needed.
             this.hitparade_HechtTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Hecht);
             this.hitparade_BarschTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Barsch);
@@ -67,7 +67,7 @@ namespace Fangliste_2016
 
         private void ZeichneListe()
         {
-            listHecht.Items.Clear();
+            /*listHecht.Items.Clear();
 
             for (int i = 0; i < 10; i++)
             {
@@ -128,7 +128,7 @@ namespace Fangliste_2016
                     item.Text.ToUpper();
                 }
                 listHecht.Items.Add(item);
-            }
+            }*/
         }
 
         #region Events
@@ -145,7 +145,7 @@ namespace Fangliste_2016
             {
 
 
-                int index = listHecht.SelectedIndices[0];
+                /*int index = listHecht.SelectedIndices[0];
                 List<Foto> fangFotos = new List<Foto>();
 
                 for (int i = 0; i < fotoliste.Count; i++)
@@ -158,7 +158,7 @@ namespace Fangliste_2016
                 {
                     frm_fotosVonFang = new Frm_FotosVonFang(0);
                     frm_fotosVonFang.ShowDialog();
-                }
+                }*/
             }
         }
 
@@ -283,6 +283,19 @@ namespace Fangliste_2016
         private void hitparade_HechtDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             frm_fotosVonFang = new Frm_FotosVonFang(1);
+            frm_fotosVonFang.ShowDialog();
+        }
+
+        private void hitparade_HechtDataGridView_CellMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+        }
+
+        private void hitparade_HechtDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = hitparade_HechtDataGridView.SelectedRows[0];
+            //string a = "Cell Value" + row.Cells[7].Value + "";
+
+            frm_fotosVonFang = new Frm_FotosVonFang(Convert.ToInt16(row.Cells[7].Value));
             frm_fotosVonFang.ShowDialog();
         }
     }

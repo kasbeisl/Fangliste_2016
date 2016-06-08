@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FanglisteLibrary;
+using System.Data.SqlClient;
 
 namespace Fangliste_2016
 {
@@ -36,7 +37,7 @@ namespace Fangliste_2016
             this.fänge_Je_Jahr1TableAdapter.Fill(this.fanglisteDBDataSet.Fänge_Je_Jahr1);
             fotoAnzeigenToolStripMenuItem.Enabled = false;
             this.WindowState = FormWindowState.Maximized;
-            this.heurige_Fänge = Fangliste.Fangliste_je_jahr(this.alleFänge);
+            //this.heurige_Fänge = Fangliste.Fangliste_je_jahr(this.alleFänge);
             //SpezifischeFotolisteErstellen();
 
             //listAktJahr.Items.Clear();
@@ -64,7 +65,33 @@ namespace Fangliste_2016
 
             comboBox_jahr.Text = "Alle";
 
-            label_gesanzahl.Text = Convert.ToString(this.heurige_Fänge.Count);
+            int anzahl = 0;
+            int jahr = DateTime.Now.Year;
+
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+                string strSQL = "SELECT COUNT(*) FROM Fang WHERE Datum BETWEEN '" + jahr + "/01/01' AND '" + (jahr + 1) + "/01/01'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                anzahl = Convert.ToInt32(cmd.ExecuteScalar());
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            label_gesanzahl.Text = anzahl.ToString();
 
             //this.Cursor = Cursors.WaitCursor;
         }

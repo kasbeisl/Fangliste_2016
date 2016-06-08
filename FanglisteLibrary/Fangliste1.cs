@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace FanglisteLibrary
 {
@@ -979,11 +981,39 @@ namespace FanglisteLibrary
         /// <param name="aktuelleJahresFänge"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static bool HeuerEtwasGefangen(List<Fangliste1> aktuelleJahresFänge, Angler1 name)
+        public static bool HeuerEtwasGefangen(int jahr, Angler1 name)
         {
+            int anzahl = 0;
+
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+                string strSQL = "SELECT COUNT(*) FROM Fang WHERE Angler_ID = '" + name.ID + "' AND Datum BETWEEN '" + jahr + "/01/01' AND '" + (jahr + 1) + "/01/01'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                anzahl = Convert.ToInt32(cmd.ExecuteScalar());
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
             bool heuerEtwasGewangen = false; //Variable ob etwas gefangen wurde.
 
-            string year = Convert.ToString(DateTime.Today.Year); //Aktuelles Jahr.
+            if (anzahl >= 1)
+                heuerEtwasGewangen = true;
+
+            /*string year = Convert.ToString(DateTime.Today.Year); //Aktuelles Jahr.
             string fang_jahr; //Variable für das Jahr des aktuellen Fangs.
 
             for (int i = 0; i < aktuelleJahresFänge.Count; i++) //Durchläuft die gesamte Fangliste
@@ -997,7 +1027,7 @@ namespace FanglisteLibrary
                         break; //Schleife wird beendet. (Fangliste braucht nicht mehr weiter durchsucht werden.)
                     }
                 }
-            }
+            }*/
 
             return heuerEtwasGewangen;
         }

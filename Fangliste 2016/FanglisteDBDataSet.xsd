@@ -351,90 +351,6 @@ SELECT Id, Icon, Angler_ID, Fischart_ID, Länge, Gewicht, Gewässer_ID, Köder, 
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_BarschTableAdapter" GeneratorDataComponentClassName="Hitparade_BarschTableAdapter" Name="Hitparade_Barsch" UserDataComponentName="Hitparade_BarschTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Barsch" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Icon, Name, Länge, Gewicht, Gewässer, Datum FROM dbo.Hitparade_Barsch</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
-              <Mapping SourceColumn="Name" DataSetColumn="Name" />
-              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
-              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
-              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
-              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_HechtTableAdapter" GeneratorDataComponentClassName="Hitparade_HechtTableAdapter" Name="Hitparade_Hecht" UserDataComponentName="Hitparade_HechtTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Hecht" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Icon, Name, Länge, Gewicht, Gewässer, Datum FROM dbo.Hitparade_Hecht</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
-              <Mapping SourceColumn="Name" DataSetColumn="Name" />
-              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
-              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
-              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
-              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_ZanderTableAdapter" GeneratorDataComponentClassName="Hitparade_ZanderTableAdapter" Name="Hitparade_Zander" UserDataComponentName="Hitparade_ZanderTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Zander" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Icon, Name, Länge, Gewicht, Gewässer, Datum FROM dbo.Hitparade_Zander</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
-              <Mapping SourceColumn="Name" DataSetColumn="Name" />
-              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
-              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
-              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
-              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_AndereTableAdapter" GeneratorDataComponentClassName="Hitparade_AndereTableAdapter" Name="Hitparade_Andere" UserDataComponentName="Hitparade_AndereTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Andere" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Icon, Name, Länge, Gewicht, Gewässer, Datum FROM dbo.Hitparade_Andere</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
-              <Mapping SourceColumn="Name" DataSetColumn="Name" />
-              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
-              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
-              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
-              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Fänge_Je_Jahr1TableAdapter" GeneratorDataComponentClassName="Fänge_Je_Jahr1TableAdapter" Name="Fänge_Je_Jahr1" UserDataComponentName="Fänge_Je_Jahr1TableAdapter">
             <MainSource>
               <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Fänge_Je_Jahr" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -609,6 +525,96 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_ZanderTableAdapter" GeneratorDataComponentClassName="Hitparade_ZanderTableAdapter" Name="Hitparade_Zander" UserDataComponentName="Hitparade_ZanderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Zander" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Platz, Icon, Name, Länge, Gewicht, Gewässer, Datum FROM dbo.Hitparade_Zander</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Platz" DataSetColumn="Platz" />
+              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
+              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
+              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
+              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_BarschTableAdapter" GeneratorDataComponentClassName="Hitparade_BarschTableAdapter" Name="Hitparade_Barsch" UserDataComponentName="Hitparade_BarschTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Barsch" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Platz, Icon, Name, Länge, Gewicht, Gewässer, Datum FROM dbo.Hitparade_Barsch</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Platz" DataSetColumn="Platz" />
+              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
+              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
+              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
+              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_AndereTableAdapter" GeneratorDataComponentClassName="Hitparade_AndereTableAdapter" Name="Hitparade_Andere" UserDataComponentName="Hitparade_AndereTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Andere" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Platz, Icon, Name, Fischart, Länge, Gewicht, Gewässer, Datum FROM dbo.Hitparade_Andere</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Platz" DataSetColumn="Platz" />
+              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Fischart" DataSetColumn="Fischart" />
+              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
+              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
+              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
+              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Hitparade_HechtTableAdapter" GeneratorDataComponentClassName="Hitparade_HechtTableAdapter" Name="Hitparade_Hecht" UserDataComponentName="Hitparade_HechtTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Hecht" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Platz, Icon, Name, Länge, Gewicht, Gewässer, Datum, Id FROM dbo.Hitparade_Hecht</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Platz" DataSetColumn="Platz" />
+              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
+              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
+              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
+              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -617,7 +623,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
   <xs:element name="FanglisteDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FanglisteDBDataSet" msprop:Generator_UserDSName="FanglisteDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Angler" msprop:Generator_TableClassName="AnglerDataTable" msprop:Generator_TableVarName="tableAngler" msprop:Generator_TablePropName="Angler" msprop:Generator_RowDeletingName="AnglerRowDeleting" msprop:Generator_RowChangingName="AnglerRowChanging" msprop:Generator_RowEvHandlerName="AnglerRowChangeEventHandler" msprop:Generator_RowDeletedName="AnglerRowDeleted" msprop:Generator_UserTableName="Angler" msprop:Generator_RowChangedName="AnglerRowChanged" msprop:Generator_RowEvArgName="AnglerRowChangeEvent" msprop:Generator_RowClassName="AnglerRow">
+        <xs:element name="Angler" msprop:Generator_TableClassName="AnglerDataTable" msprop:Generator_TableVarName="tableAngler" msprop:Generator_RowChangedName="AnglerRowChanged" msprop:Generator_TablePropName="Angler" msprop:Generator_RowDeletingName="AnglerRowDeleting" msprop:Generator_RowChangingName="AnglerRowChanging" msprop:Generator_RowEvHandlerName="AnglerRowChangeEventHandler" msprop:Generator_RowDeletedName="AnglerRowDeleted" msprop:Generator_RowClassName="AnglerRow" msprop:Generator_UserTableName="Angler" msprop:Generator_RowEvArgName="AnglerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -632,7 +638,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Fisch" msprop:Generator_TableClassName="FischDataTable" msprop:Generator_TableVarName="tableFisch" msprop:Generator_TablePropName="Fisch" msprop:Generator_RowDeletingName="FischRowDeleting" msprop:Generator_RowChangingName="FischRowChanging" msprop:Generator_RowEvHandlerName="FischRowChangeEventHandler" msprop:Generator_RowDeletedName="FischRowDeleted" msprop:Generator_UserTableName="Fisch" msprop:Generator_RowChangedName="FischRowChanged" msprop:Generator_RowEvArgName="FischRowChangeEvent" msprop:Generator_RowClassName="FischRow">
+        <xs:element name="Fisch" msprop:Generator_TableClassName="FischDataTable" msprop:Generator_TableVarName="tableFisch" msprop:Generator_RowChangedName="FischRowChanged" msprop:Generator_TablePropName="Fisch" msprop:Generator_RowDeletingName="FischRowDeleting" msprop:Generator_RowChangingName="FischRowChanging" msprop:Generator_RowEvHandlerName="FischRowChangeEventHandler" msprop:Generator_RowDeletedName="FischRowDeleted" msprop:Generator_RowClassName="FischRow" msprop:Generator_UserTableName="Fisch" msprop:Generator_RowEvArgName="FischRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -647,7 +653,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Gewässer" msprop:Generator_TableClassName="GewässerDataTable" msprop:Generator_TableVarName="tableGewässer" msprop:Generator_TablePropName="Gewässer" msprop:Generator_RowDeletingName="GewässerRowDeleting" msprop:Generator_RowChangingName="GewässerRowChanging" msprop:Generator_RowEvHandlerName="GewässerRowChangeEventHandler" msprop:Generator_RowDeletedName="GewässerRowDeleted" msprop:Generator_UserTableName="Gewässer" msprop:Generator_RowChangedName="GewässerRowChanged" msprop:Generator_RowEvArgName="GewässerRowChangeEvent" msprop:Generator_RowClassName="GewässerRow">
+        <xs:element name="Gewässer" msprop:Generator_TableClassName="GewässerDataTable" msprop:Generator_TableVarName="tableGewässer" msprop:Generator_RowChangedName="GewässerRowChanged" msprop:Generator_TablePropName="Gewässer" msprop:Generator_RowDeletingName="GewässerRowDeleting" msprop:Generator_RowChangingName="GewässerRowChanging" msprop:Generator_RowEvHandlerName="GewässerRowChangeEventHandler" msprop:Generator_RowDeletedName="GewässerRowDeleted" msprop:Generator_RowClassName="GewässerRow" msprop:Generator_UserTableName="Gewässer" msprop:Generator_RowEvArgName="GewässerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -661,7 +667,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FanglisteBearbeiten" msprop:Generator_TableClassName="FanglisteBearbeitenDataTable" msprop:Generator_TableVarName="tableFanglisteBearbeiten" msprop:Generator_RowChangedName="FanglisteBearbeitenRowChanged" msprop:Generator_TablePropName="FanglisteBearbeiten" msprop:Generator_RowDeletingName="FanglisteBearbeitenRowDeleting" msprop:Generator_RowChangingName="FanglisteBearbeitenRowChanging" msprop:Generator_RowEvHandlerName="FanglisteBearbeitenRowChangeEventHandler" msprop:Generator_RowDeletedName="FanglisteBearbeitenRowDeleted" msprop:Generator_RowClassName="FanglisteBearbeitenRow" msprop:Generator_UserTableName="FanglisteBearbeiten" msprop:Generator_RowEvArgName="FanglisteBearbeitenRowChangeEvent">
+        <xs:element name="FanglisteBearbeiten" msprop:Generator_TableClassName="FanglisteBearbeitenDataTable" msprop:Generator_TableVarName="tableFanglisteBearbeiten" msprop:Generator_TablePropName="FanglisteBearbeiten" msprop:Generator_RowDeletingName="FanglisteBearbeitenRowDeleting" msprop:Generator_RowChangingName="FanglisteBearbeitenRowChanging" msprop:Generator_RowEvHandlerName="FanglisteBearbeitenRowChangeEventHandler" msprop:Generator_RowDeletedName="FanglisteBearbeitenRowDeleted" msprop:Generator_UserTableName="FanglisteBearbeiten" msprop:Generator_RowChangedName="FanglisteBearbeitenRowChanged" msprop:Generator_RowEvArgName="FanglisteBearbeitenRowChangeEvent" msprop:Generator_RowClassName="FanglisteBearbeitenRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -707,7 +713,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Fänge_Je_Jahr" msprop:Generator_TableClassName="Fänge_Je_JahrDataTable" msprop:Generator_TableVarName="tableFänge_Je_Jahr" msprop:Generator_TablePropName="Fänge_Je_Jahr" msprop:Generator_RowDeletingName="Fänge_Je_JahrRowDeleting" msprop:Generator_RowChangingName="Fänge_Je_JahrRowChanging" msprop:Generator_RowEvHandlerName="Fänge_Je_JahrRowChangeEventHandler" msprop:Generator_RowDeletedName="Fänge_Je_JahrRowDeleted" msprop:Generator_UserTableName="Fänge_Je_Jahr" msprop:Generator_RowChangedName="Fänge_Je_JahrRowChanged" msprop:Generator_RowEvArgName="Fänge_Je_JahrRowChangeEvent" msprop:Generator_RowClassName="Fänge_Je_JahrRow">
+        <xs:element name="Fänge_Je_Jahr" msprop:Generator_TableClassName="Fänge_Je_JahrDataTable" msprop:Generator_TableVarName="tableFänge_Je_Jahr" msprop:Generator_RowChangedName="Fänge_Je_JahrRowChanged" msprop:Generator_TablePropName="Fänge_Je_Jahr" msprop:Generator_RowDeletingName="Fänge_Je_JahrRowDeleting" msprop:Generator_RowChangingName="Fänge_Je_JahrRowChanging" msprop:Generator_RowEvHandlerName="Fänge_Je_JahrRowChangeEventHandler" msprop:Generator_RowDeletedName="Fänge_Je_JahrRowDeleted" msprop:Generator_RowClassName="Fänge_Je_JahrRow" msprop:Generator_UserTableName="Fänge_Je_Jahr" msprop:Generator_RowEvArgName="Fänge_Je_JahrRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Bild" msprop:Generator_ColumnVarNameInTable="columnBild" msprop:Generator_ColumnPropNameInRow="Bild" msprop:Generator_ColumnPropNameInTable="BildColumn" msprop:Generator_UserColumnName="Bild" type="xs:base64Binary" minOccurs="0" />
@@ -770,7 +776,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Fang" msprop:Generator_TableClassName="FangDataTable" msprop:Generator_TableVarName="tableFang" msprop:Generator_RowChangedName="FangRowChanged" msprop:Generator_TablePropName="Fang" msprop:Generator_RowDeletingName="FangRowDeleting" msprop:Generator_RowChangingName="FangRowChanging" msprop:Generator_RowEvHandlerName="FangRowChangeEventHandler" msprop:Generator_RowDeletedName="FangRowDeleted" msprop:Generator_RowClassName="FangRow" msprop:Generator_UserTableName="Fang" msprop:Generator_RowEvArgName="FangRowChangeEvent">
+        <xs:element name="Fang" msprop:Generator_TableClassName="FangDataTable" msprop:Generator_TableVarName="tableFang" msprop:Generator_TablePropName="Fang" msprop:Generator_RowDeletingName="FangRowDeleting" msprop:Generator_RowChangingName="FangRowChanging" msprop:Generator_RowEvHandlerName="FangRowChangeEventHandler" msprop:Generator_RowDeletedName="FangRowDeleted" msprop:Generator_UserTableName="Fang" msprop:Generator_RowChangedName="FangRowChanged" msprop:Generator_RowEvArgName="FangRowChangeEvent" msprop:Generator_RowClassName="FangRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -817,103 +823,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Barsch" msprop:Generator_TableClassName="Hitparade_BarschDataTable" msprop:Generator_TableVarName="tableHitparade_Barsch" msprop:Generator_RowChangedName="Hitparade_BarschRowChanged" msprop:Generator_TablePropName="Hitparade_Barsch" msprop:Generator_RowDeletingName="Hitparade_BarschRowDeleting" msprop:Generator_RowChangingName="Hitparade_BarschRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_BarschRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_BarschRowDeleted" msprop:Generator_RowClassName="Hitparade_BarschRow" msprop:Generator_UserTableName="Hitparade_Barsch" msprop:Generator_RowEvArgName="Hitparade_BarschRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Hitparade_Hecht" msprop:Generator_TableClassName="Hitparade_HechtDataTable" msprop:Generator_TableVarName="tableHitparade_Hecht" msprop:Generator_RowChangedName="Hitparade_HechtRowChanged" msprop:Generator_TablePropName="Hitparade_Hecht" msprop:Generator_RowDeletingName="Hitparade_HechtRowDeleting" msprop:Generator_RowChangingName="Hitparade_HechtRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_HechtRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_HechtRowDeleted" msprop:Generator_RowClassName="Hitparade_HechtRow" msprop:Generator_UserTableName="Hitparade_Hecht" msprop:Generator_RowEvArgName="Hitparade_HechtRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Hitparade_Zander" msprop:Generator_TableClassName="Hitparade_ZanderDataTable" msprop:Generator_TableVarName="tableHitparade_Zander" msprop:Generator_RowChangedName="Hitparade_ZanderRowChanged" msprop:Generator_TablePropName="Hitparade_Zander" msprop:Generator_RowDeletingName="Hitparade_ZanderRowDeleting" msprop:Generator_RowChangingName="Hitparade_ZanderRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_ZanderRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_ZanderRowDeleted" msprop:Generator_RowClassName="Hitparade_ZanderRow" msprop:Generator_UserTableName="Hitparade_Zander" msprop:Generator_RowEvArgName="Hitparade_ZanderRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Hitparade_Andere" msprop:Generator_TableClassName="Hitparade_AndereDataTable" msprop:Generator_TableVarName="tableHitparade_Andere" msprop:Generator_TablePropName="Hitparade_Andere" msprop:Generator_RowDeletingName="Hitparade_AndereRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereRowDeleted" msprop:Generator_UserTableName="Hitparade_Andere" msprop:Generator_RowChangedName="Hitparade_AndereRowChanged" msprop:Generator_RowEvArgName="Hitparade_AndereRowChangeEvent" msprop:Generator_RowClassName="Hitparade_AndereRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
-              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Fänge_Je_Jahr1" msprop:Generator_TableClassName="Fänge_Je_Jahr1DataTable" msprop:Generator_TableVarName="tableFänge_Je_Jahr1" msprop:Generator_TablePropName="Fänge_Je_Jahr1" msprop:Generator_RowDeletingName="Fänge_Je_Jahr1RowDeleting" msprop:Generator_RowChangingName="Fänge_Je_Jahr1RowChanging" msprop:Generator_RowEvHandlerName="Fänge_Je_Jahr1RowChangeEventHandler" msprop:Generator_RowDeletedName="Fänge_Je_Jahr1RowDeleted" msprop:Generator_UserTableName="Fänge_Je_Jahr1" msprop:Generator_RowChangedName="Fänge_Je_Jahr1RowChanged" msprop:Generator_RowEvArgName="Fänge_Je_Jahr1RowChangeEvent" msprop:Generator_RowClassName="Fänge_Je_Jahr1Row">
+        <xs:element name="Fänge_Je_Jahr1" msprop:Generator_TableClassName="Fänge_Je_Jahr1DataTable" msprop:Generator_TableVarName="tableFänge_Je_Jahr1" msprop:Generator_RowChangedName="Fänge_Je_Jahr1RowChanged" msprop:Generator_TablePropName="Fänge_Je_Jahr1" msprop:Generator_RowDeletingName="Fänge_Je_Jahr1RowDeleting" msprop:Generator_RowChangingName="Fänge_Je_Jahr1RowChanging" msprop:Generator_RowEvHandlerName="Fänge_Je_Jahr1RowChangeEventHandler" msprop:Generator_RowDeletedName="Fänge_Je_Jahr1RowDeleted" msprop:Generator_RowClassName="Fänge_Je_Jahr1Row" msprop:Generator_UserTableName="Fänge_Je_Jahr1" msprop:Generator_RowEvArgName="Fänge_Je_Jahr1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
@@ -976,7 +886,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AlleFänge" msprop:Generator_TableClassName="AlleFängeDataTable" msprop:Generator_TableVarName="tableAlleFänge" msprop:Generator_RowChangedName="AlleFängeRowChanged" msprop:Generator_TablePropName="AlleFänge" msprop:Generator_RowDeletingName="AlleFängeRowDeleting" msprop:Generator_RowChangingName="AlleFängeRowChanging" msprop:Generator_RowEvHandlerName="AlleFängeRowChangeEventHandler" msprop:Generator_RowDeletedName="AlleFängeRowDeleted" msprop:Generator_RowClassName="AlleFängeRow" msprop:Generator_UserTableName="AlleFänge" msprop:Generator_RowEvArgName="AlleFängeRowChangeEvent">
+        <xs:element name="AlleFänge" msprop:Generator_TableClassName="AlleFängeDataTable" msprop:Generator_TableVarName="tableAlleFänge" msprop:Generator_TablePropName="AlleFänge" msprop:Generator_RowDeletingName="AlleFängeRowDeleting" msprop:Generator_RowChangingName="AlleFängeRowChanging" msprop:Generator_RowEvHandlerName="AlleFängeRowChangeEventHandler" msprop:Generator_RowDeletedName="AlleFängeRowDeleted" msprop:Generator_UserTableName="AlleFänge" msprop:Generator_RowChangedName="AlleFängeRowChanged" msprop:Generator_RowEvArgName="AlleFängeRowChangeEvent" msprop:Generator_RowClassName="AlleFängeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
@@ -1039,7 +949,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Ordner" msprop:Generator_TableClassName="OrdnerDataTable" msprop:Generator_TableVarName="tableOrdner" msprop:Generator_TablePropName="Ordner" msprop:Generator_RowDeletingName="OrdnerRowDeleting" msprop:Generator_RowChangingName="OrdnerRowChanging" msprop:Generator_RowEvHandlerName="OrdnerRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdnerRowDeleted" msprop:Generator_UserTableName="Ordner" msprop:Generator_RowChangedName="OrdnerRowChanged" msprop:Generator_RowEvArgName="OrdnerRowChangeEvent" msprop:Generator_RowClassName="OrdnerRow">
+        <xs:element name="Ordner" msprop:Generator_TableClassName="OrdnerDataTable" msprop:Generator_TableVarName="tableOrdner" msprop:Generator_RowChangedName="OrdnerRowChanged" msprop:Generator_TablePropName="Ordner" msprop:Generator_RowDeletingName="OrdnerRowDeleting" msprop:Generator_RowChangingName="OrdnerRowChanging" msprop:Generator_RowEvHandlerName="OrdnerRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdnerRowDeleted" msprop:Generator_RowClassName="OrdnerRow" msprop:Generator_UserTableName="Ordner" msprop:Generator_RowEvArgName="OrdnerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1053,7 +963,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Foto" msprop:Generator_TableClassName="FotoDataTable" msprop:Generator_TableVarName="tableFoto" msprop:Generator_TablePropName="Foto" msprop:Generator_RowDeletingName="FotoRowDeleting" msprop:Generator_RowChangingName="FotoRowChanging" msprop:Generator_RowEvHandlerName="FotoRowChangeEventHandler" msprop:Generator_RowDeletedName="FotoRowDeleted" msprop:Generator_UserTableName="Foto" msprop:Generator_RowChangedName="FotoRowChanged" msprop:Generator_RowEvArgName="FotoRowChangeEvent" msprop:Generator_RowClassName="FotoRow">
+        <xs:element name="Foto" msprop:Generator_TableClassName="FotoDataTable" msprop:Generator_TableVarName="tableFoto" msprop:Generator_RowChangedName="FotoRowChanged" msprop:Generator_TablePropName="Foto" msprop:Generator_RowDeletingName="FotoRowDeleting" msprop:Generator_RowChangingName="FotoRowChanging" msprop:Generator_RowEvHandlerName="FotoRowChangeEventHandler" msprop:Generator_RowDeletedName="FotoRowDeleted" msprop:Generator_RowClassName="FotoRow" msprop:Generator_UserTableName="Foto" msprop:Generator_RowEvArgName="FotoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1068,6 +978,114 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
               </xs:element>
               <xs:element name="Bild" msprop:Generator_ColumnVarNameInTable="columnBild" msprop:Generator_ColumnPropNameInRow="Bild" msprop:Generator_ColumnPropNameInTable="BildColumn" msprop:Generator_UserColumnName="Bild" type="xs:base64Binary" minOccurs="0" />
               <xs:element name="Ordner_ID" msprop:Generator_ColumnVarNameInTable="columnOrdner_ID" msprop:Generator_ColumnPropNameInRow="Ordner_ID" msprop:Generator_ColumnPropNameInTable="Ordner_IDColumn" msprop:Generator_UserColumnName="Ordner_ID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Hitparade_Zander" msprop:Generator_TableClassName="Hitparade_ZanderDataTable" msprop:Generator_TableVarName="tableHitparade_Zander" msprop:Generator_TablePropName="Hitparade_Zander" msprop:Generator_RowDeletingName="Hitparade_ZanderRowDeleting" msprop:Generator_RowChangingName="Hitparade_ZanderRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_ZanderRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_ZanderRowDeleted" msprop:Generator_UserTableName="Hitparade_Zander" msprop:Generator_RowChangedName="Hitparade_ZanderRowChanged" msprop:Generator_RowEvArgName="Hitparade_ZanderRowChangeEvent" msprop:Generator_RowClassName="Hitparade_ZanderRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
+              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Hitparade_Barsch" msprop:Generator_TableClassName="Hitparade_BarschDataTable" msprop:Generator_TableVarName="tableHitparade_Barsch" msprop:Generator_TablePropName="Hitparade_Barsch" msprop:Generator_RowDeletingName="Hitparade_BarschRowDeleting" msprop:Generator_RowChangingName="Hitparade_BarschRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_BarschRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_BarschRowDeleted" msprop:Generator_UserTableName="Hitparade_Barsch" msprop:Generator_RowChangedName="Hitparade_BarschRowChanged" msprop:Generator_RowEvArgName="Hitparade_BarschRowChangeEvent" msprop:Generator_RowClassName="Hitparade_BarschRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
+              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Hitparade_Andere" msprop:Generator_TableClassName="Hitparade_AndereDataTable" msprop:Generator_TableVarName="tableHitparade_Andere" msprop:Generator_RowChangedName="Hitparade_AndereRowChanged" msprop:Generator_TablePropName="Hitparade_Andere" msprop:Generator_RowDeletingName="Hitparade_AndereRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereRowDeleted" msprop:Generator_RowClassName="Hitparade_AndereRow" msprop:Generator_UserTableName="Hitparade_Andere" msprop:Generator_RowEvArgName="Hitparade_AndereRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
+              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fischart" msprop:Generator_ColumnVarNameInTable="columnFischart" msprop:Generator_ColumnPropNameInRow="Fischart" msprop:Generator_ColumnPropNameInTable="FischartColumn" msprop:Generator_UserColumnName="Fischart">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Hitparade_Hecht" msprop:Generator_TableClassName="Hitparade_HechtDataTable" msprop:Generator_TableVarName="tableHitparade_Hecht" msprop:Generator_TablePropName="Hitparade_Hecht" msprop:Generator_RowDeletingName="Hitparade_HechtRowDeleting" msprop:Generator_RowChangingName="Hitparade_HechtRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_HechtRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_HechtRowDeleted" msprop:Generator_UserTableName="Hitparade_Hecht" msprop:Generator_RowChangedName="Hitparade_HechtRowChanged" msprop:Generator_RowEvArgName="Hitparade_HechtRowChangeEvent" msprop:Generator_RowClassName="Hitparade_HechtRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
+              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1101,14 +1119,18 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
       <xs:selector xpath=".//mstns:Foto" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
+    <xs:unique name="Hitparade_Hecht_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Hitparade_Hecht" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Angler_Fang" msdata:parent="Angler" msdata:child="Fang" msdata:parentkey="Id" msdata:childkey="Angler_ID" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Angler_Fang" msprop:Generator_RelationVarName="relationAngler_Fang" msprop:Generator_UserParentTable="Angler" msprop:Generator_ParentPropName="AnglerRow" />
-      <msdata:Relationship name="Fang_Gewässer" msdata:parent="Fang" msdata:child="Gewässer" msdata:parentkey="Gewässer_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Gewässer" msprop:Generator_ChildPropName="GetGewässerRows" msprop:Generator_UserRelationName="Fang_Gewässer" msprop:Generator_ParentPropName="FangRow" msprop:Generator_RelationVarName="relationFang_Gewässer" msprop:Generator_UserParentTable="Fang" />
-      <msdata:Relationship name="Fang_Fisch" msdata:parent="Fang" msdata:child="Fisch" msdata:parentkey="Fischart_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fisch" msprop:Generator_ChildPropName="GetFischRows" msprop:Generator_UserRelationName="Fang_Fisch" msprop:Generator_ParentPropName="FangRow" msprop:Generator_RelationVarName="relationFang_Fisch" msprop:Generator_UserParentTable="Fang" />
-      <msdata:Relationship name="Foto_Fang" msdata:parent="Foto" msdata:child="Fang" msdata:parentkey="Fang_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Foto_Fang" msprop:Generator_RelationVarName="relationFoto_Fang" msprop:Generator_UserParentTable="Foto" msprop:Generator_ParentPropName="FotoRow" />
-      <msdata:Relationship name="Foto_Ordner" msdata:parent="Foto" msdata:child="Ordner" msdata:parentkey="Ordner_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Ordner" msprop:Generator_ChildPropName="GetOrdnerRows" msprop:Generator_UserRelationName="Foto_Ordner" msprop:Generator_RelationVarName="relationFoto_Ordner" msprop:Generator_UserParentTable="Foto" msprop:Generator_ParentPropName="FotoRow" />
+      <msdata:Relationship name="Angler_Fang" msdata:parent="Angler" msdata:child="Fang" msdata:parentkey="Id" msdata:childkey="Angler_ID" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Angler_Fang" msprop:Generator_ParentPropName="AnglerRow" msprop:Generator_RelationVarName="relationAngler_Fang" msprop:Generator_UserParentTable="Angler" />
+      <msdata:Relationship name="Fang_Gewässer" msdata:parent="Fang" msdata:child="Gewässer" msdata:parentkey="Gewässer_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Gewässer" msprop:Generator_ChildPropName="GetGewässerRows" msprop:Generator_UserRelationName="Fang_Gewässer" msprop:Generator_RelationVarName="relationFang_Gewässer" msprop:Generator_UserParentTable="Fang" msprop:Generator_ParentPropName="FangRow" />
+      <msdata:Relationship name="Fang_Fisch" msdata:parent="Fang" msdata:child="Fisch" msdata:parentkey="Fischart_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fisch" msprop:Generator_ChildPropName="GetFischRows" msprop:Generator_UserRelationName="Fang_Fisch" msprop:Generator_RelationVarName="relationFang_Fisch" msprop:Generator_UserParentTable="Fang" msprop:Generator_ParentPropName="FangRow" />
+      <msdata:Relationship name="Foto_Fang" msdata:parent="Foto" msdata:child="Fang" msdata:parentkey="Fang_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Foto_Fang" msprop:Generator_ParentPropName="FotoRow" msprop:Generator_RelationVarName="relationFoto_Fang" msprop:Generator_UserParentTable="Foto" />
+      <msdata:Relationship name="Foto_Ordner" msdata:parent="Foto" msdata:child="Ordner" msdata:parentkey="Ordner_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Ordner" msprop:Generator_ChildPropName="GetOrdnerRows" msprop:Generator_UserRelationName="Foto_Ordner" msprop:Generator_ParentPropName="FotoRow" msprop:Generator_RelationVarName="relationFoto_Ordner" msprop:Generator_UserParentTable="Foto" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

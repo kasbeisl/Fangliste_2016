@@ -92,14 +92,16 @@ namespace Fangliste_2016
             try
             {
                 con.ConnectionString = ConnectionString;
-
-                //string text = "SELECT COUNT(*) FROM Angler";
-
-                string strSQL = "SELECT Angler_ID, SUM(Gewicht) " +
-                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "' GROUP BY Angler_ID ";
+                string strSQL = "SELECT SUM(Gewicht) AS Gewicht, Angler_ID FROM Fang WHERE Angler_ID = '" + angler.ID + "' GROUP BY Angler_ID";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 con.Open();
-                gewicht = Convert.ToDouble(cmd.ExecuteReader());
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    gewicht = Convert.ToDouble(reader["Gewicht"]);
+                }
+                reader.Close();
                 con.Close();
             }
             catch (Exception ex)
@@ -135,14 +137,16 @@ namespace Fangliste_2016
             try
             {
                 con.ConnectionString = ConnectionString;
-
-                //string text = "SELECT COUNT(*) FROM Angler";
-
-                string strSQL = "SELECT SUM(Länge), Angler_ID " +
-                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
+                string strSQL = "SELECT SUM(Länge) AS Länge, Angler_ID FROM Fang WHERE Angler_ID = '" + angler.ID + "' GROUP BY Angler_ID";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 con.Open();
-                länge = Convert.ToDouble(cmd.ExecuteReader());
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    länge = Convert.ToDouble(reader["Länge"]);
+                }
+                reader.Close();
                 con.Close();
             }
             catch (Exception ex)
@@ -168,23 +172,30 @@ namespace Fangliste_2016
 
         private void FängeProJahr()
         {
-            int fängeJahr = 0;
-            int zähler2 = 0;
+            int fängeInsgesamt = 0;
+            int jahreCount = 0;
+            int durchschnitt = 0;
+
             string ConnectionString = SQLCollection.GetConnectionString();
-            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
+            List<int> a = new List<int>();
+
             try
             {
                 con.ConnectionString = ConnectionString;
 
-                //string text = "SELECT COUNT(*) FROM Angler";
-
-                string strSQL = "SELECT COUNT(*) Angler_ID " +
-                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
+                string strSQL = "SELECT DISTINCT YEAR(Datum) AS Datum " +
+                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "' GROUP BY Datum";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 con.Open();
-                zähler2 = Convert.ToInt16(cmd.ExecuteReader());
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    a.Add(Convert.ToInt16(reader["Datum"]));
+                }
+                reader.Close();
                 con.Close();
             }
             catch (Exception ex)
@@ -196,19 +207,15 @@ namespace Fangliste_2016
                 con.Close();
             }
 
-
+            jahreCount = a.Count;
 
             try
             {
                 con.ConnectionString = ConnectionString;
-
-                //string text = "SELECT COUNT(*) FROM Angler";
-
-                string strSQL = "SELECT COUNT(*) Angler_ID " +
-                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
+                string strSQL = "SELECT COUNT(*) Angler_ID FROM Fang WHERE Angler_ID = '" + angler.ID + "'";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 con.Open();
-                fängeJahr = Convert.ToInt16(cmd.ExecuteReader());
+                fängeInsgesamt = Convert.ToInt32(cmd.ExecuteScalar());
                 con.Close();
             }
             catch (Exception ex)
@@ -219,76 +226,21 @@ namespace Fangliste_2016
             {
                 con.Close();
             }
-
-            /*if ((persönlicheFangliste.Count == 0) || (persönlicheFangliste == null))
-            {
-            }
-            else
-            {
-                int[] jahre_kopie = new int[this.persönlicheFangliste.Count];
-                bool exist = false;
-                int zähler = 0;
-
-                for (int i = 0; i < this.persönlicheFangliste.Count; i++)
-                {
-                    for (int j = 0; j < jahre_kopie.Length; j++)
-                    {
-                        if (jahre_kopie[j] == persönlicheFangliste[i].Datum.Year)
-                        {
-                            exist = true;
-                        }
-                    }
-
-                    if (!exist)
-                    {
-                        jahre_kopie[zähler] = persönlicheFangliste[i].Datum.Year;
-                        zähler++;
-                    }
-
-                    exist = false;
-                }
-
-                int zähler2 = 0;
-
-                for (int i = 0; i < jahre_kopie.Length; i++)
-                {
-                    if (jahre_kopie[i] != 0)
-                    {
-                        zähler2++;
-                    }
-                }
-
-                jahre = new int[zähler2];
-                int zähler3 = 0;
-
-                for (int i = 0; i < jahre_kopie.Length; i++)
-                {
-                    if (jahre_kopie[i] != 0)
-                    {
-                        jahre[zähler3] = jahre_kopie[i];
-                        zähler3++;
-                    }
-                }
-
-                //Durschnittliche Fänge pro Jahr = Gesamtanzahler der Fänge / Die Anzahl der Jahre
-                fängeJahr = this.persönlicheFangliste.Count / zähler2;
-
-                lb_gesJahre.Text = zähler2.ToString();
-            }*/
 
             //Durschnittliche Fänge pro Jahr = Gesamtanzahler der Fänge / Die Anzahl der Jahre
 
-            if (fängeJahr != 0 && zähler2 != 0)
-                fängeJahr = fängeJahr / zähler2;
+            if (fängeInsgesamt != 0 && jahreCount != 0)
+                durchschnitt = fängeInsgesamt / jahreCount;
 
-            lb_gesJahre.Text = zähler2.ToString();
+            lb_gesJahre.Text = jahreCount.ToString();
 
-            lb_fängeJahr.Text = fängeJahr.ToString();
+            lb_fängeJahr.Text = durchschnitt.ToString();
         }
 
         private void GesAnzahlFängeAktuell()
         {
             int anzahl = 0;
+            int jahr = DateTime.Now.Year;
 
             string ConnectionString = SQLCollection.GetConnectionString();
             //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
@@ -297,17 +249,16 @@ namespace Fangliste_2016
             try
             {
                 con.ConnectionString = ConnectionString;
-
-                string strSQL = "SELECT COUNT(*) Angler_ID " +
-                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "' AND Datum BETWEEN '201´6/01/01' and '2017/01/01'";
+                string strSQL = "SELECT COUNT(*) FROM Fang WHERE Angler_ID = '" + angler.ID + "' AND Datum BETWEEN '" + jahr + "/01/01' AND '" + (jahr + 1) + "/01/01'";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 con.Open();
-                anzahl = Convert.ToInt16(cmd.ExecuteReader());
+                anzahl = Convert.ToInt32(cmd.ExecuteScalar());
+
                 con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                throw new Exception(ex.ToString());
             }
             finally
             {
@@ -331,6 +282,82 @@ namespace Fangliste_2016
 
         private void BesteJahr()
         {
+            List<int> a = new List<int>();
+            List<int> anzahl = new List<int>();
+
+            string ConnectionString = SQLCollection.GetConnectionString();
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                string strSQL = "SELECT DISTINCT YEAR(Datum) AS Datum " +
+                                "FROM Fang WHERE Angler_ID = '" + angler.ID + "' GROUP BY Datum";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    a.Add(Convert.ToInt16(reader["Datum"]));
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                try
+                {
+                    con.ConnectionString = ConnectionString;
+
+                    string strSQL = "SELECT Count(*) AS Zähler " +
+                                    "FROM Fang WHERE Angler_ID = '" + angler.ID + "' AND Datum BETWEEN '" + a[i] + "/01/01' AND '" + (a[i] + 1) + "/01/01'";
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                        anzahl.Add(Convert.ToInt16(reader["Zähler"]));
+                    }
+                    reader.Close();
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            int mehr = 0;
+            int _jahr = a[0];
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                if (anzahl[i] > mehr)
+                {
+                    mehr = anzahl[i];
+                    _jahr = a[i];
+                }
+            }
+
+            lb_besteJahr.Text = _jahr.ToString() + " (" + mehr.ToString() + ")";
+
             /*try
             {
                 int[] anzahlJahr = new int[jahre.Length];;

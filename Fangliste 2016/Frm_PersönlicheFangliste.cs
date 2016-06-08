@@ -238,8 +238,34 @@ namespace Fangliste_2016
         private void GesAnzahlFängeAktuell()
         {
             int anzahl = 0;
+            int jahr = DateTime.Now.Year;
+
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
 
             try
+            {
+                con.ConnectionString = ConnectionString;
+                string strSQL = "SELECT COUNT(*) FROM Fang WHERE Angler_ID = '" + angler.ID + "' AND Datum BETWEEN '" + jahr + "/01/01' AND '" + (jahr + 1) + "/01/01'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                anzahl = Convert.ToInt32(cmd.ExecuteScalar());
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+
+            /*try
             {
                 for (int i = 0; i < this.view.Count; i++)
                 {
@@ -249,7 +275,7 @@ namespace Fangliste_2016
                     }
                 }
             }
-            catch { }
+            catch { }*/
 
             lb_gesAnzahlAktuell.Text = anzahl.ToString();
         }
@@ -260,7 +286,7 @@ namespace Fangliste_2016
             {
                 if (Properties.Settings.Default.PlaySound == true)
                 {
-                    if (!Fangliste.HeuerEtwasGefangen(Fangliste.Fangliste_je_jahr(alleFänge), angler.Name))
+                    if (!Fangliste1.HeuerEtwasGefangen(DateTime.Now.Year, angler))
                     {
                         schade.Play();
                     }
@@ -272,7 +298,7 @@ namespace Fangliste_2016
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Datei konnte nicht gefunden werden.\n\nInformation:\n" + ex.ToString(), "Fehler.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "Fehler.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
