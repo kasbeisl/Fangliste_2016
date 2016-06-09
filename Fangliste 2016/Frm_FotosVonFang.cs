@@ -102,11 +102,16 @@ namespace Fangliste_2016
                 con.Close();
             }
 
+            
+
             //pictureBox1.ImageLocation = Frm_Hauptmenu.FotoOrdner + "\\" + this.fotos[foto_jetzt];
         }
 
         private void Frm_FotosVonFang_Load(object sender, EventArgs e)
         {
+            if (fotoliste == null || fotoliste.Count == 0)
+                this.Close();
+
             try
             {
                 pictureBox1.Image = fotoliste[foto_jetzt].Bild;

@@ -52,6 +52,8 @@ namespace Fangliste_2016 {
         
         private Hitparade_HechtDataTable tableHitparade_Hecht;
         
+        private AlleFängeNurListeDataTable tableAlleFängeNurListe;
+        
         private global::System.Data.DataRelation relationAngler_Fang;
         
         private global::System.Data.DataRelation relationFang_Gewässer;
@@ -131,6 +133,9 @@ namespace Fangliste_2016 {
                 }
                 if ((ds.Tables["Hitparade_Hecht"] != null)) {
                     base.Tables.Add(new Hitparade_HechtDataTable(ds.Tables["Hitparade_Hecht"]));
+                }
+                if ((ds.Tables["AlleFängeNurListe"] != null)) {
+                    base.Tables.Add(new AlleFängeNurListeDataTable(ds.Tables["AlleFängeNurListe"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -292,6 +297,16 @@ namespace Fangliste_2016 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public AlleFängeNurListeDataTable AlleFängeNurListe {
+            get {
+                return this.tableAlleFängeNurListe;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -398,6 +413,9 @@ namespace Fangliste_2016 {
                 }
                 if ((ds.Tables["Hitparade_Hecht"] != null)) {
                     base.Tables.Add(new Hitparade_HechtDataTable(ds.Tables["Hitparade_Hecht"]));
+                }
+                if ((ds.Tables["AlleFängeNurListe"] != null)) {
+                    base.Tables.Add(new AlleFängeNurListeDataTable(ds.Tables["AlleFängeNurListe"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -516,6 +534,12 @@ namespace Fangliste_2016 {
                     this.tableHitparade_Hecht.InitVars();
                 }
             }
+            this.tableAlleFängeNurListe = ((AlleFängeNurListeDataTable)(base.Tables["AlleFängeNurListe"]));
+            if ((initTable == true)) {
+                if ((this.tableAlleFängeNurListe != null)) {
+                    this.tableAlleFängeNurListe.InitVars();
+                }
+            }
             this.relationAngler_Fang = this.Relations["Angler_Fang"];
             this.relationFang_Gewässer = this.Relations["Fang_Gewässer"];
             this.relationFang_Fisch = this.Relations["Fang_Fisch"];
@@ -559,6 +583,8 @@ namespace Fangliste_2016 {
             base.Tables.Add(this.tableHitparade_Andere);
             this.tableHitparade_Hecht = new Hitparade_HechtDataTable();
             base.Tables.Add(this.tableHitparade_Hecht);
+            this.tableAlleFängeNurListe = new AlleFängeNurListeDataTable();
+            base.Tables.Add(this.tableAlleFängeNurListe);
             this.relationAngler_Fang = new global::System.Data.DataRelation("Angler_Fang", new global::System.Data.DataColumn[] {
                         this.tableAngler.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableFang.Angler_IDColumn}, false);
@@ -667,6 +693,12 @@ namespace Fangliste_2016 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeAlleFängeNurListe() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -761,6 +793,9 @@ namespace Fangliste_2016 {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Hitparade_HechtRowChangeEventHandler(object sender, Hitparade_HechtRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void AlleFängeNurListeRowChangeEventHandler(object sender, AlleFängeNurListeRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5629,6 +5664,8 @@ namespace Fangliste_2016 {
             
             private global::System.Data.DataColumn columnId;
             
+            private global::System.Data.DataColumn columnFischart;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Hitparade_HechtDataTable() {
@@ -5728,6 +5765,14 @@ namespace Fangliste_2016 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FischartColumn {
+                get {
+                    return this.columnFischart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5763,7 +5808,7 @@ namespace Fangliste_2016 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Hitparade_HechtRow AddHitparade_HechtRow(long Platz, byte[] Icon, string Name, double Länge, double Gewicht, string Gewässer, System.DateTime Datum, int Id) {
+            public Hitparade_HechtRow AddHitparade_HechtRow(long Platz, byte[] Icon, string Name, double Länge, double Gewicht, string Gewässer, System.DateTime Datum, int Id, string Fischart) {
                 Hitparade_HechtRow rowHitparade_HechtRow = ((Hitparade_HechtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Platz,
@@ -5773,7 +5818,8 @@ namespace Fangliste_2016 {
                         Gewicht,
                         Gewässer,
                         Datum,
-                        Id};
+                        Id,
+                        Fischart};
                 rowHitparade_HechtRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHitparade_HechtRow);
                 return rowHitparade_HechtRow;
@@ -5811,6 +5857,7 @@ namespace Fangliste_2016 {
                 this.columnGewässer = base.Columns["Gewässer"];
                 this.columnDatum = base.Columns["Datum"];
                 this.columnId = base.Columns["Id"];
+                this.columnFischart = base.Columns["Fischart"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5832,6 +5879,8 @@ namespace Fangliste_2016 {
                 base.Columns.Add(this.columnDatum);
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
+                this.columnFischart = new global::System.Data.DataColumn("Fischart", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFischart);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnName.AllowDBNull = false;
@@ -5840,6 +5889,8 @@ namespace Fangliste_2016 {
                 this.columnGewässer.MaxLength = 50;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
+                this.columnFischart.AllowDBNull = false;
+                this.columnFischart.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5926,6 +5977,506 @@ namespace Fangliste_2016 {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Hitparade_HechtDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class AlleFängeNurListeDataTable : global::System.Data.TypedTableBase<AlleFängeNurListeRow> {
+            
+            private global::System.Data.DataColumn columnFang_ID;
+            
+            private global::System.Data.DataColumn columnAngler_ID;
+            
+            private global::System.Data.DataColumn columnIcon;
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnFischart;
+            
+            private global::System.Data.DataColumn columnLänge;
+            
+            private global::System.Data.DataColumn columnGewicht;
+            
+            private global::System.Data.DataColumn columnGewässer;
+            
+            private global::System.Data.DataColumn columnDatum;
+            
+            private global::System.Data.DataColumn columnUhrzeit;
+            
+            private global::System.Data.DataColumn columnAngelplatz;
+            
+            private global::System.Data.DataColumn columnKöder;
+            
+            private global::System.Data.DataColumn columnTiefe;
+            
+            private global::System.Data.DataColumn columnLufttemperatur;
+            
+            private global::System.Data.DataColumn columnWassertemperatur;
+            
+            private global::System.Data.DataColumn columnWetter;
+            
+            private global::System.Data.DataColumn columnKommentar;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlleFängeNurListeDataTable() {
+                this.TableName = "AlleFängeNurListe";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal AlleFängeNurListeDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected AlleFängeNurListeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Fang_IDColumn {
+                get {
+                    return this.columnFang_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Angler_IDColumn {
+                get {
+                    return this.columnAngler_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IconColumn {
+                get {
+                    return this.columnIcon;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FischartColumn {
+                get {
+                    return this.columnFischart;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LängeColumn {
+                get {
+                    return this.columnLänge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GewichtColumn {
+                get {
+                    return this.columnGewicht;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GewässerColumn {
+                get {
+                    return this.columnGewässer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DatumColumn {
+                get {
+                    return this.columnDatum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UhrzeitColumn {
+                get {
+                    return this.columnUhrzeit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AngelplatzColumn {
+                get {
+                    return this.columnAngelplatz;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KöderColumn {
+                get {
+                    return this.columnKöder;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TiefeColumn {
+                get {
+                    return this.columnTiefe;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LufttemperaturColumn {
+                get {
+                    return this.columnLufttemperatur;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WassertemperaturColumn {
+                get {
+                    return this.columnWassertemperatur;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WetterColumn {
+                get {
+                    return this.columnWetter;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KommentarColumn {
+                get {
+                    return this.columnKommentar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlleFängeNurListeRow this[int index] {
+                get {
+                    return ((AlleFängeNurListeRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event AlleFängeNurListeRowChangeEventHandler AlleFängeNurListeRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event AlleFängeNurListeRowChangeEventHandler AlleFängeNurListeRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event AlleFängeNurListeRowChangeEventHandler AlleFängeNurListeRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event AlleFängeNurListeRowChangeEventHandler AlleFängeNurListeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddAlleFängeNurListeRow(AlleFängeNurListeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlleFängeNurListeRow AddAlleFängeNurListeRow(
+                        int Fang_ID, 
+                        int Angler_ID, 
+                        byte[] Icon, 
+                        string Name, 
+                        string Fischart, 
+                        double Länge, 
+                        double Gewicht, 
+                        string Gewässer, 
+                        System.DateTime Datum, 
+                        System.DateTime Uhrzeit, 
+                        string Angelplatz, 
+                        string Köder, 
+                        double Tiefe, 
+                        double Lufttemperatur, 
+                        double Wassertemperatur, 
+                        string Wetter, 
+                        string Kommentar) {
+                AlleFängeNurListeRow rowAlleFängeNurListeRow = ((AlleFängeNurListeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Fang_ID,
+                        Angler_ID,
+                        Icon,
+                        Name,
+                        Fischart,
+                        Länge,
+                        Gewicht,
+                        Gewässer,
+                        Datum,
+                        Uhrzeit,
+                        Angelplatz,
+                        Köder,
+                        Tiefe,
+                        Lufttemperatur,
+                        Wassertemperatur,
+                        Wetter,
+                        Kommentar};
+                rowAlleFängeNurListeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAlleFängeNurListeRow);
+                return rowAlleFängeNurListeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                AlleFängeNurListeDataTable cln = ((AlleFängeNurListeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new AlleFängeNurListeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnFang_ID = base.Columns["Fang_ID"];
+                this.columnAngler_ID = base.Columns["Angler_ID"];
+                this.columnIcon = base.Columns["Icon"];
+                this.columnName = base.Columns["Name"];
+                this.columnFischart = base.Columns["Fischart"];
+                this.columnLänge = base.Columns["Länge"];
+                this.columnGewicht = base.Columns["Gewicht"];
+                this.columnGewässer = base.Columns["Gewässer"];
+                this.columnDatum = base.Columns["Datum"];
+                this.columnUhrzeit = base.Columns["Uhrzeit"];
+                this.columnAngelplatz = base.Columns["Angelplatz"];
+                this.columnKöder = base.Columns["Köder"];
+                this.columnTiefe = base.Columns["Tiefe"];
+                this.columnLufttemperatur = base.Columns["Lufttemperatur"];
+                this.columnWassertemperatur = base.Columns["Wassertemperatur"];
+                this.columnWetter = base.Columns["Wetter"];
+                this.columnKommentar = base.Columns["Kommentar"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnFang_ID = new global::System.Data.DataColumn("Fang_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFang_ID);
+                this.columnAngler_ID = new global::System.Data.DataColumn("Angler_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAngler_ID);
+                this.columnIcon = new global::System.Data.DataColumn("Icon", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIcon);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnFischart = new global::System.Data.DataColumn("Fischart", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFischart);
+                this.columnLänge = new global::System.Data.DataColumn("Länge", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLänge);
+                this.columnGewicht = new global::System.Data.DataColumn("Gewicht", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGewicht);
+                this.columnGewässer = new global::System.Data.DataColumn("Gewässer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGewässer);
+                this.columnDatum = new global::System.Data.DataColumn("Datum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDatum);
+                this.columnUhrzeit = new global::System.Data.DataColumn("Uhrzeit", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUhrzeit);
+                this.columnAngelplatz = new global::System.Data.DataColumn("Angelplatz", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAngelplatz);
+                this.columnKöder = new global::System.Data.DataColumn("Köder", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKöder);
+                this.columnTiefe = new global::System.Data.DataColumn("Tiefe", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTiefe);
+                this.columnLufttemperatur = new global::System.Data.DataColumn("Lufttemperatur", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLufttemperatur);
+                this.columnWassertemperatur = new global::System.Data.DataColumn("Wassertemperatur", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWassertemperatur);
+                this.columnWetter = new global::System.Data.DataColumn("Wetter", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWetter);
+                this.columnKommentar = new global::System.Data.DataColumn("Kommentar", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKommentar);
+                this.columnFang_ID.AllowDBNull = false;
+                this.columnAngler_ID.AllowDBNull = false;
+                this.columnName.AllowDBNull = false;
+                this.columnName.MaxLength = 50;
+                this.columnFischart.AllowDBNull = false;
+                this.columnFischart.MaxLength = 50;
+                this.columnGewässer.AllowDBNull = false;
+                this.columnGewässer.MaxLength = 50;
+                this.columnAngelplatz.MaxLength = 2147483647;
+                this.columnKöder.MaxLength = 2147483647;
+                this.columnWetter.MaxLength = 50;
+                this.columnKommentar.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlleFängeNurListeRow NewAlleFängeNurListeRow() {
+                return ((AlleFängeNurListeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new AlleFängeNurListeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(AlleFängeNurListeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.AlleFängeNurListeRowChanged != null)) {
+                    this.AlleFängeNurListeRowChanged(this, new AlleFängeNurListeRowChangeEvent(((AlleFängeNurListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.AlleFängeNurListeRowChanging != null)) {
+                    this.AlleFängeNurListeRowChanging(this, new AlleFängeNurListeRowChangeEvent(((AlleFängeNurListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.AlleFängeNurListeRowDeleted != null)) {
+                    this.AlleFängeNurListeRowDeleted(this, new AlleFängeNurListeRowChangeEvent(((AlleFängeNurListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.AlleFängeNurListeRowDeleting != null)) {
+                    this.AlleFängeNurListeRowDeleting(this, new AlleFängeNurListeRowChangeEvent(((AlleFängeNurListeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveAlleFängeNurListeRow(AlleFängeNurListeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FanglisteDBDataSet ds = new FanglisteDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "AlleFängeNurListeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -9088,6 +9639,17 @@ namespace Fangliste_2016 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Fischart {
+                get {
+                    return ((string)(this[this.tableHitparade_Hecht.FischartColumn]));
+                }
+                set {
+                    this[this.tableHitparade_Hecht.FischartColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPlatzNull() {
                 return this.IsNull(this.tableHitparade_Hecht.PlatzColumn);
             }
@@ -9144,6 +9706,412 @@ namespace Fangliste_2016 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDatumNull() {
                 this[this.tableHitparade_Hecht.DatumColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class AlleFängeNurListeRow : global::System.Data.DataRow {
+            
+            private AlleFängeNurListeDataTable tableAlleFängeNurListe;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal AlleFängeNurListeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAlleFängeNurListe = ((AlleFängeNurListeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Fang_ID {
+                get {
+                    return ((int)(this[this.tableAlleFängeNurListe.Fang_IDColumn]));
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.Fang_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Angler_ID {
+                get {
+                    return ((int)(this[this.tableAlleFängeNurListe.Angler_IDColumn]));
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.Angler_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] Icon {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableAlleFängeNurListe.IconColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Icon\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.IconColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name {
+                get {
+                    return ((string)(this[this.tableAlleFängeNurListe.NameColumn]));
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Fischart {
+                get {
+                    return ((string)(this[this.tableAlleFängeNurListe.FischartColumn]));
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.FischartColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Länge {
+                get {
+                    try {
+                        return ((double)(this[this.tableAlleFängeNurListe.LängeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Länge\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.LängeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Gewicht {
+                get {
+                    try {
+                        return ((double)(this[this.tableAlleFängeNurListe.GewichtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Gewicht\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.GewichtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Gewässer {
+                get {
+                    return ((string)(this[this.tableAlleFängeNurListe.GewässerColumn]));
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.GewässerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Datum {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAlleFängeNurListe.DatumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Datum\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.DatumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Uhrzeit {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAlleFängeNurListe.UhrzeitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Uhrzeit\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.UhrzeitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Angelplatz {
+                get {
+                    try {
+                        return ((string)(this[this.tableAlleFängeNurListe.AngelplatzColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Angelplatz\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.AngelplatzColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Köder {
+                get {
+                    try {
+                        return ((string)(this[this.tableAlleFängeNurListe.KöderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Köder\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.KöderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Tiefe {
+                get {
+                    try {
+                        return ((double)(this[this.tableAlleFängeNurListe.TiefeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tiefe\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.TiefeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Lufttemperatur {
+                get {
+                    try {
+                        return ((double)(this[this.tableAlleFängeNurListe.LufttemperaturColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Lufttemperatur\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.LufttemperaturColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Wassertemperatur {
+                get {
+                    try {
+                        return ((double)(this[this.tableAlleFängeNurListe.WassertemperaturColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Wassertemperatur\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.WassertemperaturColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Wetter {
+                get {
+                    try {
+                        return ((string)(this[this.tableAlleFängeNurListe.WetterColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Wetter\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.WetterColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Kommentar {
+                get {
+                    try {
+                        return ((string)(this[this.tableAlleFängeNurListe.KommentarColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kommentar\' in table \'AlleFängeNurListe\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAlleFängeNurListe.KommentarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIconNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.IconColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIconNull() {
+                this[this.tableAlleFängeNurListe.IconColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLängeNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.LängeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLängeNull() {
+                this[this.tableAlleFängeNurListe.LängeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGewichtNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.GewichtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGewichtNull() {
+                this[this.tableAlleFängeNurListe.GewichtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDatumNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.DatumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDatumNull() {
+                this[this.tableAlleFängeNurListe.DatumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUhrzeitNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.UhrzeitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUhrzeitNull() {
+                this[this.tableAlleFängeNurListe.UhrzeitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAngelplatzNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.AngelplatzColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAngelplatzNull() {
+                this[this.tableAlleFängeNurListe.AngelplatzColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKöderNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.KöderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKöderNull() {
+                this[this.tableAlleFängeNurListe.KöderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTiefeNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.TiefeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTiefeNull() {
+                this[this.tableAlleFängeNurListe.TiefeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLufttemperaturNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.LufttemperaturColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLufttemperaturNull() {
+                this[this.tableAlleFängeNurListe.LufttemperaturColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWassertemperaturNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.WassertemperaturColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWassertemperaturNull() {
+                this[this.tableAlleFängeNurListe.WassertemperaturColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWetterNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.WetterColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWetterNull() {
+                this[this.tableAlleFängeNurListe.WetterColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKommentarNull() {
+                return this.IsNull(this.tableAlleFängeNurListe.KommentarColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKommentarNull() {
+                this[this.tableAlleFängeNurListe.KommentarColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9609,6 +10577,40 @@ namespace Fangliste_2016 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Hitparade_HechtRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class AlleFängeNurListeRowChangeEvent : global::System.EventArgs {
+            
+            private AlleFängeNurListeRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlleFängeNurListeRowChangeEvent(AlleFängeNurListeRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AlleFängeNurListeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -13515,6 +14517,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             tableMapping.ColumnMappings.Add("Gewässer", "Gewässer");
             tableMapping.ColumnMappings.Add("Datum", "Datum");
             tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Fischart", "Fischart");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -13531,8 +14534,8 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Platz, Icon, Name, Länge, Gewicht, Gewässer, Datum, Id FROM dbo.Hitparade_" +
-                "Hecht";
+            this._commandCollection[0].CommandText = "SELECT Platz, Icon, Name, Länge, Gewicht, Gewässer, Datum, Id, Fischart FROM dbo." +
+                "Hitparade_Hecht";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13556,6 +14559,191 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
         public virtual FanglisteDBDataSet.Hitparade_HechtDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             FanglisteDBDataSet.Hitparade_HechtDataTable dataTable = new FanglisteDBDataSet.Hitparade_HechtDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class AlleFängeNurListeTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public AlleFängeNurListeTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "AlleFängeNurListe";
+            tableMapping.ColumnMappings.Add("Fang_ID", "Fang_ID");
+            tableMapping.ColumnMappings.Add("Angler_ID", "Angler_ID");
+            tableMapping.ColumnMappings.Add("Icon", "Icon");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Fischart", "Fischart");
+            tableMapping.ColumnMappings.Add("Länge", "Länge");
+            tableMapping.ColumnMappings.Add("Gewicht", "Gewicht");
+            tableMapping.ColumnMappings.Add("Gewässer", "Gewässer");
+            tableMapping.ColumnMappings.Add("Datum", "Datum");
+            tableMapping.ColumnMappings.Add("Uhrzeit", "Uhrzeit");
+            tableMapping.ColumnMappings.Add("Angelplatz", "Angelplatz");
+            tableMapping.ColumnMappings.Add("Köder", "Köder");
+            tableMapping.ColumnMappings.Add("Tiefe", "Tiefe");
+            tableMapping.ColumnMappings.Add("Lufttemperatur", "Lufttemperatur");
+            tableMapping.ColumnMappings.Add("Wassertemperatur", "Wassertemperatur");
+            tableMapping.ColumnMappings.Add("Wetter", "Wetter");
+            tableMapping.ColumnMappings.Add("Kommentar", "Kommentar");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Fangliste_2016.Properties.Settings.Default.FanglisteDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Fang_ID, Angler_ID, Icon, Name, Fischart, Länge, Gewicht, Gewässer, Datum," +
+                " Uhrzeit, Angelplatz, Köder, Tiefe, Lufttemperatur, Wassertemperatur, Wetter, Ko" +
+                "mmentar FROM dbo.AlleFängeNurListe";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(FanglisteDBDataSet.AlleFängeNurListeDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FanglisteDBDataSet.AlleFängeNurListeDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            FanglisteDBDataSet.AlleFängeNurListeDataTable dataTable = new FanglisteDBDataSet.AlleFängeNurListeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

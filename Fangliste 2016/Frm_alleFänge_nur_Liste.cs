@@ -22,6 +22,7 @@ namespace Fangliste_2016
         bool import = false;
         bool export = false;
         bool fertig = false;
+        DataGridViewRow row;
 
         List<bool> fangChecked;
         bool nurhinzufügenwennFotovorhanden = true;
@@ -31,6 +32,14 @@ namespace Fangliste_2016
         #endregion
 
         #region Konstruktor
+
+        public Frm_alleFänge_nur_Liste()
+        {
+            InitializeComponent();
+
+            alleAuswählenToolStripMenuItem.Visible = false;
+            alleAufhebenToolStripMenuItem.Visible = false;
+        }
 
         public Frm_alleFänge_nur_Liste(List<Fangliste> alleFänge)
         {
@@ -73,6 +82,10 @@ namespace Fangliste_2016
 
         private void Frm_alleFänge_nur_Liste_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.AlleFängeNurListe' table. You can move, or remove it, as needed.
+            this.alleFängeNurListeTableAdapter.Fill(this.fanglisteDBDataSet.AlleFängeNurListe);
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.AlleFänge' table. You can move, or remove it, as needed.
+            this.alleFängeTableAdapter.Fill(this.fanglisteDBDataSet.AlleFänge);
             ZeichneGesamteListe();
 
             if (!import)
@@ -435,6 +448,11 @@ namespace Fangliste_2016
             }
         }
 
+        public DataGridViewRow Row
+        {
+            get { return this.row; }
+        }
+
         #endregion
 
         #region Methoden
@@ -481,5 +499,18 @@ namespace Fangliste_2016
         }
 
         #endregion
+
+        private void alleFängeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void alleFängeNurListeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            row = alleFängeNurListeDataGridView.SelectedRows[0];
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

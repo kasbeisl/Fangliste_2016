@@ -15,75 +15,21 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        List<Fangliste> fangliste;
-        List<Foto> fotoliste;
-        Foto eintrag = null;
-        Fangliste fang;
-        string dateiname;
-        int index;
+        Foto1 eintrag = null;
         bool btn_löschen_enable = false;
         bool edit = false;
+        Image bild;
+        int fang_ID;
 
         #endregion
 
         #region Konstruktor
         
-        public Frm_FotoinfoEditor(List<Fangliste> fangliste, Foto eintrag, string dateiname)
+        public Frm_FotoinfoEditor(Image bild)
         {
             InitializeComponent();
 
-            this.fangliste = fangliste;
-            this.eintrag = eintrag;
-            this.dateiname = dateiname;
-
-            for (int i = 0; i < fangliste.Count; i++)
-            {
-                if (fangliste[i].ID == eintrag.ID)
-                    fang = fangliste[i];
-            }
-
-            Zeichnen();
-        }
-
-        public Frm_FotoinfoEditor(List<Fangliste> fangliste, string dateiname)
-        {
-            InitializeComponent();
-
-            this.fangliste = fangliste;
-            this.dateiname = dateiname;
-        }
-
-        public Frm_FotoinfoEditor(List<Fangliste> fangliste, List<Foto> fotoliste, string dateiname)
-        {
-            InitializeComponent();
-
-            this.fangliste = fangliste;
-            this.fotoliste = fotoliste;
-            this.dateiname = dateiname;
-
-            try
-            {
-                if ((fotoliste != null) || (fotoliste.Count != 0))
-                {
-                    for (int j = 0; j < fotoliste.Count; j++)
-                    {
-                        string file = Frm_Hauptmenu.FotoOrdner + fotoliste[j].Dateiname;
-                        if (file == dateiname)
-                        {
-                            index = j;
-                            for (int i = 0; i < this.fangliste.Count; i++)
-                            {
-                                if (fangliste[i].ID == fotoliste[j].ID)
-                                    fang = fangliste[i];
-                            }
-                            btn_löschen_enable = true;
-                            edit = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            catch { }
+            this.bild = bild;
         }
 
         #endregion
@@ -93,7 +39,7 @@ namespace Fangliste_2016
         /// <summary>
         /// 
         /// </summary>
-        public Foto NeuerEintrag
+        public Foto1 NeuerEintrag
         {
             get { return this.eintrag; }
         }
@@ -106,12 +52,13 @@ namespace Fangliste_2016
             get { return this.edit; }
         }
 
+
         /// <summary>
         /// 
         /// </summary>
-        public int GetIndex
+        public int Fang_ID
         {
-            get { return this.index; }
+            get { return fang_ID; }
         }
 
         #endregion
@@ -125,27 +72,32 @@ namespace Fangliste_2016
 
         private void btn_fangAuswählen_Click(object sender, EventArgs e)
         {
-            Frm_alleFänge_nur_Liste frm_alleFänge = new Frm_alleFänge_nur_Liste(this.fangliste);
+            Frm_alleFänge_nur_Liste frm_alleFänge = new Frm_alleFänge_nur_Liste();
             DialogResult r = frm_alleFänge.ShowDialog();
 
             if (r == DialogResult.OK)
             {
-                fang = fangliste[frm_alleFänge.SelectedIndex];
+                eintrag = new Foto1(0, Convert.ToInt16(frm_alleFänge.Row.Cells[1].Value), Convert.ToInt16(frm_alleFänge.Row.Cells[0].Value), 1, textBox1.Text);
+
+                /*fang = fangliste[frm_alleFänge.SelectedIndex];
                 btn_entfernen.Enabled = true;
 
-                Zeichnen();
+                Zeichnen();*/
             }
         }
 
         private void btn_fertig_Click(object sender, EventArgs e)
         {
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
+
             bool textOK = PrüfeEingabe(textBox1.Text);
 
             if (textOK)
             {
                 if (textBox1.Text != "")
                 {
-                    FileInfo fi = new FileInfo(this.dateiname);
+                    /*FileInfo fi = new FileInfo(this.dateiname);
 
                     DirectoryInfo di = new DirectoryInfo(fi.FullName);
                     string path = fi.Directory.ToString();
@@ -155,7 +107,7 @@ namespace Fangliste_2016
                         eintrag = new Foto(fang.ID, filename, textBox1.Text);
                     else
                         eintrag = new Foto(-1, filename, textBox1.Text);
-
+                        */
                     this.DialogResult = System.Windows.Forms.DialogResult.OK;
                     this.Close();
                 }
@@ -173,6 +125,8 @@ namespace Fangliste_2016
 
         private void Frm_FotoinfoEditor_Load(object sender, EventArgs e)
         {
+            pictureBox1.Image = bild;
+
             if (btn_löschen_enable)
             {
                 btn_löschen.Enabled = true;
@@ -182,12 +136,12 @@ namespace Fangliste_2016
                 btn_löschen.Enabled = false;
             }
 
-            if(fang != null)
+            /*if(fang != null)
                 btn_entfernen.Enabled = true;
             else
                 btn_entfernen.Enabled = false;
-
-            Zeichnen();
+                */
+            //Zeichnen();
         }
 
         #endregion
@@ -196,7 +150,7 @@ namespace Fangliste_2016
 
         private void Zeichnen()
         {
-            if (fang != null)
+            /*if (fang != null)
             {
                 richTextBox1.Text = "ID: " + fang.ID + "\n" +
                                      "Name: " + fang.Name + "\n" +
@@ -209,7 +163,7 @@ namespace Fangliste_2016
             }
 
             if(edit)
-                textBox1.Text = fotoliste[index].Kommentar;
+                textBox1.Text = fotoliste[index].Kommentar;*/
         }
 
         private bool PrüfeEingabe(string text)
@@ -227,18 +181,18 @@ namespace Fangliste_2016
 
         private void btn_löschen_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 this.fotoliste.RemoveAt(index);
                 Foto.Speichere_Fotoliste(this.fotoliste, Frm_Hauptmenu.DatenOrdner, Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp);
                 this.Close();
             }
-            catch { }
+            catch { }*/
         }
 
         private void btn_entfernen_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 this.fang = null;
                 richTextBox1.Text = "Kein Fang ausgewählt";
@@ -247,7 +201,7 @@ namespace Fangliste_2016
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Fehler");
-            }
+            }*/
         }
     }
 }

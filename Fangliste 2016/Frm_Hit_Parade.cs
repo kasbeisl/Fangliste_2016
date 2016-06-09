@@ -47,6 +47,7 @@ namespace Fangliste_2016
             this.hitparade_ZanderTableAdapter1.Fill(this.fanglisteDBDataSet.Hitparade_Zander);
             this.hitparade_AndereTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Andere);
 
+
             SetFischAuswahl();
 
             try
@@ -227,18 +228,22 @@ namespace Fangliste_2016
                 {
                     case "Hecht":
                         this.hitparade_HechtDataGridView.DataSource = this.hitparade_HechtBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
                         this.hitparade_HechtDataGridView.Update();
                         break;
                     case "Zander":
                         this.hitparade_HechtDataGridView.DataSource = this.hitparade_ZanderBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
                         this.hitparade_HechtDataGridView.Update();
                         break;
                     case "Barsch":
                         this.hitparade_HechtDataGridView.DataSource = this.hitparade_BarschBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
                         this.hitparade_HechtDataGridView.Update();
                         break;
                     case "Andere":
                         this.hitparade_HechtDataGridView.DataSource = this.hitparade_AndereBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = true;
                         this.hitparade_HechtDataGridView.Update();
                         break;
                     default:
@@ -280,20 +285,9 @@ namespace Fangliste_2016
             tbx_fischart.Items.AddRange(fischAuswahl);
         }
 
-        private void hitparade_HechtDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            frm_fotosVonFang = new Frm_FotosVonFang(1);
-            frm_fotosVonFang.ShowDialog();
-        }
-
-        private void hitparade_HechtDataGridView_CellMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
-        {
-        }
-
-        private void hitparade_HechtDataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void hitparade_HechtDataGridView_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             var row = hitparade_HechtDataGridView.SelectedRows[0];
-            //string a = "Cell Value" + row.Cells[7].Value + "";
 
             frm_fotosVonFang = new Frm_FotosVonFang(Convert.ToInt16(row.Cells[7].Value));
             frm_fotosVonFang.ShowDialog();

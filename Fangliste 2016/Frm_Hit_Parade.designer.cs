@@ -51,6 +51,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_HechtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_BarschBindingSource)).BeginInit();
@@ -136,6 +137,9 @@
             // hitparade_HechtDataGridView
             // 
             this.hitparade_HechtDataGridView.AllowUserToAddRows = false;
+            this.hitparade_HechtDataGridView.AllowUserToDeleteRows = false;
+            this.hitparade_HechtDataGridView.AllowUserToResizeColumns = false;
+            this.hitparade_HechtDataGridView.AllowUserToResizeRows = false;
             this.hitparade_HechtDataGridView.AutoGenerateColumns = false;
             this.hitparade_HechtDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.hitparade_HechtDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -148,22 +152,24 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
             this.hitparade_HechtDataGridView.DataSource = this.hitparade_HechtBindingSource;
-            this.hitparade_HechtDataGridView.Location = new System.Drawing.Point(12, 30);
+            this.hitparade_HechtDataGridView.Location = new System.Drawing.Point(12, 39);
             this.hitparade_HechtDataGridView.MultiSelect = false;
             this.hitparade_HechtDataGridView.Name = "hitparade_HechtDataGridView";
             this.hitparade_HechtDataGridView.ReadOnly = true;
             this.hitparade_HechtDataGridView.RowHeadersVisible = false;
+            this.hitparade_HechtDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.hitparade_HechtDataGridView.RowTemplate.Height = 100;
             this.hitparade_HechtDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hitparade_HechtDataGridView.ShowCellErrors = false;
             this.hitparade_HechtDataGridView.ShowCellToolTips = false;
             this.hitparade_HechtDataGridView.ShowEditingIcon = false;
             this.hitparade_HechtDataGridView.ShowRowErrors = false;
-            this.hitparade_HechtDataGridView.Size = new System.Drawing.Size(1237, 436);
+            this.hitparade_HechtDataGridView.Size = new System.Drawing.Size(1237, 427);
             this.hitparade_HechtDataGridView.TabIndex = 6;
-            this.hitparade_HechtDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hitparade_HechtDataGridView_CellContentDoubleClick);
+            this.hitparade_HechtDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hitparade_HechtDataGridView_CellDoubleClick_1);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -171,6 +177,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Platz";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewImageColumn1
             // 
@@ -185,6 +192,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -192,6 +200,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Länge";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -199,6 +208,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Gewicht";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -206,6 +216,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Gewässer";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -213,6 +224,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Datum";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -220,6 +232,17 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Id";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Fischart";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Fischart";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn8.Visible = false;
             // 
             // Frm_Hit_Parade
             // 
@@ -270,5 +293,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

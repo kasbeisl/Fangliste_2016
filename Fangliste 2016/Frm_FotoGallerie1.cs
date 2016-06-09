@@ -672,12 +672,12 @@ namespace Fangliste_2016
 
         private void btn_bearbeiten_Click(object sender, EventArgs e)
         {
-            /*Frm_FotoinfoEditor frm_fotoEditor = new Frm_FotoinfoEditor(this.fangliste, this.fotoliste, images[foto_jetzt]);
+            Frm_FotoinfoEditor frm_fotoEditor = new Frm_FotoinfoEditor(this.fotoliste[foto_jetzt].Bild);
             frm_fotoEditor.ShowDialog();
 
             if (frm_fotoEditor.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                File.Copy(Frm_Hauptmenu.DatenOrdner + "\\" + Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp,
+                /*File.Copy(Frm_Hauptmenu.DatenOrdner + "\\" + Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp,
                     Frm_Hauptmenu.DatenOrdner + "\\" + "Backup\\" + Properties.Settings.Default.Fotoliste + "_" + DateTime.Now.ToShortDateString() + Properties.Settings.Default.Datentyp, true);
 
                 if (frm_fotoEditor.NeuerEintrag != null)
@@ -693,10 +693,10 @@ namespace Fangliste_2016
 
                     Foto.Speichere_Fotoliste(this.fotoliste, Frm_Hauptmenu.DatenOrdner, Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp);
                     
-                }
+                }*/
             }
 
-            FotoInfos_Set();*/
+            //FotoInfos_Set();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -956,32 +956,70 @@ namespace Fangliste_2016
 
             if (r == DialogResult.OK)
             {
+                DialogResult f = MessageBox.Show("Info eintragen?", "Foto", MessageBoxButtons.YesNo);
+
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = SQLCollection.GetConnectionString();
-                //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
-                Image imag = Image.FromFile(openFileDialog1.FileName);
-                Image icon = ResizeImage(imag, 100, 100);
-                UpdateIconToFang(icon);
+                for (int i = 0; i < openFileDialog1.FileNames.Length; i++)
+                {
+                    Image imag = Image.FromFile(openFileDialog1.FileNames[i]);
+                    Frm_FotoinfoEditor fie = null;
 
-                try
-                {
-                    con.Open();
-                    SqlCommand insertCommand = new SqlCommand(
-                "Insert into Foto (Angler_ID, Fang_ID, Kommentar, Bild) Values ('" +"12" + "', '3', 'BlaBlakommentar', @Pic)", con);
-                    insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
-                        ConvertImageToByteArray(imag, ImageFormat.Jpeg);
-                    int queryResult = insertCommand.ExecuteNonQuery();
-                    if (queryResult == 1)
-                        Console.WriteLine("Erfolgreich aktualisiert.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Failed to connect to data source" + ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
+                    if (f == DialogResult.Yes)
+                    {
+                        fie = new Frm_FotoinfoEditor(imag);
+                        DialogResult z = fie.ShowDialog();
+
+                        if (z == DialogResult.OK)
+                        {
+                            Image icon = ResizeImage(imag, 100, 100);
+                            UpdateIconToFang(fie.NeuerEintrag.Fang_ID, icon);
+
+                            try
+                            {
+                                con.Open();
+                            SqlCommand insertCommand = new SqlCommand(
+                        "Insert into Foto (Angler_ID, Fang_ID, Kommentar, Bild) Values ('" + fie.NeuerEintrag.Angler_ID + "', '" + fie.NeuerEintrag.Fang_ID + "', '" + fie.NeuerEintrag.Kommentar + "', @Pic)", con);
+                            insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
+                                ConvertImageToByteArray(imag, ImageFormat.Jpeg);
+                            int queryResult = insertCommand.ExecuteNonQuery();
+                            if (queryResult == 1)
+                                Console.WriteLine("Erfolgreich aktualisiert.");
+                        }
+                    catch (Exception ex)
+                        {
+                            MessageBox.Show("Failed to connect to data source" + ex.ToString());
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+                    }
+                        
+                    }
+                    else
+                    {
+                        try
+                        {
+                            con.Open();
+                            SqlCommand insertCommand = new SqlCommand(
+                        "Insert into Foto (Bild) Values (@Pic)", con);
+                            insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
+                                ConvertImageToByteArray(imag, ImageFormat.Jpeg);
+                            int queryResult = insertCommand.ExecuteNonQuery();
+                            if (queryResult == 1)
+                                Console.WriteLine("Erfolgreich aktualisiert.");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Failed to connect to data source" + ex.ToString());
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+                    }
                 }
             }
         }
@@ -1018,7 +1056,7 @@ namespace Fangliste_2016
             return destImage;
         }
 
-        private void UpdateIconToFang(Image bild)
+        private void UpdateIconToFang(int fang_ID, Image bild)
         {
             try
             {
@@ -1028,7 +1066,7 @@ namespace Fangliste_2016
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "UPDATE Fang SET Icon = @Pic WHERE Id = '1'";
+                    command.CommandText = "UPDATE Fang SET Icon = @Pic WHERE Id = '" + fang_ID + "'";
                     command.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
                         ConvertImageToByteArray(bild, ImageFormat.Jpeg);
 

@@ -597,7 +597,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
               <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.Hitparade_Hecht" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Platz, Icon, Name, Länge, Gewicht, Gewässer, Datum, Id FROM dbo.Hitparade_Hecht</CommandText>
+                    <CommandText>SELECT Platz, Icon, Name, Länge, Gewicht, Gewässer, Datum, Id, Fischart FROM dbo.Hitparade_Hecht</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -612,6 +612,39 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
               <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
               <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Fischart" DataSetColumn="Fischart" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AlleFängeNurListeTableAdapter" GeneratorDataComponentClassName="AlleFängeNurListeTableAdapter" Name="AlleFängeNurListe" UserDataComponentName="AlleFängeNurListeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.AlleFängeNurListe" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Fang_ID, Angler_ID, Icon, Name, Fischart, Länge, Gewicht, Gewässer, Datum, Uhrzeit, Angelplatz, Köder, Tiefe, Lufttemperatur, Wassertemperatur, Wetter, Kommentar FROM dbo.AlleFängeNurListe</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Fang_ID" DataSetColumn="Fang_ID" />
+              <Mapping SourceColumn="Angler_ID" DataSetColumn="Angler_ID" />
+              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Fischart" DataSetColumn="Fischart" />
+              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
+              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
+              <Mapping SourceColumn="Gewässer" DataSetColumn="Gewässer" />
+              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
+              <Mapping SourceColumn="Uhrzeit" DataSetColumn="Uhrzeit" />
+              <Mapping SourceColumn="Angelplatz" DataSetColumn="Angelplatz" />
+              <Mapping SourceColumn="Köder" DataSetColumn="Köder" />
+              <Mapping SourceColumn="Tiefe" DataSetColumn="Tiefe" />
+              <Mapping SourceColumn="Lufttemperatur" DataSetColumn="Lufttemperatur" />
+              <Mapping SourceColumn="Wassertemperatur" DataSetColumn="Wassertemperatur" />
+              <Mapping SourceColumn="Wetter" DataSetColumn="Wetter" />
+              <Mapping SourceColumn="Kommentar" DataSetColumn="Kommentar" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1063,7 +1096,7 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Hecht" msprop:Generator_TableClassName="Hitparade_HechtDataTable" msprop:Generator_TableVarName="tableHitparade_Hecht" msprop:Generator_TablePropName="Hitparade_Hecht" msprop:Generator_RowDeletingName="Hitparade_HechtRowDeleting" msprop:Generator_RowChangingName="Hitparade_HechtRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_HechtRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_HechtRowDeleted" msprop:Generator_UserTableName="Hitparade_Hecht" msprop:Generator_RowChangedName="Hitparade_HechtRowChanged" msprop:Generator_RowEvArgName="Hitparade_HechtRowChangeEvent" msprop:Generator_RowClassName="Hitparade_HechtRow">
+        <xs:element name="Hitparade_Hecht" msprop:Generator_TableClassName="Hitparade_HechtDataTable" msprop:Generator_TableVarName="tableHitparade_Hecht" msprop:Generator_RowChangedName="Hitparade_HechtRowChanged" msprop:Generator_TablePropName="Hitparade_Hecht" msprop:Generator_RowDeletingName="Hitparade_HechtRowDeleting" msprop:Generator_RowChangingName="Hitparade_HechtRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_HechtRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_HechtRowDeleted" msprop:Generator_RowClassName="Hitparade_HechtRow" msprop:Generator_UserTableName="Hitparade_Hecht" msprop:Generator_RowEvArgName="Hitparade_HechtRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1086,6 +1119,78 @@ SELECT Id, Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID FROM Foto WHERE (Id = 
               </xs:element>
               <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Fischart" msprop:Generator_ColumnVarNameInTable="columnFischart" msprop:Generator_ColumnPropNameInRow="Fischart" msprop:Generator_ColumnPropNameInTable="FischartColumn" msprop:Generator_UserColumnName="Fischart">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AlleFängeNurListe" msprop:Generator_TableClassName="AlleFängeNurListeDataTable" msprop:Generator_TableVarName="tableAlleFängeNurListe" msprop:Generator_TablePropName="AlleFängeNurListe" msprop:Generator_RowDeletingName="AlleFängeNurListeRowDeleting" msprop:Generator_RowChangingName="AlleFängeNurListeRowChanging" msprop:Generator_RowEvHandlerName="AlleFängeNurListeRowChangeEventHandler" msprop:Generator_RowDeletedName="AlleFängeNurListeRowDeleted" msprop:Generator_UserTableName="AlleFängeNurListe" msprop:Generator_RowChangedName="AlleFängeNurListeRowChanged" msprop:Generator_RowEvArgName="AlleFängeNurListeRowChangeEvent" msprop:Generator_RowClassName="AlleFängeNurListeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fang_ID" msprop:Generator_ColumnVarNameInTable="columnFang_ID" msprop:Generator_ColumnPropNameInRow="Fang_ID" msprop:Generator_ColumnPropNameInTable="Fang_IDColumn" msprop:Generator_UserColumnName="Fang_ID" type="xs:int" />
+              <xs:element name="Angler_ID" msprop:Generator_ColumnVarNameInTable="columnAngler_ID" msprop:Generator_ColumnPropNameInRow="Angler_ID" msprop:Generator_ColumnPropNameInTable="Angler_IDColumn" msprop:Generator_UserColumnName="Angler_ID" type="xs:int" />
+              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fischart" msprop:Generator_ColumnVarNameInTable="columnFischart" msprop:Generator_ColumnPropNameInRow="Fischart" msprop:Generator_ColumnPropNameInTable="FischartColumn" msprop:Generator_UserColumnName="Fischart">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewässer" msprop:Generator_ColumnVarNameInTable="columnGewässer" msprop:Generator_ColumnPropNameInRow="Gewässer" msprop:Generator_ColumnPropNameInTable="GewässerColumn" msprop:Generator_UserColumnName="Gewässer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Uhrzeit" msprop:Generator_ColumnVarNameInTable="columnUhrzeit" msprop:Generator_ColumnPropNameInRow="Uhrzeit" msprop:Generator_ColumnPropNameInTable="UhrzeitColumn" msprop:Generator_UserColumnName="Uhrzeit" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Angelplatz" msprop:Generator_ColumnVarNameInTable="columnAngelplatz" msprop:Generator_ColumnPropNameInRow="Angelplatz" msprop:Generator_ColumnPropNameInTable="AngelplatzColumn" msprop:Generator_UserColumnName="Angelplatz" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Köder" msprop:Generator_ColumnVarNameInTable="columnKöder" msprop:Generator_ColumnPropNameInRow="Köder" msprop:Generator_ColumnPropNameInTable="KöderColumn" msprop:Generator_UserColumnName="Köder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tiefe" msprop:Generator_ColumnVarNameInTable="columnTiefe" msprop:Generator_ColumnPropNameInRow="Tiefe" msprop:Generator_ColumnPropNameInTable="TiefeColumn" msprop:Generator_UserColumnName="Tiefe" type="xs:double" minOccurs="0" />
+              <xs:element name="Lufttemperatur" msprop:Generator_ColumnVarNameInTable="columnLufttemperatur" msprop:Generator_ColumnPropNameInRow="Lufttemperatur" msprop:Generator_ColumnPropNameInTable="LufttemperaturColumn" msprop:Generator_UserColumnName="Lufttemperatur" type="xs:double" minOccurs="0" />
+              <xs:element name="Wassertemperatur" msprop:Generator_ColumnVarNameInTable="columnWassertemperatur" msprop:Generator_ColumnPropNameInRow="Wassertemperatur" msprop:Generator_ColumnPropNameInTable="WassertemperaturColumn" msprop:Generator_UserColumnName="Wassertemperatur" type="xs:double" minOccurs="0" />
+              <xs:element name="Wetter" msprop:Generator_ColumnVarNameInTable="columnWetter" msprop:Generator_ColumnPropNameInRow="Wetter" msprop:Generator_ColumnPropNameInTable="WetterColumn" msprop:Generator_UserColumnName="Wetter" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Kommentar" msprop:Generator_ColumnVarNameInTable="columnKommentar" msprop:Generator_ColumnPropNameInRow="Kommentar" msprop:Generator_ColumnPropNameInTable="KommentarColumn" msprop:Generator_UserColumnName="Kommentar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
