@@ -677,7 +677,7 @@ namespace Fangliste_2016
 
         private void lb_fisch_eintragen_Click(object sender, EventArgs e)
         {
-            frm_fischEintragen = new Frm_Fischeintragen();
+            frm_fischEintragen = new Frm_Fischeintragen(this.aktueller_Fischer);
             frm_fischEintragen.ShowDialog();
             GesAnzahlderFänge_Hecht_Zander_Barsch_Andere();
             /*if (frm_fischEintragen.DialogResult == DialogResult.OK)

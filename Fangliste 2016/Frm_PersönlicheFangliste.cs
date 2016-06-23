@@ -60,8 +60,12 @@ namespace Fangliste_2016
                 SqlCommandBuilder comBuilder = new SqlCommandBuilder(dataAdapterPers);
                 System.Data.DataSet ds = new System.Data.DataSet();
                 dataAdapterPers.Fill(ds);
-                dataGridView1.DataSource = ds.Tables[0];
-                
+
+                BindingSource source1 = new BindingSource();
+                source1.DataSource = ds.Tables[0];
+
+                dataGridView1.DataSource = source1;//ds.Tables[0];
+                source1.Sort = "datum DESC";
                 
             }
             catch (Exception ex)

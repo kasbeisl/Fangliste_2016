@@ -38,10 +38,6 @@
             this.label_ges_anzahl = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
-            this.alleFängeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.alleFängeTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.AlleFängeTableAdapter();
-            this.tableAdapterManager = new Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager();
             this.alleFängeDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,12 +54,16 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alleFängeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
+            this.alleFängeTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.AlleFängeTableAdapter();
+            this.tableAdapterManager = new Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alleFängeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alleFängeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alleFängeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -147,31 +147,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.3735F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1275, 664);
             this.tableLayoutPanel1.TabIndex = 12;
-            // 
-            // fanglisteDBDataSet
-            // 
-            this.fanglisteDBDataSet.DataSetName = "FanglisteDBDataSet";
-            this.fanglisteDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // alleFängeBindingSource
-            // 
-            this.alleFängeBindingSource.DataMember = "AlleFänge";
-            this.alleFängeBindingSource.DataSource = this.fanglisteDBDataSet;
-            // 
-            // alleFängeTableAdapter
-            // 
-            this.alleFängeTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AnglerTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.FangTableAdapter = null;
-            this.tableAdapterManager.FischTableAdapter = null;
-            this.tableAdapterManager.FotoTableAdapter = null;
-            this.tableAdapterManager.GewässerTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // alleFängeDataGridView
             // 
@@ -317,6 +292,33 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
+            // alleFängeBindingSource
+            // 
+            this.alleFängeBindingSource.DataMember = "AlleFänge";
+            this.alleFängeBindingSource.DataSource = this.fanglisteDBDataSet;
+            this.alleFängeBindingSource.Sort = "datum DESC";
+            // 
+            // fanglisteDBDataSet
+            // 
+            this.fanglisteDBDataSet.DataSetName = "FanglisteDBDataSet";
+            this.fanglisteDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // alleFängeTableAdapter
+            // 
+            this.alleFängeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AnglerTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.FangTableAdapter = null;
+            this.tableAdapterManager.FischTableAdapter = null;
+            this.tableAdapterManager.FotoTableAdapter = null;
+            this.tableAdapterManager.GewässerTableAdapter = null;
+            this.tableAdapterManager.OrdnerTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // Frm_Alle_Fänge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,9 +338,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alleFängeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alleFängeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alleFängeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

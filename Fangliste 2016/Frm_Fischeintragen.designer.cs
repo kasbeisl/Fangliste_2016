@@ -263,6 +263,7 @@
             this.tbx_Gewicht.Name = "tbx_Gewicht";
             this.tbx_Gewicht.Size = new System.Drawing.Size(264, 22);
             this.tbx_Gewicht.TabIndex = 2;
+            this.tbx_Gewicht.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbx_Gewicht.Value = new decimal(new int[] {
             1,
             0,
@@ -293,6 +294,7 @@
             this.tbx_Tiefe.Name = "tbx_Tiefe";
             this.tbx_Tiefe.Size = new System.Drawing.Size(163, 22);
             this.tbx_Tiefe.TabIndex = 9;
+            this.tbx_Tiefe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbx_Temperatur
             // 
@@ -311,6 +313,7 @@
             this.tbx_Temperatur.Name = "tbx_Temperatur";
             this.tbx_Temperatur.Size = new System.Drawing.Size(163, 22);
             this.tbx_Temperatur.TabIndex = 7;
+            this.tbx_Temperatur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbx_Temperatur.Value = new decimal(new int[] {
             15,
             0,
@@ -334,6 +337,7 @@
             this.tbx_wassertemperatur.Name = "tbx_wassertemperatur";
             this.tbx_wassertemperatur.Size = new System.Drawing.Size(163, 22);
             this.tbx_wassertemperatur.TabIndex = 8;
+            this.tbx_wassertemperatur.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbx_wassertemperatur.Value = new decimal(new int[] {
             15,
             0,
@@ -386,6 +390,7 @@
             this.tbx_Größe.Name = "tbx_Größe";
             this.tbx_Größe.Size = new System.Drawing.Size(264, 22);
             this.tbx_Größe.TabIndex = 1;
+            this.tbx_Größe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbx_Größe.ValueChanged += new System.EventHandler(this.tbx_Größe_ValueChanged);
             this.tbx_Größe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_Größe_KeyPress);
             // 

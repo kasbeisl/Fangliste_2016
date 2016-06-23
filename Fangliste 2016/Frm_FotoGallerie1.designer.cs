@@ -422,7 +422,9 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1006;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pictureBox1_LoadCompleted);
+            this.pictureBox1.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pictureBox1_LoadCompleted_1);
+            this.pictureBox1.LoadProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.pictureBox1_LoadProgressChanged);
+            this.pictureBox1.BindingContextChanged += new System.EventHandler(this.pictureBox1_BindingContextChanged);
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ContentPanel

@@ -368,7 +368,17 @@ namespace Fangliste_2016
             }
         }
 
-       #region Backgroundworker Diashow
+        public delegate void SetLabelTextNumber();
+
+        public void SetLN()
+        {
+            Label_foto_nr_setzen();
+
+            FotoInfos_Set();
+        }
+        
+
+        #region Backgroundworker Diashow
 
         public void Diashow_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -400,7 +410,8 @@ namespace Fangliste_2016
                         foto_jetzt = i;
                         foto_vorher = i;
                         pictureBox1.Image = fotoliste[i].Bild;
-                        FotoInfos_Set();
+                        //FotoInfos_Set();
+                        
                         Thread.Sleep(diashow_time);
 
                         if (i == this.fotoliste.Count - 1)
@@ -1395,6 +1406,23 @@ namespace Fangliste_2016
         private void backgroundWorker_MusikLaden_DoWork(object sender, DoWorkEventArgs e)
         {
             MusikAbspielen();
+        }
+
+        private void pictureBox1_LoadCompleted_1(object sender, AsyncCompletedEventArgs e)
+        {
+            Label_foto_nr_setzen();
+
+            FotoInfos_Set();
+        }
+
+        private void pictureBox1_LoadProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_BindingContextChanged(object sender, EventArgs e)
+        {
+
         }
 
         //#region Extras

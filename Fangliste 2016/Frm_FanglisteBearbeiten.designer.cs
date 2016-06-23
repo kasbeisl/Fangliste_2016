@@ -158,6 +158,7 @@
             // 
             this.alleFängeBindingSource.DataMember = "AlleFänge";
             this.alleFängeBindingSource.DataSource = this.fanglisteDBDataSet;
+            this.alleFängeBindingSource.Sort = "datum DESC";
             // 
             // alleFängeTableAdapter
             // 
@@ -315,6 +316,7 @@
             this.alleFängeDataGridView.MultiSelect = false;
             this.alleFängeDataGridView.Name = "alleFängeDataGridView";
             this.alleFängeDataGridView.RowTemplate.Height = 100;
+            this.alleFängeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.alleFängeDataGridView.Size = new System.Drawing.Size(1232, 490);
             this.alleFängeDataGridView.TabIndex = 11;
             // 
