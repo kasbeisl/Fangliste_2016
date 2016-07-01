@@ -100,7 +100,7 @@ namespace Fangliste_2016
                 btn_brechnen.Enabled = true;
             }
         }
-
+        //jaekj
         private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cb_Fischart.Text != "" && cb_Kategorie.Text != "")
