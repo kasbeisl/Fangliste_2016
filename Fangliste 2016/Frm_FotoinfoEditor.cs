@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FanglisteLibrary;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Fangliste_2016
 {
@@ -20,6 +21,7 @@ namespace Fangliste_2016
         bool edit = false;
         Image bild;
         int fang_ID;
+        List<Ordner> ordnerliste = null;
 
         #endregion
 
@@ -78,16 +80,28 @@ namespace Fangliste_2016
             if (r == DialogResult.OK)
             {
                 eintrag = new Foto1(0, Convert.ToInt16(frm_alleFänge.Row.Cells[1].Value), Convert.ToInt16(frm_alleFänge.Row.Cells[0].Value), 1, textBox1.Text);
+                richTextBox1.Text = "ID: " + frm_alleFänge.Row.Cells[1].Value.ToString() + "\n" +
+                                     "Name: " + frm_alleFänge.Row.Cells[3].Value.ToString() + "\n" +
+                                     "Fischart: " + frm_alleFänge.Row.Cells[4].Value.ToString() + "\n" +
+                                     "Größe: " + frm_alleFänge.Row.Cells[5].Value.ToString() + " cm\n" +
+                                     "Gewicht: " + frm_alleFänge.Row.Cells[6].Value.ToString() + " kg\n" +
+                                     "Gewässer: " + frm_alleFänge.Row.Cells[7].Value.ToString() + "\n" +
+                                     "Datum: " + frm_alleFänge.Row.Cells[8].Value.ToString() + "\n" +
+                                     "Uhrzeit: " + frm_alleFänge.Row.Cells[9].Value.ToString(); //, , frm_alleFänge.Row.Cells[9].Value.ToString(), frm_alleFänge.Row.Cells[10].Value.ToString(), Convert.ToDouble(frm_alleFänge.Row.Cells[11].Value), Convert.ToDouble(frm_alleFänge.Row.Cells[12].Value), Convert.ToDouble(frm_alleFänge.Row.Cells[13].Value), frm_alleFänge.Row.Cells[14].Value.ToString(), Convert.ToBoolean(frm_alleFänge.Row.Cells[15].Value), frm_alleFänge.Row.Cells[16].Value.ToString());
 
-                /*fang = fangliste[frm_alleFänge.SelectedIndex];
+                
+
                 btn_entfernen.Enabled = true;
-
-                Zeichnen();*/
+                
+                //Zeichnen();
             }
         }
 
         private void btn_fertig_Click(object sender, EventArgs e)
         {
+            if (ordnerliste != null)
+                eintrag.Ordner_ID = ordnerliste[cb_ordner.SelectedIndex].ID;
+
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
 
@@ -136,6 +150,13 @@ namespace Fangliste_2016
                 btn_löschen.Enabled = false;
             }
 
+             this.ordnerliste = LeseOrdnerTabelleaus();
+
+            for (int i = 0; i < ordnerliste.Count; i++)
+            {
+                cb_ordner.Items.Add(ordnerliste[i].Name);
+            }
+
             /*if(fang != null)
                 btn_entfernen.Enabled = true;
             else
@@ -163,7 +184,44 @@ namespace Fangliste_2016
             }
 
             if(edit)
-                textBox1.Text = fotoliste[index].Kommentar;*/
+                textBox1.Text = eintrag.Kommentar;*/
+        }
+
+        private List<Ordner> LeseOrdnerTabelleaus()
+        {
+            List<Ordner> ordnerliste = new List<Ordner>();
+
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                string strSQL = "SELECT * " +
+                                "FROM Ordner";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //cb_ordner.Items.Add(reader["Name"]);
+                    ordnerliste.Add(new Ordner(Convert.ToInt16(reader["Id"]), reader["Name"].ToString()));
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return ordnerliste;
         }
 
         private bool PrüfeEingabe(string text)
@@ -192,16 +250,16 @@ namespace Fangliste_2016
 
         private void btn_entfernen_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
-                this.fang = null;
+                //this.fang = null;
                 richTextBox1.Text = "Kein Fang ausgewählt";
                 btn_entfernen.Enabled = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Fehler");
-            }*/
+            }
         }
     }
 }

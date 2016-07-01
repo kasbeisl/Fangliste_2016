@@ -61,51 +61,6 @@ namespace Fangliste_2016
 
         #endregion
 
-        #region Konstruktor
-
-        public Frm_Hauptmenu()
-        {
-            InitializeComponent();
-
-            try
-            {
-                if (File.Exists(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.ClickSound))
-                    clickSound = new SoundPlayer(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.ClickSound);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Fehler");
-            }
-        }
-
-        private void Frm_Hauptmenu_Load(object sender, EventArgs e)
-        {
-            lb_jahresfänge.Text += " " + DateTime.Today.Year;
-
-            PrüfenObOrdnerUndDatenExistieren();
-            /*frm_loadDialog = new Frm_LoadDialog();
-            frm_loadDialog.ShowDialog();*/
-
-            NamenWählen();
-
-            //LadeAlteFanglisteInDatenbank();
-
-            /*if (frm_loadDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                this.fangliste = frm_loadDialog.GetFangliste;
-                this.anglerliste = frm_loadDialog.GetAnglerliste; ;
-                this.fischartenliste = frm_loadDialog.GetFischartenliste;
-                this.fotoliste = frm_loadDialog.GetFotoliste;
-
-                NamenWählen();
-            }
-            else
-            {
-                MessageBox.Show("Daten konnten nicht geladen werden.", "Fehler");
-                Application.Exit();
-            }*/
-        }
-
         private void LadeAlteFanglisteInDatenbank()
         {
             SQLCollection.DeleteTabel();
@@ -258,11 +213,11 @@ namespace Fangliste_2016
                     {
                         fangliste.Add(new Fangliste1(0, angler_id, fisch_id, fanglisteZuLaden[i].Größe, fanglisteZuLaden[i].Gewicht, gewässer_id, fanglisteZuLaden[i].Datum, fanglisteZuLaden[i].Uhrzeit, fanglisteZuLaden[i].Platzbesch, fanglisteZuLaden[i].Köderbeschr, fanglisteZuLaden[i].Tiefe, fanglisteZuLaden[i].Lufttemperatur, 0, fanglisteZuLaden[i].Wetter, fanglisteZuLaden[i].Zurückgesetzt, ""));
                     }
-                    catch ( Exception ex )
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.ToString());
                     }
-                    
+
                 }
 
                 leser1.Close();
@@ -306,6 +261,22 @@ namespace Fangliste_2016
             }
         }
 
+        #region Konstruktor
+
+        public Frm_Hauptmenu()
+        {
+            InitializeComponent();
+
+            try
+            {
+                if (File.Exists(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.ClickSound))
+                    clickSound = new SoundPlayer(Properties.Settings.Default.Data + "\\" + Properties.Settings.Default.ClickSound);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Fehler");
+            }
+        }
 
         #endregion
 
@@ -590,9 +561,90 @@ namespace Fangliste_2016
             }
         }
 
+        void AddToolStripButtons()
+        {
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+                string strSQL = "SELECT * " +
+                                "FROM Link";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                int count = 1;
+                Font stringFont = new Font("Segoe UI", 9);
+                
+                while (reader.Read())
+                {
+                    ToolStripButton links = new ToolStripButton();
+                    links.Text = reader["Name"].ToString();
+                    links.Tag = reader["Link"].ToString();
+                    links.Click += new EventHandler(links_Click);
+                    LinkstoolStripDropDownButton.DropDownItems.Add(links);
+
+                    Size textSize = TextRenderer.MeasureText(links.Text, stringFont);
+                    LinkstoolStripDropDownButton.DropDownItems[count + 1].Size = new Size(textSize.Width, 22);
+                    count++;
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         #endregion
 
         #region Buttons und Events
+
+        private void Frm_Hauptmenu_Load(object sender, EventArgs e)
+        {
+            AddToolStripButtons();
+
+            lb_jahresfänge.Text += " " + DateTime.Today.Year;
+
+            PrüfenObOrdnerUndDatenExistieren();
+            /*frm_loadDialog = new Frm_LoadDialog();
+            frm_loadDialog.ShowDialog();*/
+
+            NamenWählen();
+
+            
+
+            //LadeAlteFanglisteInDatenbank();
+
+            /*if (frm_loadDialog.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                this.fangliste = frm_loadDialog.GetFangliste;
+                this.anglerliste = frm_loadDialog.GetAnglerliste; ;
+                this.fischartenliste = frm_loadDialog.GetFischartenliste;
+                this.fotoliste = frm_loadDialog.GetFotoliste;
+
+                NamenWählen();
+            }
+            else
+            {
+                MessageBox.Show("Daten konnten nicht geladen werden.", "Fehler");
+                Application.Exit();
+            }*/
+        }
+
+        private void links_Click(object sender, EventArgs e)
+        {
+            ToolStripButton links = sender as ToolStripButton;
+            if (links != null && links.Tag != null)
+                StartInternetExplorer(links.Tag.ToString());
+        }
 
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -978,28 +1030,63 @@ namespace Fangliste_2016
             frm_umrechner.ShowDialog();
         }
 
-        #endregion
-
-        #region Links
-
-        private void fischervereinTraunseeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void downloadtoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartInternetExplorer("http://www.traunseefischer.at");
+            if (Properties.Settings.Default.Hostname != "")
+            {
+                if (Properties.Settings.Default.Username != "")
+                {
+                    if (Properties.Settings.Default.Passwort != "")
+                    {
+                        frm_download = new Frm_Download();
+                        frm_download.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kein Passwort.", "Server Information");
+                        frm_einstellungen = new Frm_Einstellungen();
+                        frm_einstellungen.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Kein Username.", "Server Information");
+                    frm_einstellungen = new Frm_Einstellungen();
+                    frm_einstellungen.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kein Hostname.", "Server Information");
+                frm_einstellungen = new Frm_Einstellungen();
+                frm_einstellungen.ShowDialog();
+            }
         }
 
-        private void beissindexToolStripMenuItem_Click(object sender, EventArgs e)
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartInternetExplorer("http://beissindex.de");
+            frm_fangliste_Backup = new Frm_Fangliste_Backup();
+            frm_fangliste_Backup.ShowDialog();
+
+            if (frm_fangliste_Backup.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                Fangliste_auslesen();
+                GesAnzahlderFänge_Hecht_Zander_Barsch_Andere();
+            }
         }
 
-        private void anglerInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bearbeitentoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartInternetExplorer("http://oberoesterreich.anglerinfo.at/");
-        }
+            Frm_LinksBearbeiten lb = new Frm_LinksBearbeiten();
+            lb.ShowDialog();
 
-        private void bissanzeigerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            StartInternetExplorer("http://bissanzeiger.net/");
+            int pos = 2;
+            for (int i = 0; i < LinkstoolStripDropDownButton.DropDownItems.Count; i++)
+            {
+                LinkstoolStripDropDownButton.DropDownItems.RemoveAt(pos);
+            }
+
+            AddToolStripButtons();
         }
 
         #endregion
@@ -1490,50 +1577,5 @@ namespace Fangliste_2016
         }
 
         #endregion
-
-        private void downloadtoolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.Hostname != "")
-            {
-                if (Properties.Settings.Default.Username != "")
-                {
-                    if (Properties.Settings.Default.Passwort != "")
-                    {
-                        frm_download = new Frm_Download();
-                        frm_download.ShowDialog();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Kein Passwort.", "Server Information");
-                        frm_einstellungen = new Frm_Einstellungen();
-                        frm_einstellungen.ShowDialog();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Kein Username.", "Server Information");
-                    frm_einstellungen = new Frm_Einstellungen();
-                    frm_einstellungen.ShowDialog();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Kein Hostname.", "Server Information");
-                frm_einstellungen = new Frm_Einstellungen();
-                frm_einstellungen.ShowDialog();
-            }
-        }
-
-        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_fangliste_Backup = new Frm_Fangliste_Backup();
-            frm_fangliste_Backup.ShowDialog();
-
-            if (frm_fangliste_Backup.DialogResult == System.Windows.Forms.DialogResult.OK)
-            {
-                Fangliste_auslesen();
-                GesAnzahlderFänge_Hecht_Zander_Barsch_Andere();
-            }
-        }
     }
 }

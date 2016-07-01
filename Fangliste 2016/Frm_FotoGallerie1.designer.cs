@@ -68,6 +68,7 @@
             this.label_kommentar = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.backgroundWorker_MusikLaden = new System.ComponentModel.BackgroundWorker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_volume)).BeginInit();
@@ -266,6 +267,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.btn_audio_next);
             this.panel1.Controls.Add(this.btn_audio_back);
@@ -422,9 +424,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1006;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pictureBox1_LoadCompleted_1);
-            this.pictureBox1.LoadProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.pictureBox1_LoadProgressChanged);
-            this.pictureBox1.BindingContextChanged += new System.EventHandler(this.pictureBox1_BindingContextChanged);
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ContentPanel
@@ -468,6 +467,14 @@
             // 
             this.backgroundWorker_MusikLaden.WorkerSupportsCancellation = true;
             this.backgroundWorker_MusikLaden.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_MusikLaden_DoWork);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(961, 5);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 21);
+            this.comboBox1.TabIndex = 1024;
             // 
             // Frm_FotoGallerie1
             // 
@@ -537,7 +544,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem duplikateSuchenToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker_MusikLaden;
-
-
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

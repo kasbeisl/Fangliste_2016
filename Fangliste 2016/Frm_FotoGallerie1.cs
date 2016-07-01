@@ -209,7 +209,7 @@ namespace Fangliste_2016
             }
         }
 
-        private void Aktualisieren1(int ordner = 2)
+        private void Aktualisieren1(string ordner)
         {
             fotoliste = new List<Foto1>();
 
@@ -224,7 +224,8 @@ namespace Fangliste_2016
                 //string text = "SELECT COUNT(*) FROM Angler";
 
                 string strSQL = "SELECT * " +
-                                "FROM Foto WHERE Ordner_ID = '" + ordner + "'";
+                                "FROM Foto JOIN Ordner ON (Foto.Ordner_ID = Ordner.Id) WHERE Ordner.Name = '" + ordner + "' " + 
+                                "";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -368,8 +369,6 @@ namespace Fangliste_2016
             }
         }
 
-        public delegate void SetLabelTextNumber();
-
         public void SetLN()
         {
             Label_foto_nr_setzen();
@@ -410,8 +409,10 @@ namespace Fangliste_2016
                         foto_jetzt = i;
                         foto_vorher = i;
                         pictureBox1.Image = fotoliste[i].Bild;
-                        //FotoInfos_Set();
-                        
+                        Invoke((MethodInvoker)delegate {
+                            SetLN();
+                        });
+
                         Thread.Sleep(diashow_time);
 
                         if (i == this.fotoliste.Count - 1)
@@ -712,6 +713,37 @@ namespace Fangliste_2016
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            if (fotoliste.Count != 0)
+            {
+                if (this.FormBorderStyle != FormBorderStyle.None)
+                {
+                    panel1.Visible = false;
+                    this.Size = new Size(1280, 768);
+                    this.BackColor = Color.Black;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.TopMost = true;
+                    this.WindowState = FormWindowState.Maximized;
+                    label_kommentar.ForeColor = Color.White;
+                    lb_fotoInfo.ForeColor = Color.White;
+                    this.ControlBox = false;
+                }
+                else
+                {
+                    panel1.Visible = true;
+                    this.Size = new Size(1197, 684);
+                    this.BackColor = DefaultBackColor;
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+                    this.TopMost = false;
+                    this.WindowState = FormWindowState.Normal;
+                    label_kommentar.ForeColor = Color.Black;
+                    lb_fotoInfo.ForeColor = Color.Black;
+                    this.ControlBox = true;
+                }
+            }
+            
+            
+
+
             /*if (this.images.Count != 0)
             {
                 Diashow.CancelAsync();
@@ -786,14 +818,14 @@ namespace Fangliste_2016
 
         private void übersichtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*frm_fotoÜbersicht = new Frm_FotoÜbersicht1(this.fotoliste);
+            frm_fotoÜbersicht = new Frm_FotoÜbersicht1(this.fotoliste);
             frm_fotoÜbersicht.ShowDialog();
 
             if (frm_fotoÜbersicht.DialogResult == DialogResult.OK)
             {
                 //cb_gewässer.Text = "Alle Fotos";
                 foto_jetzt = frm_fotoÜbersicht.SelectedIndex;
-                pictureBox1.ImageLocation = images[foto_jetzt];
+                pictureBox1.Image = fotoliste[foto_jetzt].Bild;
 
                 Label_foto_nr_setzen();
                 Set_combobox();
@@ -802,7 +834,7 @@ namespace Fangliste_2016
                 {
                     button_back.Enabled = true;
                 }
-            }*/
+            }
         }
 
         private void fotolisteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -929,7 +961,7 @@ namespace Fangliste_2016
                     }
                     else
                     {
-                        Aktualisieren1(1);
+                        Aktualisieren1(cb_gewässer.Text);
                     }
 
                     Set_combobox();
@@ -1015,7 +1047,7 @@ namespace Fangliste_2016
                         {
                             con.Open();
                             SqlCommand insertCommand = new SqlCommand(
-                        "Insert into Foto (Bild) Values (@Pic)", con);
+                        "Insert into Foto (Angler_ID, Fang_ID, Kommentar, Bild) Values ('" + 0 + "', '" + 0 + "', '" + "" + "', @Pic)", con);
                             insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
                                 ConvertImageToByteArray(imag, ImageFormat.Jpeg);
                             int queryResult = insertCommand.ExecuteNonQuery();
@@ -1192,7 +1224,7 @@ namespace Fangliste_2016
                 btn_bearbeiten.Enabled = false;
                 button_foto_löschen.Enabled = false;
                 button_diashow.Enabled = false;
-                pictureBox1.ImageLocation = "";
+                pictureBox1.Image = null;
                 //cb_gewässer.Visible = false;
                 cb_anzahlFotos.Enabled = false;
                 cb_anzahlFotos.Text = "0";
@@ -1200,9 +1232,17 @@ namespace Fangliste_2016
                 cb_anzahlFotos.Visible = false;
                 none_foto = true;
                 ZeigeToolTipKeinFoto(true);
+                pictureBox1.Cursor = Cursors.Arrow;
+                contextMenuStrip1.Enabled = false;
             }
             else
             {
+                contextMenuStrip1.Enabled = true;
+                pictureBox1.Cursor = Cursors.Hand;
+                label_foto_von_anzahl.Visible = true;
+                btn_bearbeiten.Enabled = true;
+                button_foto_löschen.Enabled = true;
+                cb_anzahlFotos.Visible = true;
                 ZeigeToolTipKeinFoto(false);
                 label_foto_von_anzahl.Text = (foto_jetzt + 1) + " von " + fotoliste.Count;
                 cb_anzahlFotos.Enabled = true;
@@ -1365,7 +1405,26 @@ namespace Fangliste_2016
 
         private void speichernUnterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.Title = "Fotoliste speichern.";
+            saveFileDialog1.Title = "Foto speichern.";
+            saveFileDialog1.Filter = "JEPG (*.jpg)|*.jpg";
+            saveFileDialog1.FileName = "Fangbild";
+
+            DialogResult save = saveFileDialog1.ShowDialog();
+
+            if (save == DialogResult.OK)
+            {
+                string destFile = saveFileDialog1.FileName;
+                try
+                {
+                    fotoliste[foto_jetzt].Bild.Save(saveFileDialog1.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Das Foto konnte nicht gespeichert werden.\n\nInformation:\n" + ex.ToString(), "Fehler.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            /*saveFileDialog1.Title = "Fotoliste speichern.";
             saveFileDialog1.Filter = "Fotoliste (*.csv)|*.csv";
             saveFileDialog1.FileName = Properties.Settings.Default.Fotoliste;
 
@@ -1382,7 +1441,7 @@ namespace Fangliste_2016
                 {
                     MessageBox.Show("Die Fotoliste konnte nicht gespeichert werden.\n\nInformation:\n" + ex.ToString(), "Fehler.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            }*/
         }
 
         private void importierenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1406,23 +1465,6 @@ namespace Fangliste_2016
         private void backgroundWorker_MusikLaden_DoWork(object sender, DoWorkEventArgs e)
         {
             MusikAbspielen();
-        }
-
-        private void pictureBox1_LoadCompleted_1(object sender, AsyncCompletedEventArgs e)
-        {
-            Label_foto_nr_setzen();
-
-            FotoInfos_Set();
-        }
-
-        private void pictureBox1_LoadProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            
-        }
-
-        private void pictureBox1_BindingContextChanged(object sender, EventArgs e)
-        {
-
         }
 
         //#region Extras

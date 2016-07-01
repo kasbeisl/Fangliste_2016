@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Drawing2D;
+using FanglisteLibrary;
 
 namespace Fangliste_2016
 {
@@ -15,14 +16,14 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        List<string> images;
+        List<Foto1> images;
         int index;
 
         #endregion
 
         #region Konstruktor
 
-        public Frm_FotoÜbersicht1(List<string> images)
+        public Frm_FotoÜbersicht1(List<Foto1> images)
         {
             InitializeComponent();
 
@@ -61,8 +62,8 @@ namespace Fangliste_2016
 
         private void Zeichnen(int index)
         {
-            FileInfo fi = new FileInfo(images[index]);
-            listView1.Items.Add(fi.Name, index);
+            //FileInfo fi = new FileInfo(images[index].);
+            listView1.Items.Add((index+1).ToString(), index);
         }
 
         private void AddImageToImageList(ImageList iml, Bitmap bm, string key, float wid, float hgt)
@@ -136,7 +137,7 @@ namespace Fangliste_2016
 
                     for (int i = 0; i < images.Count; i++)
                     {
-                        Bitmap b = new Bitmap(images[i]);
+                        Bitmap b = new Bitmap(images[i].Bild);
                         //this.Invoke(new MethodInvoker(delegate { imageList1.Images.Add(b); }));
                         AddImageToImageList(imageList1, b, "", imageList1.ImageSize.Width, imageList1.ImageSize.Height);
                         this.Invoke(new MethodInvoker(delegate { Zeichnen(i); }));

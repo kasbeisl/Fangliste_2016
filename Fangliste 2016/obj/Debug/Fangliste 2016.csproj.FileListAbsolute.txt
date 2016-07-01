@@ -234,3 +234,4 @@ C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fanglist
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_Vorlage.resources
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Properties.Resources.resources
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.GenerateResource.Cache
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LinksBearbeiten.resources

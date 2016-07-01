@@ -262,6 +262,12 @@
     <Compile Include="Frm_LakeTrophy.designer.cs">
       <DependentUpon>Frm_LakeTrophy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_LinksBearbeiten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_LinksBearbeiten.Designer.cs">
+      <DependentUpon>Frm_LinksBearbeiten.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_LoadDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_LakeTrophy.resx">
       <DependentUpon>Frm_LakeTrophy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_LinksBearbeiten.resx">
+      <DependentUpon>Frm_LinksBearbeiten.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_LoadDialog.resx">
       <DependentUpon>Frm_LoadDialog.cs</DependentUpon>

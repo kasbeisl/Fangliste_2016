@@ -61,6 +61,7 @@
     <Compile Include="Einstellungen.cs" />
     <Compile Include="Fanggerät.cs" />
     <Compile Include="Foto1.cs" />
+    <Compile Include="Ordner.cs" />
     <Compile Include="PersönlicheFanglisteView.cs" />
     <Compile Include="Fangliste1.cs" />
     <Compile Include="Fangliste.cs" />
