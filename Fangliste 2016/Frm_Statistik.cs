@@ -416,58 +416,118 @@ namespace Fangliste_2016
 
         private void Temperatur()
         {
-            Statistik.Temperatur temperatur = new Statistik.Temperatur(this.alleFänge, cb_Fischart.Text);
 
-            bool keineWerte = true;
-            int anzahl_derFäge = 0;
 
-            for (int i = 0; i < temperatur.Y_Werte.Length; i++)
+            //ROUND(748.58, 0)
+
+            List<string> xVal = new List<string>();
+            List<int> yVal = new List<int>();
+
+            string strSQL = "SELECT Count(Fang.Id) AS Anzahl, Fisch.Name, ROUND(Lufttemperatur, 0) FROM Fang "
+            + "JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) "
+            + "WHERE Fisch.Name = '" + this.cb_Fischart.Text + "' "
+            + "GROUP BY Fisch.Name, ROUND(Lufttemperatur, 0) "
+            + "ORDER BY ROUND(Lufttemperatur, 0)";
+
+
+            try
             {
-                if (temperatur.Y_Werte[i] != 0)
+                this.ExecuteSQLCommand(strSQL);
+
+                while (this.reader.Read())
                 {
-                    keineWerte = false;
+                    yVal.Add(Convert.ToInt32(this.reader[0]));
+                    xVal.Add(this.reader[2].ToString());
+                    //yWerte[Convert.ToInt32(this.reader[2]) - 1] = Convert.ToInt32(this.reader[0]);
                 }
+                this.reader.Close();
+                this.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                this.con.Close();
+            }
 
-                if (temperatur.Y_Werte[i] != 0)
-                {
-                    anzahl_derFäge++;
+            int size = Convert.ToInt32(xVal[xVal.Count-1]) - Convert.ToInt32(xVal[0]);
+            string[] xWerte = new string[size];
+            int[] yWerte = new int[size];
+
+
+            xWerte[0] = xVal[0];
+            for (int i = 1; i < size; i++)
+            {
+                xWerte[i] = Convert.ToString(Convert.ToInt32(xWerte[i - 1]) + 1);
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                yWerte[i] = 0;
+                for (int j = 0; j < yVal.Count; j++)
+                { 
+                    if (xWerte[i] == xVal[j])
+                    {
+                        yWerte[i] = yVal[j];
+                    }
                 }
             }
 
-            if (keineWerte)
-            {
-                MessageBox.Show("Keine Werte vorhanden.", "Information");
-            }
-            else
-            {
-                //if (anzahl_derFäge < 3)
-                //{
-                //    MessageBox.Show("Es sind zu wengige Werte vorhanden.", "Information");
-                //}
-            }
 
-            string[] xWerte = new string[temperatur.Y_Werte.Length];
+            //Statistik.Temperatur temperatur = new Statistik.Temperatur(this.alleFänge, cb_Fischart.Text);
 
-            listView1.Items.Clear();
-            int sw = -20;
+            //bool keineWerte = true;
+            //int anzahl_derFäge = 0;
 
-            for (int i = 0; i < xWerte.Length; i++)
-            {
-                xWerte[i] = sw.ToString();
-                sw++;
-            }
+            //for (int i = 0; i < temperatur.Y_Werte.Length; i++)
+            //{
+            //    if (temperatur.Y_Werte[i] != 0)
+            //    {
+            //        keineWerte = false;
+            //    }
 
-            for (int i = 0; i < xWerte.Length; i++)
-            {
-                listView1.Items.Add(xWerte[i] + " C° = " + temperatur.Y_Werte[i]);
-            }
+            //    if (temperatur.Y_Werte[i] != 0)
+            //    {
+            //        anzahl_derFäge++;
+            //    }
+            //}
+
+            //if (keineWerte)
+            //{
+            //    MessageBox.Show("Keine Werte vorhanden.", "Information");
+            //}
+            //else
+            //{
+            //    //if (anzahl_derFäge < 3)
+            //    //{
+            //    //    MessageBox.Show("Es sind zu wengige Werte vorhanden.", "Information");
+            //    //}
+            //}
+
+            //string[] xWerte = new string[temperatur.Y_Werte.Length];
+
+            //listView1.Items.Clear();
+            //int sw = -20;
+
+            //for (int i = 0; i < xWerte.Length; i++)
+            //{
+            //    xWerte[i] = sw.ToString();
+            //    sw++;
+            //}
+
+            //for (int i = 0; i < xWerte.Length; i++)
+            //{
+            //    listView1.Items.Add(xWerte[i] + " C° = " + temperatur.Y_Werte[i]);
+            //}
 
             chart1.Series[cb_Fischart.Text].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
 
-            chart1.Series[cb_Fischart.Text].Points.DataBindY(temperatur.Y_Werte);
+            chart1.Series[cb_Fischart.Text].Points.DataBindXY(xWerte, yWerte);
 
-            chart1.ChartAreas[0].AxisX.Minimum = -20;
-            chart1.ChartAreas[0].AxisX.Maximum = 40;
+            //chart1.ChartAreas[0].AxisX.Minimum = -20;
+            //chart1.ChartAreas[0].AxisX.Maximum = 40;
 
             chart1.ChartAreas[0].AxisX.Title = Environment.NewLine + "Temperatur";
         }
