@@ -151,6 +151,7 @@
             this.tableAdapterManager.FischTableAdapter = null;
             this.tableAdapterManager.FotoTableAdapter = null;
             this.tableAdapterManager.GewässerTableAdapter = null;
+            this.tableAdapterManager.LinkTableAdapter = null;
             this.tableAdapterManager.OrdnerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -331,6 +332,7 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
             this.dataGridViewTextBoxColumn1.HeaderText = "Name";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // dataGridViewTextBoxColumn2
             // 

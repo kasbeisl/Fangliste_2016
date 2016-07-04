@@ -369,7 +369,7 @@ namespace Fangliste_2016
             }
         }
 
-        public void SetLN()
+       public void SetLN()
         {
             Label_foto_nr_setzen();
 
@@ -377,7 +377,7 @@ namespace Fangliste_2016
         }
         
 
-        #region Backgroundworker Diashow
+       #region Backgroundworker Diashow
 
         public void Diashow_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -684,7 +684,7 @@ namespace Fangliste_2016
 
         private void btn_bearbeiten_Click(object sender, EventArgs e)
         {
-            Frm_FotoinfoEditor frm_fotoEditor = new Frm_FotoinfoEditor(this.fotoliste[foto_jetzt].Bild);
+            Frm_FotoinfoEditor frm_fotoEditor = new Frm_FotoinfoEditor(this.fotoliste[foto_jetzt]);
             frm_fotoEditor.ShowDialog();
 
             if (frm_fotoEditor.DialogResult == System.Windows.Forms.DialogResult.OK)
@@ -726,6 +726,7 @@ namespace Fangliste_2016
                     label_kommentar.ForeColor = Color.White;
                     lb_fotoInfo.ForeColor = Color.White;
                     this.ControlBox = false;
+                    this.Focus();
                 }
                 else
                 {
@@ -1407,16 +1408,16 @@ namespace Fangliste_2016
         {
             saveFileDialog1.Title = "Foto speichern.";
             saveFileDialog1.Filter = "JEPG (*.jpg)|*.jpg";
-            saveFileDialog1.FileName = "Fangbild";
+            saveFileDialog1.FileName = "Fangbild.jpg";
 
             DialogResult save = saveFileDialog1.ShowDialog();
 
             if (save == DialogResult.OK)
             {
-                string destFile = saveFileDialog1.FileName;
                 try
                 {
-                    fotoliste[foto_jetzt].Bild.Save(saveFileDialog1.FileName);
+
+                    
                 }
                 catch (Exception ex)
                 {
@@ -1465,6 +1466,39 @@ namespace Fangliste_2016
         private void backgroundWorker_MusikLaden_DoWork(object sender, DoWorkEventArgs e)
         {
             MusikAbspielen();
+        }
+
+        private void pictureBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            
+        }
+
+        private void Frm_FotoGallerie1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (this.FormBorderStyle != FormBorderStyle.None)
+            {
+                /*panel1.Visible = false;
+                this.Size = new Size(1280, 768);
+                this.BackColor = Color.Black;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.TopMost = true;
+                this.WindowState = FormWindowState.Maximized;
+                label_kommentar.ForeColor = Color.White;
+                lb_fotoInfo.ForeColor = Color.White;
+                this.ControlBox = false;*/
+            }
+            else
+            {
+                panel1.Visible = true;
+                this.Size = new Size(1197, 684);
+                this.BackColor = DefaultBackColor;
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.TopMost = false;
+                this.WindowState = FormWindowState.Normal;
+                label_kommentar.ForeColor = Color.Black;
+                lb_fotoInfo.ForeColor = Color.Black;
+                this.ControlBox = true;
+            }
         }
 
         //#region Extras

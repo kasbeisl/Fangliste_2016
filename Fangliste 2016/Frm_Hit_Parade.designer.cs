@@ -42,6 +42,22 @@
             this.hitparade_AndereBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hitparade_ZanderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hitparade_HechtTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_HechtTableAdapter();
+            this.hitparade_KarpfenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_KarpfenTableAdapter1 = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_KarpfenTableAdapter();
+            this.hitparade_AmurBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_AmurTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_AmurTableAdapter();
+            this.hitparade_StörBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_StörTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_StörTableAdapter();
+            this.hitparade_RegenbogenforelleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_RegenbogenforelleTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_RegenbogenforelleTableAdapter();
+            this.hitparade_BachforelleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_BachforelleTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_BachforelleTableAdapter();
+            this.hitparade_SeeforelleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_SeeforelleTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_SeeforelleTableAdapter();
+            this.hitparade_AndereKarpfenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_AndereKarpfenTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_AndereKarpfenTableAdapter();
+            this.hitparade_AndereForellenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hitparade_AndereForellenTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Hitparade_AndereForellenTableAdapter();
             this.hitparade_HechtDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -57,6 +73,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_BarschBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_AndereBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_ZanderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_KarpfenBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_AmurBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_StörBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_RegenbogenforelleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_BachforelleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_SeeforelleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_AndereKarpfenBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_AndereForellenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_HechtDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +124,7 @@
             this.tableAdapterManager.FischTableAdapter = null;
             this.tableAdapterManager.FotoTableAdapter = null;
             this.tableAdapterManager.GewässerTableAdapter = null;
+            this.tableAdapterManager.LinkTableAdapter = null;
             this.tableAdapterManager.OrdnerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -134,12 +159,81 @@
             // 
             this.hitparade_HechtTableAdapter.ClearBeforeFill = true;
             // 
+            // hitparade_KarpfenBindingSource
+            // 
+            this.hitparade_KarpfenBindingSource.DataMember = "Hitparade_Karpfen";
+            this.hitparade_KarpfenBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_KarpfenTableAdapter1
+            // 
+            this.hitparade_KarpfenTableAdapter1.ClearBeforeFill = true;
+            // 
+            // hitparade_AmurBindingSource
+            // 
+            this.hitparade_AmurBindingSource.DataMember = "Hitparade_Amur";
+            this.hitparade_AmurBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_AmurTableAdapter
+            // 
+            this.hitparade_AmurTableAdapter.ClearBeforeFill = true;
+            // 
+            // hitparade_StörBindingSource
+            // 
+            this.hitparade_StörBindingSource.DataMember = "Hitparade_Stör";
+            this.hitparade_StörBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_StörTableAdapter
+            // 
+            this.hitparade_StörTableAdapter.ClearBeforeFill = true;
+            // 
+            // hitparade_RegenbogenforelleBindingSource
+            // 
+            this.hitparade_RegenbogenforelleBindingSource.DataMember = "Hitparade_Regenbogenforelle";
+            this.hitparade_RegenbogenforelleBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_RegenbogenforelleTableAdapter
+            // 
+            this.hitparade_RegenbogenforelleTableAdapter.ClearBeforeFill = true;
+            // 
+            // hitparade_BachforelleBindingSource
+            // 
+            this.hitparade_BachforelleBindingSource.DataMember = "Hitparade_Bachforelle";
+            this.hitparade_BachforelleBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_BachforelleTableAdapter
+            // 
+            this.hitparade_BachforelleTableAdapter.ClearBeforeFill = true;
+            // 
+            // hitparade_SeeforelleBindingSource
+            // 
+            this.hitparade_SeeforelleBindingSource.DataMember = "Hitparade_Seeforelle";
+            this.hitparade_SeeforelleBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_SeeforelleTableAdapter
+            // 
+            this.hitparade_SeeforelleTableAdapter.ClearBeforeFill = true;
+            // 
+            // hitparade_AndereKarpfenBindingSource
+            // 
+            this.hitparade_AndereKarpfenBindingSource.DataMember = "Hitparade_AndereKarpfen";
+            this.hitparade_AndereKarpfenBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_AndereKarpfenTableAdapter
+            // 
+            this.hitparade_AndereKarpfenTableAdapter.ClearBeforeFill = true;
+            // 
+            // hitparade_AndereForellenBindingSource
+            // 
+            this.hitparade_AndereForellenBindingSource.DataMember = "Hitparade_AndereForellen";
+            this.hitparade_AndereForellenBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // hitparade_AndereForellenTableAdapter
+            // 
+            this.hitparade_AndereForellenTableAdapter.ClearBeforeFill = true;
+            // 
             // hitparade_HechtDataGridView
             // 
             this.hitparade_HechtDataGridView.AllowUserToAddRows = false;
-            this.hitparade_HechtDataGridView.AllowUserToDeleteRows = false;
-            this.hitparade_HechtDataGridView.AllowUserToResizeColumns = false;
-            this.hitparade_HechtDataGridView.AllowUserToResizeRows = false;
             this.hitparade_HechtDataGridView.AutoGenerateColumns = false;
             this.hitparade_HechtDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.hitparade_HechtDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -155,21 +249,20 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.hitparade_HechtDataGridView.DataSource = this.hitparade_HechtBindingSource;
-            this.hitparade_HechtDataGridView.Location = new System.Drawing.Point(12, 39);
+            this.hitparade_HechtDataGridView.Location = new System.Drawing.Point(12, 31);
             this.hitparade_HechtDataGridView.MultiSelect = false;
             this.hitparade_HechtDataGridView.Name = "hitparade_HechtDataGridView";
             this.hitparade_HechtDataGridView.ReadOnly = true;
             this.hitparade_HechtDataGridView.RowHeadersVisible = false;
-            this.hitparade_HechtDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.hitparade_HechtDataGridView.RowTemplate.Height = 100;
             this.hitparade_HechtDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hitparade_HechtDataGridView.ShowCellErrors = false;
             this.hitparade_HechtDataGridView.ShowCellToolTips = false;
             this.hitparade_HechtDataGridView.ShowEditingIcon = false;
             this.hitparade_HechtDataGridView.ShowRowErrors = false;
-            this.hitparade_HechtDataGridView.Size = new System.Drawing.Size(1237, 427);
+            this.hitparade_HechtDataGridView.Size = new System.Drawing.Size(1237, 435);
             this.hitparade_HechtDataGridView.TabIndex = 6;
-            this.hitparade_HechtDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hitparade_HechtDataGridView_CellDoubleClick_1);
+            this.hitparade_HechtDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hitparade_HechtDataGridView_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -177,7 +270,6 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Platz";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewImageColumn1
             // 
@@ -192,7 +284,6 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -200,7 +291,6 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Länge";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -208,7 +298,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Gewicht";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -216,7 +305,6 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Gewässer";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -224,7 +312,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Datum";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -232,7 +319,6 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Id";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn7.Visible = false;
             // 
             // dataGridViewTextBoxColumn8
@@ -241,8 +327,6 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "Fischart";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn8.Visible = false;
             // 
             // Frm_Hit_Parade
             // 
@@ -266,6 +350,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_BarschBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_AndereBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_ZanderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_KarpfenBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_AmurBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_StörBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_RegenbogenforelleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_BachforelleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_SeeforelleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_AndereKarpfenBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hitparade_AndereForellenBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hitparade_HechtDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -284,6 +376,22 @@
         private System.Windows.Forms.BindingSource hitparade_AndereBindingSource;
         private System.Windows.Forms.BindingSource hitparade_ZanderBindingSource;
         private FanglisteDBDataSetTableAdapters.Hitparade_HechtTableAdapter hitparade_HechtTableAdapter;
+        private System.Windows.Forms.BindingSource hitparade_KarpfenBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_KarpfenTableAdapter hitparade_KarpfenTableAdapter1;
+        private System.Windows.Forms.BindingSource hitparade_AmurBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_AmurTableAdapter hitparade_AmurTableAdapter;
+        private System.Windows.Forms.BindingSource hitparade_StörBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_StörTableAdapter hitparade_StörTableAdapter;
+        private System.Windows.Forms.BindingSource hitparade_RegenbogenforelleBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_RegenbogenforelleTableAdapter hitparade_RegenbogenforelleTableAdapter;
+        private System.Windows.Forms.BindingSource hitparade_BachforelleBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_BachforelleTableAdapter hitparade_BachforelleTableAdapter;
+        private System.Windows.Forms.BindingSource hitparade_SeeforelleBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_SeeforelleTableAdapter hitparade_SeeforelleTableAdapter;
+        private System.Windows.Forms.BindingSource hitparade_AndereKarpfenBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_AndereKarpfenTableAdapter hitparade_AndereKarpfenTableAdapter;
+        private System.Windows.Forms.BindingSource hitparade_AndereForellenBindingSource;
+        private FanglisteDBDataSetTableAdapters.Hitparade_AndereForellenTableAdapter hitparade_AndereForellenTableAdapter;
         private System.Windows.Forms.DataGridView hitparade_HechtDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;

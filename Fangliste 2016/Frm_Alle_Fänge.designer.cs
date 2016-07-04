@@ -54,10 +54,12 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alleFängeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
             this.alleFängeTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.AlleFängeTableAdapter();
             this.tableAdapterManager = new Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager();
+            this.fotoTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.FotoTableAdapter();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -91,7 +93,7 @@
             this.groupBox1.Controls.Add(this.label_ges_anzahl);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1269, 37);
+            this.groupBox1.Size = new System.Drawing.Size(1286, 37);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
@@ -145,7 +147,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.626506F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.3735F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1275, 664);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1292, 664);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // alleFängeDataGridView
@@ -170,7 +172,8 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15});
             this.alleFängeDataGridView.DataSource = this.alleFängeBindingSource;
             this.alleFängeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.alleFängeDataGridView.Location = new System.Drawing.Point(3, 46);
@@ -184,8 +187,9 @@
             this.alleFängeDataGridView.ShowCellToolTips = false;
             this.alleFängeDataGridView.ShowEditingIcon = false;
             this.alleFängeDataGridView.ShowRowErrors = false;
-            this.alleFängeDataGridView.Size = new System.Drawing.Size(1269, 615);
+            this.alleFängeDataGridView.Size = new System.Drawing.Size(1286, 615);
             this.alleFängeDataGridView.TabIndex = 7;
+            this.alleFängeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.alleFängeDataGridView_CellDoubleClick_1);
             // 
             // dataGridViewImageColumn1
             // 
@@ -292,6 +296,14 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
+            // 
             // alleFängeBindingSource
             // 
             this.alleFängeBindingSource.DataMember = "AlleFänge";
@@ -316,15 +328,20 @@
             this.tableAdapterManager.FischTableAdapter = null;
             this.tableAdapterManager.FotoTableAdapter = null;
             this.tableAdapterManager.GewässerTableAdapter = null;
+            this.tableAdapterManager.LinkTableAdapter = null;
             this.tableAdapterManager.OrdnerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // fotoTableAdapter
+            // 
+            this.fotoTableAdapter.ClearBeforeFill = true;
             // 
             // Frm_Alle_Fänge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1275, 664);
+            this.ClientSize = new System.Drawing.Size(1292, 664);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(700, 700);
@@ -359,6 +376,7 @@
         private System.Windows.Forms.BindingSource alleFängeBindingSource;
         private FanglisteDBDataSetTableAdapters.AlleFängeTableAdapter alleFängeTableAdapter;
         private FanglisteDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private FanglisteDBDataSetTableAdapters.FotoTableAdapter fotoTableAdapter;
         private System.Windows.Forms.DataGridView alleFängeDataGridView;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -375,5 +393,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
     }
 }

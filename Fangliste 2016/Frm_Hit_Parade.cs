@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Media;
 using FanglisteLibrary;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Fangliste_2016
 {
@@ -19,7 +20,7 @@ namespace Fangliste_2016
 
         List<Fangliste> fangliste;
         List<Fangliste> spezialliste;
-        List<Foto> fotoliste;
+        //List<Foto> fotoliste;
 
         Frm_FotosVonFang frm_fotosVonFang;
         SoundPlayer simpleSound_Hitparade;
@@ -39,6 +40,20 @@ namespace Fangliste_2016
 
         private void Frm_Hit_Parade_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_AndereForellen' table. You can move, or remove it, as needed.
+            this.hitparade_AndereForellenTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_AndereForellen);
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_AndereKarpfen' table. You can move, or remove it, as needed.
+            this.hitparade_AndereKarpfenTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_AndereKarpfen);
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Seeforelle' table. You can move, or remove it, as needed.
+            this.hitparade_SeeforelleTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Seeforelle);
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Bachforelle' table. You can move, or remove it, as needed.
+            this.hitparade_BachforelleTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Bachforelle);
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Regenbogenforelle' table. You can move, or remove it, as needed.
+            this.hitparade_RegenbogenforelleTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Regenbogenforelle);
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Stör' table. You can move, or remove it, as needed.
+            this.hitparade_StörTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Stör);
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Amur' table. You can move, or remove it, as needed.
+            this.hitparade_AmurTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Amur);
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Andere' table. You can move, or remove it, as needed.
             //this.hitparade_AndereTableAdapter.Fill(this.fanglisteDBDataSet.Hitparade_Andere);
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.Hitparade_Hecht' table. You can move, or remove it, as needed.
@@ -167,7 +182,7 @@ namespace Fangliste_2016
 
         private void SpezifischeFotolisteErstellen()
         {
-            try
+            /*try
             {
                 imageList1.Images.Clear();
                 bool bild = false;
@@ -195,7 +210,7 @@ namespace Fangliste_2016
                     bild = false;
                 }
             }
-            catch { }
+            catch { }*/
         }
 
         public static List<Fangliste> GetFanglisteNachFischart(List<Fangliste> fangliste, string fischart)
@@ -242,8 +257,58 @@ namespace Fangliste_2016
                         this.hitparade_HechtDataGridView.Update();
                         break;
                     case "Andere":
-                        this.hitparade_HechtDataGridView.DataSource = this.hitparade_AndereBindingSource;
-                        this.hitparade_HechtDataGridView.Columns[8].Visible = true;
+                        switch (Properties.Settings.Default.HitparadeFischAuswahl)
+                        {
+                            case "Best of Three":
+                                this.hitparade_HechtDataGridView.DataSource = this.hitparade_AndereBindingSource;
+                                this.hitparade_HechtDataGridView.Columns[8].Visible = true;
+                                this.hitparade_HechtDataGridView.Update();
+                                break;
+                            case "Karpfen Freaks":
+                                this.hitparade_HechtDataGridView.DataSource = this.hitparade_AndereKarpfenBindingSource;
+                                this.hitparade_HechtDataGridView.Columns[8].Visible = true;
+                                this.hitparade_HechtDataGridView.Update();
+                                break;
+                            case "Salmoniden Profis":
+                                this.hitparade_HechtDataGridView.DataSource = this.hitparade_AndereForellenBindingSource;
+                                this.hitparade_HechtDataGridView.Columns[8].Visible = true;
+                                this.hitparade_HechtDataGridView.Update();
+                                break;
+                            default:
+                                this.hitparade_HechtDataGridView.DataSource = this.hitparade_AndereBindingSource;
+                                this.hitparade_HechtDataGridView.Columns[8].Visible = true;
+                                this.hitparade_HechtDataGridView.Update();
+                                break;
+                        }
+                        break;
+                    case "Karpfen":
+                        this.hitparade_HechtDataGridView.DataSource = this.hitparade_KarpfenBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
+                        this.hitparade_HechtDataGridView.Update();
+                        break;
+                    case "Amur":
+                        this.hitparade_HechtDataGridView.DataSource = this.hitparade_AmurBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
+                        this.hitparade_HechtDataGridView.Update();
+                        break;
+                    case "Stör":
+                        this.hitparade_HechtDataGridView.DataSource = this.hitparade_StörBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
+                        this.hitparade_HechtDataGridView.Update();
+                        break;
+                    case "Regenbogenforelle":
+                        this.hitparade_HechtDataGridView.DataSource = this.hitparade_RegenbogenforelleBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
+                        this.hitparade_HechtDataGridView.Update();
+                        break;
+                    case "Bachforelle":
+                        this.hitparade_HechtDataGridView.DataSource = this.hitparade_BachforelleBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
+                        this.hitparade_HechtDataGridView.Update();
+                        break;
+                    case "Seeforelle":
+                        this.hitparade_HechtDataGridView.DataSource = this.hitparade_SeeforelleBindingSource;
+                        this.hitparade_HechtDataGridView.Columns[8].Visible = false;
                         this.hitparade_HechtDataGridView.Update();
                         break;
                     default:
@@ -285,12 +350,84 @@ namespace Fangliste_2016
             tbx_fischart.Items.AddRange(fischAuswahl);
         }
 
-        private void hitparade_HechtDataGridView_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        private void hitparade_HechtDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = hitparade_HechtDataGridView.SelectedRows[0];
 
-            frm_fotosVonFang = new Frm_FotosVonFang(Convert.ToInt16(row.Cells[7].Value));
-            frm_fotosVonFang.ShowDialog();
+            List<Foto1> fotoliste = new List<Foto1>();
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+            int id = 0;
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                id = Convert.ToInt16(row.Cells[7].Value);
+                string strSQL = "SELECT * " +
+                                "FROM Foto WHERE Fang_ID = '" + id + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    try
+                    {
+
+                        byte[] picData = reader["Bild"] as byte[] ?? null;
+                        Bitmap bmp = null;
+
+                        if (picData != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream(picData))
+                            {
+                                // Load the image from the memory stream. How you do it depends
+                                // on whether you're using Windows Forms or WPF.
+                                // For Windows Forms you could write:
+                                bmp = new System.Drawing.Bitmap(ms);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                                //MessageBox.Show("Drücken Sie OK um das nächste Bild anzuzeigen.");
+                            }
+                        }
+                        else
+                        {
+                            if (File.Exists(Properties.Settings.Default.Data + "\\" + "error.png"))
+                            {
+                                //this.imageList_Fischer.Images.Add(Image.FromFile(Properties.Settings.Default.Data + "\\" + "error.png"));
+                                bmp = new Bitmap(Properties.Settings.Default.Data + "\\" + "error.png");
+                                //imageList_Fischer.Images.Add(b);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                            }
+                        }
+
+                        fotoliste.Add(new Foto1(Convert.ToInt16(reader["Id"]), Convert.ToInt16(reader["Angler_ID"]), Convert.ToInt16(reader["Fang_ID"]), Convert.ToInt16(reader["Ordner_ID"]), reader["Kommentar"].ToString(), bmp));
+                        //listView_Fischer.Items.Add(anglerliste[count].Name, count);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Fehler");
+                    }
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            if (fotoliste.Count != 0)
+            {
+                frm_fotosVonFang = new Frm_FotosVonFang(fotoliste, id);
+                frm_fotosVonFang.ShowDialog();
+            }
         }
     }
 }

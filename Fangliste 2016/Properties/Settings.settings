@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Username" Type="System.String" Scope="User">
-      <Value Profile="(Default)">fangliste</Value>
+      <Value Profile="(Default)">kasbeisl</Value>
     </Setting>
     <Setting Name="Passwort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">fUuEnhQ67A</Value>
+      <Value Profile="(Default)">ivJsUm47II</Value>
     </Setting>
     <Setting Name="Fangliste" Type="System.String" Scope="User">
       <Value Profile="(Default)">Fangliste</Value>
@@ -54,7 +54,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Hostname" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ftp:\\ftp.lima-city.de</Value>
+      <Value Profile="(Default)">ftp://kasbeisl.lima-ftp.de</Value>
     </Setting>
     <Setting Name="Port" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">21</Value>

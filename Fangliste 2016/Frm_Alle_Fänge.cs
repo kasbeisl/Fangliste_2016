@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FanglisteLibrary;
 using System.Diagnostics;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace Fangliste_2016
 {
@@ -33,6 +35,8 @@ namespace Fangliste_2016
 
         private void Frm_Alle_Fänge_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.Foto' table. You can move, or remove it, as needed.
+            this.fotoTableAdapter.Fill(this.fanglisteDBDataSet.Foto);
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.AlleFänge' table. You can move, or remove it, as needed.
             this.alleFängeTableAdapter.Fill(this.fanglisteDBDataSet.AlleFänge);
             fotoAnzeigenToolStripMenuItem.Enabled = false;
@@ -458,5 +462,85 @@ namespace Fangliste_2016
         }
 
         #endregion
+
+        private void alleFängeDataGridView_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = alleFängeDataGridView.SelectedRows[0];
+
+            List<Foto1> fotoliste = new List<Foto1>();
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+            int id = 0;
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                id = Convert.ToInt16(row.Cells[15].Value);
+                string strSQL = "SELECT * " +
+                                "FROM Foto WHERE Fang_ID = '" + id + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    try
+                    {
+
+                        byte[] picData = reader["Bild"] as byte[] ?? null;
+                        Bitmap bmp = null;
+
+                        if (picData != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream(picData))
+                            {
+                                // Load the image from the memory stream. How you do it depends
+                                // on whether you're using Windows Forms or WPF.
+                                // For Windows Forms you could write:
+                                bmp = new System.Drawing.Bitmap(ms);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                                //MessageBox.Show("Drücken Sie OK um das nächste Bild anzuzeigen.");
+                            }
+                        }
+                        else
+                        {
+                            if (File.Exists(Properties.Settings.Default.Data + "\\" + "error.png"))
+                            {
+                                //this.imageList_Fischer.Images.Add(Image.FromFile(Properties.Settings.Default.Data + "\\" + "error.png"));
+                                bmp = new Bitmap(Properties.Settings.Default.Data + "\\" + "error.png");
+                                //imageList_Fischer.Images.Add(b);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                            }
+                        }
+
+                        fotoliste.Add(new Foto1(Convert.ToInt16(reader["Id"]), Convert.ToInt16(reader["Angler_ID"]), Convert.ToInt16(reader["Fang_ID"]), Convert.ToInt16(reader["Ordner_ID"]), reader["Kommentar"].ToString(), bmp));
+                        //listView_Fischer.Items.Add(anglerliste[count].Name, count);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Fehler");
+                    }
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            if (fotoliste.Count != 0)
+            {
+                frm_fotosVonFang = new Frm_FotosVonFang(fotoliste, id);
+                frm_fotosVonFang.ShowDialog();
+            }
+        }
     }
 }

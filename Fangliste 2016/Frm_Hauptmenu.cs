@@ -1065,14 +1065,26 @@ namespace Fangliste_2016
 
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_fangliste_Backup = new Frm_Fangliste_Backup();
+            try
+            {
+                saveFileDialog1.ShowDialog();
+
+                BackupDB.BackupDatabase(saveFileDialog1.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+
+            /*frm_fangliste_Backup = new Frm_Fangliste_Backup();
             frm_fangliste_Backup.ShowDialog();
 
             if (frm_fangliste_Backup.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 Fangliste_auslesen();
                 GesAnzahlderFänge_Hecht_Zander_Barsch_Andere();
-            }
+            }*/
         }
 
         private void bearbeitentoolStripMenuItem_Click(object sender, EventArgs e)

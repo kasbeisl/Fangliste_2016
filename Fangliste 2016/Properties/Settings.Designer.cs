@@ -25,7 +25,7 @@ namespace Fangliste_2016.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fangliste")]
+        [global::System.Configuration.DefaultSettingValueAttribute("kasbeisl")]
         public string Username {
             get {
                 return ((string)(this["Username"]));
@@ -37,7 +37,7 @@ namespace Fangliste_2016.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fUuEnhQ67A")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ivJsUm47II")]
         public string Passwort {
             get {
                 return ((string)(this["Passwort"]));
@@ -229,7 +229,7 @@ namespace Fangliste_2016.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ftp:\\\\ftp.lima-city.de")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ftp://kasbeisl.lima-ftp.de")]
         public string Hostname {
             get {
                 return ((string)(this["Hostname"]));

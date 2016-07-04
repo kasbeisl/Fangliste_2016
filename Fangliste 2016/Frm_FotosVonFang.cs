@@ -24,10 +24,19 @@ namespace Fangliste_2016
         List<Fangliste1> fangliste;
         int fang_ID;
         int position;
+        string info;
 
         #endregion
 
         #region Konstruktor
+
+        public Frm_FotosVonFang(List<Foto1> fotoliste, int fang_ID)
+        {
+            InitializeComponent();
+
+            this.fotoliste = fotoliste;
+            this.fang_ID = fang_ID;
+        }
 
         public Frm_FotosVonFang(int fang_ID)
         {
@@ -119,7 +128,41 @@ namespace Fangliste_2016
             catch { }
 
             position = foto_jetzt + 1;
-            //this.Text = "Gefangen von " + fangliste[fang_ID].Name + " am " + fangliste[fang_ID].Datum.ToShortDateString() + " um " + fangliste[fang_ID].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[fang_ID].Gewicht + "kg, Größe: " + fangliste[fang_ID].Größe + "cm, Gewässer: " + fangliste[fang_ID].Gewässer + ") " + position + " von " + alleFotos.Count;
+
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                string strSQL = "SELECT Angler.Name, Fang.Datum, Fang.Uhrzeit, Fang.Gewicht, Fang.Länge, Gewässer.Name AS Gewässername " +
+                                "FROM Fang JOIN Angler ON(Fang.Angler_ID = Angler.Id) JOIN Gewässer ON (Fang.Gewässer_ID = Gewässer.Id) WHERE Fang.Id = '" +  fang_ID + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DateTime datum = Convert.ToDateTime(reader["Datum"]);
+                    DateTime uhrzeit = Convert.ToDateTime(reader["Uhrzeit"]);
+                    this.info = "Gefangen von " + reader["Name"].ToString() + " am " + datum.ToShortDateString() + " um " + uhrzeit.ToShortTimeString() + " (Gewicht: " + reader["Gewicht"].ToString() + "kg, Größe: " + reader["Länge"] + "cm, Gewässer: " + reader["Gewässername"] + ") ";
+                    this.Text = info + position + " von " + fotoliste.Count;
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+            
 
             button_back.Enabled = false;
 
@@ -161,7 +204,7 @@ namespace Fangliste_2016
             pictureBox1.Image = this.fotoliste[foto_jetzt].Bild;
 
             position = foto_jetzt + 1;
-            //this.Text = "Gefangen von " + fangliste[fang_ID].Name + " am " + fangliste[fang_ID].Datum.ToShortDateString() + " um " + fangliste[fang_ID].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[fang_ID].Gewicht + "kg, Größe: " + fangliste[fang_ID].Größe + "cm, Gewässer: " + fangliste[fang_ID].Gewässer + ") " + position + " von " + fotoliste.Count;
+            this.Text = info + position + " von " + fotoliste.Count;
 
         }
 
@@ -186,7 +229,7 @@ namespace Fangliste_2016
             pictureBox1.Image = this.fotoliste[foto_jetzt].Bild;
 
             position = foto_jetzt + 1;
-            //this.Text = "Gefangen von " + fangliste[fang_ID].Name + " am " + fangliste[fang_ID].Datum.ToShortDateString() + " um " + fangliste[fang_ID].Uhrzeit.ToShortTimeString() + " (Gewicht: " + fangliste[fang_ID].Gewicht + "kg, Größe: " + fangliste[fang_ID].Größe + "cm, Gewässer: " + fangliste[fang_ID].Gewässer + ") " + position + " von " + fotoliste.Count;
+            this.Text = info + position + " von " + fotoliste.Count;
         }
 
 

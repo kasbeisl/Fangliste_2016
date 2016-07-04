@@ -52,6 +52,7 @@
             this.button_diashow = new System.Windows.Forms.Button();
             this.lb_fotoInfo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btn_audio_next = new System.Windows.Forms.Button();
             this.btn_audio_back = new System.Windows.Forms.Button();
@@ -68,7 +69,6 @@
             this.label_kommentar = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.backgroundWorker_MusikLaden = new System.ComponentModel.BackgroundWorker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_volume)).BeginInit();
@@ -289,6 +289,14 @@
             this.panel1.Size = new System.Drawing.Size(1180, 83);
             this.panel1.TabIndex = 1019;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(961, 5);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 21);
+            this.comboBox1.TabIndex = 1024;
+            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -425,6 +433,7 @@
             this.pictureBox1.TabIndex = 1006;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.pictureBox1_PreviewKeyDown);
             // 
             // ContentPanel
             // 
@@ -468,14 +477,6 @@
             this.backgroundWorker_MusikLaden.WorkerSupportsCancellation = true;
             this.backgroundWorker_MusikLaden.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_MusikLaden_DoWork);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(961, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 21);
-            this.comboBox1.TabIndex = 1024;
-            // 
             // Frm_FotoGallerie1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,6 +494,7 @@
             this.Text = "Foto Gallerie";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Gallerie_FormClosed);
             this.Load += new System.EventHandler(this.Frm_Gallerie_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Frm_FotoGallerie1_KeyUp);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

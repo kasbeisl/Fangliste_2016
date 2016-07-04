@@ -54,3 +54,10 @@ C:\Users\Hofer\Documents\GitHub\Fangliste_2016\FanglisteLibrary\obj\Debug\Fangli
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\FanglisteLibrary\obj\Debug\FanglisteLibrary.csproj.GenerateResource.Cache
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\FanglisteLibrary\obj\Debug\FanglisteLibrary.dll
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\FanglisteLibrary\obj\Debug\FanglisteLibrary.pdb
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\FanglisteLibrary\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\FanglisteLibrary\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\FanglisteLibrary\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\FanglisteLibrary\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\FanglisteLibrary\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\FanglisteLibrary\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\FanglisteLibrary\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll

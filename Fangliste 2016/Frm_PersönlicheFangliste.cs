@@ -52,7 +52,7 @@ namespace Fangliste_2016
             {
                 con.ConnectionString = ConnectionString;
 
-                string strSQL = "SELECT Fang.Icon, Fisch.Name AS Fischart, Gewässer.Name AS Gewässer, Angler.Name, Fang.Länge, Fang.Gewicht, Fang.Köder, Fang.Angelplatz, Fang.Tiefe, Fang.Lufttemperatur, Fang.Wassertemperatur, Fang.Datum, Fang.Uhrzeit, Fang.Wetter, Fang.Kommentar  " +
+                string strSQL = "SELECT Fang.Icon, Fisch.Name AS Fischart, Gewässer.Name AS Gewässer, Angler.Name, Fang.Länge, Fang.Gewicht, Fang.Köder, Fang.Angelplatz, Fang.Tiefe, Fang.Lufttemperatur, Fang.Wassertemperatur, Fang.Datum, Fang.Uhrzeit, Fang.Wetter, Fang.Kommentar, Fang.ID  " +
                                 "FROM Fang JOIN Fisch ON (Fang.Fischart_ID = Fisch.Id) JOIN Gewässer ON (Fang.Gewässer_ID = Gewässer.Id) JOIN Angler ON (Fang.Angler_ID = Angler.ID) WHERE Fang.Angler_ID = '" + angler.ID + "'";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 SqlDataAdapter dataAdapterPers = new SqlDataAdapter(strSQL, con.ConnectionString);
@@ -66,7 +66,10 @@ namespace Fangliste_2016
 
                 dataGridView1.DataSource = source1;//ds.Tables[0];
                 source1.Sort = "datum DESC";
-                
+
+                dataGridView1.Columns[15].Visible = false;
+
+
             }
             catch (Exception ex)
             {
@@ -410,6 +413,86 @@ namespace Fangliste_2016
                     listPersönlich.Items.Add(item);
                 }
             }*/
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dataGridView1.SelectedRows[0];
+
+            List<Foto1> fotoliste = new List<Foto1>();
+            string ConnectionString = SQLCollection.GetConnectionString();
+            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlConnection con = new SqlConnection();
+            int id = 0;
+            try
+            {
+                con.ConnectionString = ConnectionString;
+
+                //string text = "SELECT COUNT(*) FROM Angler";
+
+                id = Convert.ToInt16(row.Cells[15].Value);
+                string strSQL = "SELECT * " +
+                                "FROM Foto WHERE Fang_ID = '" + id + "'";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Console.WriteLine("{0,-35}{1}", reader["Id"], reader["Name"]);
+                    try
+                    {
+
+                        byte[] picData = reader["Bild"] as byte[] ?? null;
+                        Bitmap bmp = null;
+
+                        if (picData != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream(picData))
+                            {
+                                // Load the image from the memory stream. How you do it depends
+                                // on whether you're using Windows Forms or WPF.
+                                // For Windows Forms you could write:
+                                bmp = new System.Drawing.Bitmap(ms);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                                //MessageBox.Show("Drücken Sie OK um das nächste Bild anzuzeigen.");
+                            }
+                        }
+                        else
+                        {
+                            if (File.Exists(Properties.Settings.Default.Data + "\\" + "error.png"))
+                            {
+                                //this.imageList_Fischer.Images.Add(Image.FromFile(Properties.Settings.Default.Data + "\\" + "error.png"));
+                                bmp = new Bitmap(Properties.Settings.Default.Data + "\\" + "error.png");
+                                //imageList_Fischer.Images.Add(b);
+                                //AddImageToImageList(imageList_Fischer, bmp, "", imageList_Fischer.ImageSize.Width, imageList_Fischer.ImageSize.Height);
+                            }
+                        }
+
+                        fotoliste.Add(new Foto1(Convert.ToInt16(reader["Id"]), Convert.ToInt16(reader["Angler_ID"]), Convert.ToInt16(reader["Fang_ID"]), Convert.ToInt16(reader["Ordner_ID"]), reader["Kommentar"].ToString(), bmp));
+                        //listView_Fischer.Items.Add(anglerliste[count].Name, count);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Fehler");
+                    }
+                }
+                reader.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            if (fotoliste.Count != 0)
+            {
+                frm_fotosVonFang = new Frm_FotosVonFang(fotoliste, id);
+                frm_fotosVonFang.ShowDialog();
+            }
         }
     }
 

@@ -235,3 +235,10 @@ C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fanglist
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Properties.Resources.resources
 C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste 2016.csproj.GenerateResource.Cache
 C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LinksBearbeiten.resources
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll

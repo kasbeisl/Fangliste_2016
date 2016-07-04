@@ -86,6 +86,7 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).BeginInit();
             this.SuspendLayout();
@@ -590,14 +591,14 @@
             // bearbeitentoolStripMenuItem
             // 
             this.bearbeitentoolStripMenuItem.Name = "bearbeitentoolStripMenuItem";
-            this.bearbeitentoolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bearbeitentoolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.bearbeitentoolStripMenuItem.Text = "bearbeiten";
             this.bearbeitentoolStripMenuItem.Click += new System.EventHandler(this.bearbeitentoolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(127, 6);
             // 
             // label_fischername
             // 
@@ -721,5 +722,6 @@
         private FanglisteDBDataSet fanglisteDBDataSet;
         private System.Windows.Forms.ToolStripMenuItem bearbeitentoolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog2;
     }
 }

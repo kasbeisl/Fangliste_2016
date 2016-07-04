@@ -34,6 +34,17 @@ namespace Fangliste_2016
             this.bild = bild;
         }
 
+        public Frm_FotoinfoEditor(Foto1 eintrag)
+        {
+            InitializeComponent();
+
+            this.bild = eintrag.Bild;
+            this.eintrag = eintrag;
+
+            richTextBox1.Text = "ID: " + eintrag.ID + "\n" +
+                                     "Name: " + eintrag.Angler_ID + "\n";
+        }
+
         #endregion
 
         #region Eigenschaften

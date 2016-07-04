@@ -38,7 +38,11 @@
             this.label_gesanzahl = new System.Windows.Forms.Label();
             this.label_ges_anzahl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.fänge_Je_Jahr1DataGridView = new System.Windows.Forms.DataGridView();
+            this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
+            this.tableAdapterManager = new Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager();
+            this.fänge_Je_JahrBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fänge_Je_JahrTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Fänge_Je_JahrTableAdapter();
+            this.fänge_Je_JahrDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,16 +58,13 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fänge_Je_Jahr1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
-            this.fänge_Je_Jahr1TableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Fänge_Je_Jahr1TableAdapter();
-            this.tableAdapterManager = new Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_Jahr1DataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_Jahr1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -97,7 +98,7 @@
             this.groupBox1.Controls.Add(this.label_ges_anzahl);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1202, 61);
+            this.groupBox1.Size = new System.Drawing.Size(1219, 61);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -136,7 +137,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.fänge_Je_Jahr1DataGridView, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.fänge_Je_JahrDataGridView, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -144,17 +145,44 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.81759F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.18241F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1208, 865);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1225, 865);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
-            // fänge_Je_Jahr1DataGridView
+            // fanglisteDBDataSet
             // 
-            this.fänge_Je_Jahr1DataGridView.AllowUserToAddRows = false;
-            this.fänge_Je_Jahr1DataGridView.AutoGenerateColumns = false;
-            this.fänge_Je_Jahr1DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.fänge_Je_Jahr1DataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fänge_Je_Jahr1DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.fänge_Je_Jahr1DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fanglisteDBDataSet.DataSetName = "FanglisteDBDataSet";
+            this.fanglisteDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AnglerTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.FangTableAdapter = null;
+            this.tableAdapterManager.FischTableAdapter = null;
+            this.tableAdapterManager.FotoTableAdapter = null;
+            this.tableAdapterManager.GewässerTableAdapter = null;
+            this.tableAdapterManager.LinkTableAdapter = null;
+            this.tableAdapterManager.OrdnerTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // fänge_Je_JahrBindingSource
+            // 
+            this.fänge_Je_JahrBindingSource.DataMember = "Fänge_Je_Jahr";
+            this.fänge_Je_JahrBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // fänge_Je_JahrTableAdapter
+            // 
+            this.fänge_Je_JahrTableAdapter.ClearBeforeFill = true;
+            // 
+            // fänge_Je_JahrDataGridView
+            // 
+            this.fänge_Je_JahrDataGridView.AllowUserToAddRows = false;
+            this.fänge_Je_JahrDataGridView.AutoGenerateColumns = false;
+            this.fänge_Je_JahrDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.fänge_Je_JahrDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fänge_Je_JahrDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.fänge_Je_JahrDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewImageColumn1,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
@@ -169,22 +197,24 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
-            this.fänge_Je_Jahr1DataGridView.DataSource = this.fänge_Je_Jahr1BindingSource;
-            this.fänge_Je_Jahr1DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fänge_Je_Jahr1DataGridView.Location = new System.Drawing.Point(3, 70);
-            this.fänge_Je_Jahr1DataGridView.MultiSelect = false;
-            this.fänge_Je_Jahr1DataGridView.Name = "fänge_Je_Jahr1DataGridView";
-            this.fänge_Je_Jahr1DataGridView.ReadOnly = true;
-            this.fänge_Je_Jahr1DataGridView.RowHeadersVisible = false;
-            this.fänge_Je_Jahr1DataGridView.RowTemplate.Height = 100;
-            this.fänge_Je_Jahr1DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.fänge_Je_Jahr1DataGridView.ShowCellErrors = false;
-            this.fänge_Je_Jahr1DataGridView.ShowCellToolTips = false;
-            this.fänge_Je_Jahr1DataGridView.ShowEditingIcon = false;
-            this.fänge_Je_Jahr1DataGridView.ShowRowErrors = false;
-            this.fänge_Je_Jahr1DataGridView.Size = new System.Drawing.Size(1202, 792);
-            this.fänge_Je_Jahr1DataGridView.TabIndex = 6;
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15});
+            this.fänge_Je_JahrDataGridView.DataSource = this.fänge_Je_JahrBindingSource;
+            this.fänge_Je_JahrDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fänge_Je_JahrDataGridView.Location = new System.Drawing.Point(3, 70);
+            this.fänge_Je_JahrDataGridView.MultiSelect = false;
+            this.fänge_Je_JahrDataGridView.Name = "fänge_Je_JahrDataGridView";
+            this.fänge_Je_JahrDataGridView.ReadOnly = true;
+            this.fänge_Je_JahrDataGridView.RowHeadersVisible = false;
+            this.fänge_Je_JahrDataGridView.RowTemplate.Height = 100;
+            this.fänge_Je_JahrDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.fänge_Je_JahrDataGridView.ShowCellErrors = false;
+            this.fänge_Je_JahrDataGridView.ShowCellToolTips = false;
+            this.fänge_Je_JahrDataGridView.ShowEditingIcon = false;
+            this.fänge_Je_JahrDataGridView.ShowRowErrors = false;
+            this.fänge_Je_JahrDataGridView.Size = new System.Drawing.Size(1219, 792);
+            this.fänge_Je_JahrDataGridView.TabIndex = 6;
+            this.fänge_Je_JahrDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.fänge_Je_JahrDataGridView_CellDoubleClick);
             // 
             // dataGridViewImageColumn1
             // 
@@ -291,32 +321,13 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
-            // fänge_Je_Jahr1BindingSource
+            // dataGridViewTextBoxColumn15
             // 
-            this.fänge_Je_Jahr1BindingSource.DataMember = "Fänge_Je_Jahr1";
-            this.fänge_Je_Jahr1BindingSource.DataSource = this.fanglisteDBDataSet;
-            this.fänge_Je_Jahr1BindingSource.Sort = "datum DESC";
-            // 
-            // fanglisteDBDataSet
-            // 
-            this.fanglisteDBDataSet.DataSetName = "FanglisteDBDataSet";
-            this.fanglisteDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // fänge_Je_Jahr1TableAdapter
-            // 
-            this.fänge_Je_Jahr1TableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AnglerTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.FangTableAdapter = null;
-            this.tableAdapterManager.FischTableAdapter = null;
-            this.tableAdapterManager.FotoTableAdapter = null;
-            this.tableAdapterManager.GewässerTableAdapter = null;
-            this.tableAdapterManager.OrdnerTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
             // 
             // Frm_Fänge_je_Jahr
             // 
@@ -324,7 +335,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1208, 865);
+            this.ClientSize = new System.Drawing.Size(1225, 865);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 700);
@@ -338,9 +349,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_Jahr1DataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_Jahr1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,10 +366,10 @@
         private System.Windows.Forms.Label label_gesanzahl;
         private System.Windows.Forms.Label label_ges_anzahl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.BindingSource fänge_Je_Jahr1BindingSource;
-        private FanglisteDBDataSetTableAdapters.Fänge_Je_Jahr1TableAdapter fänge_Je_Jahr1TableAdapter;
         private FanglisteDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView fänge_Je_Jahr1DataGridView;
+        private System.Windows.Forms.BindingSource fänge_Je_JahrBindingSource;
+        private FanglisteDBDataSetTableAdapters.Fänge_Je_JahrTableAdapter fänge_Je_JahrTableAdapter;
+        private System.Windows.Forms.DataGridView fänge_Je_JahrDataGridView;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -374,5 +385,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
     }
 }

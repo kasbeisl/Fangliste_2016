@@ -476,6 +476,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="FanglisteDBDataSet.xsc">
       <DependentUpon>FanglisteDBDataSet.xsd</DependentUpon>
@@ -509,6 +510,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>FanglisteDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\error.png" />
     <Content Include="symbol_256px.ico" />
   </ItemGroup>
   <ItemGroup>
