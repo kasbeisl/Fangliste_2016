@@ -18,7 +18,7 @@ namespace FanglisteLibrary
     /// </summary>
     public class Fangliste1
     {
-        #region Variablen
+        #region Membervariablen
 
         int id;
         int angler_id;

@@ -253,7 +253,8 @@
             // 
             // lb_fotoInfo
             // 
-            this.lb_fotoInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lb_fotoInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_fotoInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.lb_fotoInfo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lb_fotoInfo.Location = new System.Drawing.Point(0, 540);

@@ -82,7 +82,7 @@ namespace Fangliste_2016
                         if (!jahre.Contains(dt.Year))
                             jahre.Add(dt.Year);
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         
                     }
@@ -163,7 +163,7 @@ namespace Fangliste_2016
                 con.Close();
             }
 
-            int index = 0;
+            //int index = 0;
             //Add Image to list
             for (int i = 0; i < liste.Count; i++)
             {

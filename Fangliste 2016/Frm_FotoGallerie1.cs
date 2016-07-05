@@ -29,8 +29,8 @@ namespace Fangliste_2016
         //List<string> images;
 
         Frm_FotoÜbersicht1 frm_fotoÜbersicht;
-        Frm_Fotoliste frm_fotoliste;
-        Frm_FotolisteImportieren frm_fotolisteImportieren;
+        //Frm_Fotoliste frm_fotoliste;
+        //Frm_FotolisteImportieren frm_fotolisteImportieren;
 
         int start_foto = 0;
         int foto_jetzt = 0;
@@ -502,6 +502,9 @@ namespace Fangliste_2016
         private void button_foto_hinzufügen_Click(object sender, EventArgs e)
         {
             FotoHinzufügen();
+            Aktualisieren();
+            Label_foto_nr_setzen();
+            FotoInfos_Set();
         }
 
         private void cb_anzahlFotos_SelectionChangeCommitted(object sender, EventArgs e)
@@ -679,6 +682,9 @@ namespace Fangliste_2016
             if (sicher == DialogResult.Yes)
             {
                 FotoLöschen();
+                Aktualisieren();
+                Label_foto_nr_setzen();
+                FotoInfos_Set();
             }
         }
 
@@ -689,6 +695,10 @@ namespace Fangliste_2016
 
             if (frm_fotoEditor.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
+                Aktualisieren();
+                Label_foto_nr_setzen();
+                FotoInfos_Set();
+
                 /*File.Copy(Frm_Hauptmenu.DatenOrdner + "\\" + Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp,
                     Frm_Hauptmenu.DatenOrdner + "\\" + "Backup\\" + Properties.Settings.Default.Fotoliste + "_" + DateTime.Now.ToShortDateString() + Properties.Settings.Default.Datentyp, true);
 
@@ -719,6 +729,7 @@ namespace Fangliste_2016
                 {
                     panel1.Visible = false;
                     this.Size = new Size(1280, 768);
+                    //panel2.Size = new Size(1280, 768);
                     this.BackColor = Color.Black;
                     this.FormBorderStyle = FormBorderStyle.None;
                     this.TopMost = true;
@@ -732,6 +743,7 @@ namespace Fangliste_2016
                 {
                     panel1.Visible = true;
                     this.Size = new Size(1197, 684);
+                    //panel2.Size = new Size(1180, 560);
                     this.BackColor = DefaultBackColor;
                     this.FormBorderStyle = FormBorderStyle.Sizable;
                     this.TopMost = false;

@@ -32,8 +32,8 @@ namespace Fangliste_2016
 
         DialogResult geändert = DialogResult.No;
 
-        int file_max = 3000 * 1024;//Dateigröße in Kb (3000Kb)
-        FileInfo dateiname_neuesFoto;
+        //int file_max = 3000 * 1024;//Dateigröße in Kb (3000Kb)
+        //FileInfo dateiname_neuesFoto;
 
         int index = 0;
 

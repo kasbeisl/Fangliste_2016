@@ -17,10 +17,10 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        List<Fangliste> alleFänge;
-        List<Fangliste> nurFängevonNamen;
-        List<Foto> fotoliste;
-        List<Angler> anglerliste;
+        //List<Fangliste> alleFänge;
+        //List<Fangliste> nurFängevonNamen;
+        //List<Foto> fotoliste;
+        //List<Angler> anglerliste;
 
         Frm_FotosVonFang frm_fotosVonFang;
 
@@ -36,11 +36,13 @@ namespace Fangliste_2016
         private void Frm_Alle_Fänge_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.Foto' table. You can move, or remove it, as needed.
-            this.fotoTableAdapter.Fill(this.fanglisteDBDataSet.Foto);
+            //this.fotoTableAdapter.Fill(this.fanglisteDBDataSet.Foto);
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.AlleFänge' table. You can move, or remove it, as needed.
             this.alleFängeTableAdapter.Fill(this.fanglisteDBDataSet.AlleFänge);
             fotoAnzeigenToolStripMenuItem.Enabled = false;
             textBox_name.Enabled = false;
+
+            label_ges_anzahl.Text = "(" + alleFängeDataGridView.RowCount + " Eintrag)";
             //SpezifischeFotolisteErstellen();
             //MacheGesamteListe();
             //FischerNamensliste();
@@ -52,7 +54,7 @@ namespace Fangliste_2016
 
         private void SpezifischeFotolisteErstellen()
         {
-            try
+           /* try
             {
                 imageList1.Images.Clear();
                 bool bild = false;
@@ -80,7 +82,7 @@ namespace Fangliste_2016
                     bild = false;
                 }
             }
-            catch { }
+            catch { }*/
         }
 
         private void MacheGesamteListe()

@@ -21,7 +21,7 @@ namespace Fangliste_2016
 
         int foto_jetzt = 0;
         List<Foto1> fotoliste;
-        List<Fangliste1> fangliste;
+        //List<Fangliste1> fangliste;
         int fang_ID;
         int position;
         string info;

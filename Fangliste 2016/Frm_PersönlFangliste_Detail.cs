@@ -16,7 +16,7 @@ namespace Fangliste_2016
         #region Variablen
 
         Angler1 angler;
-        int[] jahre = null;
+        //int[] jahre = null;
 
         #endregion
 

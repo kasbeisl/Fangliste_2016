@@ -14,9 +14,9 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        List<Fangliste> alleFänge;
-        List<Foto> fotoliste;
-        List<Fangliste> persönliche_Liste; 
+        //List<Fangliste> alleFänge;
+        //List<Foto> fotoliste;
+        //List<Fangliste> persönliche_Liste; 
         Angler1 angler;
 
         List<PersönlicheFanglisteView> view = new List<PersönlicheFanglisteView>();

@@ -42,7 +42,11 @@ namespace Fangliste_2016
             this.eintrag = eintrag;
 
             richTextBox1.Text = "ID: " + eintrag.ID + "\n" +
-                                     "Name: " + eintrag.Angler_ID + "\n";
+                                     "Angler ID: " + eintrag.Angler_ID + "\n" + 
+                                     "Fang ID: " + eintrag.Fang_ID;
+
+            textBox1.Text = eintrag.Kommentar;
+            cb_ordner.Text = eintrag.Ordner_ID.ToString();
         }
 
         #endregion

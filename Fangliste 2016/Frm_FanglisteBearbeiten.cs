@@ -14,25 +14,25 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        List<Fangliste> alleFänge;
+        //List<Fangliste> alleFänge;
         List<Fangliste> alleFänge_Kopie;
 
-        List<Foto> alleFotos;
+        //List<Foto> alleFotos;
         bool fotoChanged = false;
 
-        int index = 0;
+        //int index = 0;
 
         bool änderung = false;
         bool button_speichern = false;
-        List<Fischarten> fischartenliste;
+        //List<Fischarten> fischartenliste;
 
-        string selectedItem = "";
+        //string selectedItem = "";
 
         #endregion
 
         #region Forms
 
-        Frm_Fang_bearbeiten frm_fangbearbeiten;
+        //Frm_Fang_bearbeiten frm_fangbearbeiten;
 
         #endregion
 

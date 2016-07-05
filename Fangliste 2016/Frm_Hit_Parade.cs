@@ -18,8 +18,8 @@ namespace Fangliste_2016
     {
         #region Variable
 
-        List<Fangliste> fangliste;
-        List<Fangliste> spezialliste;
+        //List<Fangliste> fangliste;
+        //List<Fangliste> spezialliste;
         //List<Foto> fotoliste;
 
         Frm_FotosVonFang frm_fotosVonFang;

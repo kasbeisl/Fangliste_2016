@@ -16,9 +16,9 @@ namespace Fangliste_2016
     {
         #region Variable
 
-        List<Fangliste> alleFänge = null;
-        List<Fangliste> heurige_Fänge;
-        List<Foto> fotoliste;
+        //List<Fangliste> alleFänge = null;
+        //List<Fangliste> heurige_Fänge;
+        //List<Foto> fotoliste;
 
         Frm_FotosVonFang frm_fotosVonFang;
 
@@ -144,7 +144,7 @@ namespace Fangliste_2016
 
         private void SpezifischeFotolisteErstellen()
         {
-            try
+            /*try
             {
                 imageList1.Images.Clear();
                 bool bild = false;
@@ -172,7 +172,7 @@ namespace Fangliste_2016
                     bild = false;
                 }
             }
-            catch { }
+            catch { }*/
         }
 
         #endregion

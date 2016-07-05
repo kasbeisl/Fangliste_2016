@@ -16,9 +16,9 @@ namespace Fangliste_2016
     {
         #region Variablen
 
-        List<Fangliste> fangliste;
+        //List<Fangliste> fangliste;
         List<Fischarten> fischartenliste;
-        List<Foto> fotoliste;
+        //List<Foto> fotoliste;
         List<Gewässer> gewässerliste;
 
         Wetter wetter;
