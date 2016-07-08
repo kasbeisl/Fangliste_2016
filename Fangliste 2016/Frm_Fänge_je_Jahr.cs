@@ -45,7 +45,7 @@ namespace Fangliste_2016
 
             //listAktJahr.Items.Clear();
 
-            comboBox_jahr.Items.Add("Alle");
+            //comboBox_jahr.Items.Add("Alle");
 
             /*if (alleFänge != null)
             {
@@ -66,7 +66,7 @@ namespace Fangliste_2016
                 }
             }*/
 
-            comboBox_jahr.Text = "Alle";
+            //comboBox_jahr.Text = "Alle";
 
             int anzahl = 0;
             int jahr = DateTime.Now.Year;
@@ -233,8 +233,6 @@ namespace Fangliste_2016
             }*/
         }
 
-        #endregion
-
         private void comboBox_jahr_SelectionChangeCommitted(object sender, EventArgs e)
         {
             /*if (comboBox_jahr.Text != "Alle")
@@ -335,5 +333,7 @@ namespace Fangliste_2016
                 frm_fotosVonFang.ShowDialog();
             }
         }
+
+        #endregion
     }
 }

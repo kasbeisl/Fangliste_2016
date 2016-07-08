@@ -11,7 +11,13 @@ namespace Fangliste_2016
 {
     partial class Frm_AboutBox : Form
     {
+        #region Membervariablen
+
         StreamReader sr;
+
+        #endregion
+
+        #region Konstruktor
 
         public Frm_AboutBox()
         {
@@ -23,6 +29,8 @@ namespace Fangliste_2016
             this.labelCompanyName.Text = AssemblyCompany;
             
         }
+
+        #endregion
 
         #region Assemblyattributaccessoren
 
@@ -104,10 +112,7 @@ namespace Fangliste_2016
         }
         #endregion
 
-        private void labelCompanyName_Click(object sender, EventArgs e)
-        {
-
-        }
+        #region Events
 
         private void Frm_AboutBox_Load(object sender, EventArgs e)
         {
@@ -117,5 +122,7 @@ namespace Fangliste_2016
                 textBoxDescription.Text = sr.ReadToEnd();
             }
         }
+
+        #endregion
     }
 }

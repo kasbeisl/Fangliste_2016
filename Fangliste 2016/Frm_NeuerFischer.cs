@@ -94,59 +94,61 @@ namespace Fangliste_2016
                 {
                     if (namenlänge)
                     {
-                        SqlConnection con = new SqlConnection();
-                        con.ConnectionString = SQLCollection.GetConnectionString();
-                        //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
-
-                        openFileDialog1.FileName = "Dein Foto";
-                        DialogResult r = openFileDialog1.ShowDialog();
-                        Image imag = null;
-
-                        if (r == DialogResult.OK)
+                        if (!SQLCollection.AnglerExist(tbx_kürzel.Text))
                         {
-                            imag = Image.FromFile(openFileDialog1.FileName);
+                            SqlConnection con = new SqlConnection();
+                            con.ConnectionString = SQLCollection.GetConnectionString();
+                            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
 
-                            try
+                            openFileDialog1.FileName = "Dein Foto";
+                            DialogResult r = openFileDialog1.ShowDialog();
+                            Image imag = null;
+
+                            if (r == DialogResult.OK)
                             {
-                                con.Open();
-                                SqlCommand insertCommand = new SqlCommand(
-                            "Insert into Angler (Name, Bild) Values ('" + tbx_kürzel.Text + "', @Pic)", con);
-                                insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
-                                    ConvertImageToByteArray(imag, ImageFormat.Jpeg);
-                                int queryResult = insertCommand.ExecuteNonQuery();
-                                if (queryResult == 1)
-                                    Console.WriteLine("Erfolgreich aktualisiert.");
+                                imag = Image.FromFile(openFileDialog1.FileName);
+
+                                try
+                                {
+                                    con.Open();
+                                    SqlCommand insertCommand = new SqlCommand(
+                                "Insert into Angler (Name, Bild) Values ('" + tbx_kürzel.Text + "', @Pic)", con);
+                                    insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
+                                        ConvertImageToByteArray(imag, ImageFormat.Jpeg);
+                                    int queryResult = insertCommand.ExecuteNonQuery();
+                                    if (queryResult == 1)
+                                        Console.WriteLine("Erfolgreich aktualisiert.");
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Failed to connect to data source" + ex.ToString());
+                                }
+                                finally
+                                {
+                                    con.Close();
+                                }
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                MessageBox.Show("Failed to connect to data source" + ex.ToString());
+                                try
+                                {
+                                    con.Open();
+                                    SqlCommand insertCommand = new SqlCommand(
+                                "Insert into Angler (Name) Values ('" + tbx_kürzel.Text + "')", con);
+                                    int queryResult = insertCommand.ExecuteNonQuery();
+                                    if (queryResult == 1)
+                                        Console.WriteLine("Erfolgreich aktualisiert.");
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Failed to connect to data source" + ex.ToString());
+                                }
+                                finally
+                                {
+                                    con.Close();
+                                }
                             }
-                            finally
-                            {
-                                con.Close();
-                            }
-                        }
-                        else
-                        {
-                            try
-                            {
-                                con.Open();
-                                SqlCommand insertCommand = new SqlCommand(
-                            "Insert into Angler (Name) Values ('" + tbx_kürzel.Text + "')", con);
-                                int queryResult = insertCommand.ExecuteNonQuery();
-                                if (queryResult == 1)
-                                    Console.WriteLine("Erfolgreich aktualisiert.");
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Failed to connect to data source" + ex.ToString());
-                            }
-                            finally
-                            {
-                                con.Close();
-                            }
-                        }
-                        
+
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                             /*if (fischerExist == false)
@@ -164,6 +166,11 @@ namespace Fangliste_2016
                                 MessageBox.Show("Der Name des Fischers existiert bereits.\n\nBitte geben Sie einen anderen Namen ein.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }*/
                         }
+                        else
+                        {
+                            MessageBox.Show(string.Format("Es existiert bereits ein Angler mit dem Name '{0}'.\nBitte versuchen Sie einen anderen Namen.", tbx_kürzel.Text), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
             else

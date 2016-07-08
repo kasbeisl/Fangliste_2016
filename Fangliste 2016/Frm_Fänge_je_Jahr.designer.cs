@@ -34,14 +34,9 @@
             this.fotoAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox_jahr = new System.Windows.Forms.ComboBox();
             this.label_gesanzahl = new System.Windows.Forms.Label();
             this.label_ges_anzahl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
-            this.tableAdapterManager = new Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager();
-            this.fänge_Je_JahrBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fänge_Je_JahrTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Fänge_Je_JahrTableAdapter();
             this.fänge_Je_JahrDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,12 +54,16 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fänge_Je_JahrBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fanglisteDBDataSet = new Fangliste_2016.FanglisteDBDataSet();
+            this.tableAdapterManager = new Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager();
+            this.fänge_Je_JahrTableAdapter = new Fangliste_2016.FanglisteDBDataSetTableAdapters.Fänge_Je_JahrTableAdapter();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -93,7 +92,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.comboBox_jahr);
             this.groupBox1.Controls.Add(this.label_gesanzahl);
             this.groupBox1.Controls.Add(this.label_ges_anzahl);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
@@ -101,17 +99,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1219, 61);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            // 
-            // comboBox_jahr
-            // 
-            this.comboBox_jahr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_jahr.FormattingEnabled = true;
-            this.comboBox_jahr.Location = new System.Drawing.Point(223, 13);
-            this.comboBox_jahr.Name = "comboBox_jahr";
-            this.comboBox_jahr.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_jahr.Sorted = true;
-            this.comboBox_jahr.TabIndex = 15;
-            this.comboBox_jahr.SelectionChangeCommitted += new System.EventHandler(this.comboBox_jahr_SelectionChangeCommitted);
             // 
             // label_gesanzahl
             // 
@@ -147,33 +134,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.18241F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1225, 865);
             this.tableLayoutPanel1.TabIndex = 14;
-            // 
-            // fanglisteDBDataSet
-            // 
-            this.fanglisteDBDataSet.DataSetName = "FanglisteDBDataSet";
-            this.fanglisteDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AnglerTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.FangTableAdapter = null;
-            this.tableAdapterManager.FischTableAdapter = null;
-            this.tableAdapterManager.FotoTableAdapter = null;
-            this.tableAdapterManager.GewässerTableAdapter = null;
-            this.tableAdapterManager.LinkTableAdapter = null;
-            this.tableAdapterManager.OrdnerTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // fänge_Je_JahrBindingSource
-            // 
-            this.fänge_Je_JahrBindingSource.DataMember = "Fänge_Je_Jahr";
-            this.fänge_Je_JahrBindingSource.DataSource = this.fanglisteDBDataSet;
-            // 
-            // fänge_Je_JahrTableAdapter
-            // 
-            this.fänge_Je_JahrTableAdapter.ClearBeforeFill = true;
             // 
             // fänge_Je_JahrDataGridView
             // 
@@ -329,6 +289,33 @@
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             this.dataGridViewTextBoxColumn15.Visible = false;
             // 
+            // fänge_Je_JahrBindingSource
+            // 
+            this.fänge_Je_JahrBindingSource.DataMember = "Fänge_Je_Jahr";
+            this.fänge_Je_JahrBindingSource.DataSource = this.fanglisteDBDataSet;
+            // 
+            // fanglisteDBDataSet
+            // 
+            this.fanglisteDBDataSet.DataSetName = "FanglisteDBDataSet";
+            this.fanglisteDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AnglerTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.FangTableAdapter = null;
+            this.tableAdapterManager.FischTableAdapter = null;
+            this.tableAdapterManager.FotoTableAdapter = null;
+            this.tableAdapterManager.GewässerTableAdapter = null;
+            this.tableAdapterManager.LinkTableAdapter = null;
+            this.tableAdapterManager.OrdnerTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Fangliste_2016.FanglisteDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // fänge_Je_JahrTableAdapter
+            // 
+            this.fänge_Je_JahrTableAdapter.ClearBeforeFill = true;
+            // 
             // Frm_Fänge_je_Jahr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,9 +336,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fänge_Je_JahrBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fanglisteDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,7 +349,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private FanglisteDBDataSet fanglisteDBDataSet;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox_jahr;
         private System.Windows.Forms.Label label_gesanzahl;
         private System.Windows.Forms.Label label_ges_anzahl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

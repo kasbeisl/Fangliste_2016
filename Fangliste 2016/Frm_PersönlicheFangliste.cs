@@ -12,7 +12,7 @@ namespace Fangliste_2016
 {
     public partial class Frm_PersönlicheFangliste : Form
     {
-        #region Variablen
+        #region Membervariablen
 
         //List<Fangliste> alleFänge;
         //List<Foto> fotoliste;
@@ -45,7 +45,6 @@ namespace Fangliste_2016
         {
 
             string ConnectionString = SQLCollection.GetConnectionString();
-            //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=c:\users\kasi\documents\visual studio 2015\Projects\Fangliste 2016\Fangliste 2016\FanglisteDB.mdf;Integrated Security=True;Connect Timeout=30";
             SqlConnection con = new SqlConnection();
 
             try
@@ -68,8 +67,6 @@ namespace Fangliste_2016
                 source1.Sort = "datum DESC";
 
                 dataGridView1.Columns[15].Visible = false;
-
-
             }
             catch (Exception ex)
             {
@@ -95,7 +92,7 @@ namespace Fangliste_2016
 
             this.Text = "Persönliche Fangliste von " + angler.Name;
 
-            comboBox1.Items.Add("Alle");
+            //comboBox1.Items.Add("Alle");
 
             /*for (int i = 0; i < this.view.Count; i++)
             {
@@ -107,7 +104,7 @@ namespace Fangliste_2016
                     comboBox1.Items.Add(this.view[i].Datum.Year);
             }*/
 
-            comboBox1.Text = "Alle";
+            //comboBox1.Text = "Alle";
 
             lb_gesAnzahlAktuell_Info.Text = "Gesamtanzahl der gefangenen Fische (" + DateTime.Now.Year + "):";
             GesAnzahlFängeAktuell();
@@ -384,8 +381,6 @@ namespace Fangliste_2016
             }*/
         }
 
-        #endregion
-
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
            /* if (comboBox1.Text != "Alle")
@@ -494,6 +489,8 @@ namespace Fangliste_2016
                 frm_fotosVonFang.ShowDialog();
             }
         }
+
+        #endregion
     }
 
 }

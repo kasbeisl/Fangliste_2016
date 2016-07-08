@@ -110,30 +110,36 @@ namespace Fangliste_2016
             {
                 if (name_ändern)
                 {
-                    try
+                    if (!SQLCollection.AnglerExist(tbx_kürzel.Text))
                     {
-                        this.aktuellerFischer.Name = tbx_kürzel.Text;
-                        
-
-                        string connectionString = SQLCollection.GetConnectionString();
-
-                        using (SqlConnection connection = new SqlConnection(connectionString))
-                        using (SqlCommand command = connection.CreateCommand())
+                        try
                         {
-                            command.CommandText = "UPDATE Angler SET Name = @name WHERE Id = '" + aktuellerFischer.ID + "'";
-                            command.Parameters.Add("name", SqlDbType.VarChar, 0).Value = tbx_kürzel.Text;
+                            this.aktuellerFischer.Name = tbx_kürzel.Text;
 
-                            connection.Open();
+                            string connectionString = SQLCollection.GetConnectionString();
 
-                            command.ExecuteNonQuery();
+                            using (SqlConnection connection = new SqlConnection(connectionString))
+                            using (SqlCommand command = connection.CreateCommand())
+                            {
+                                command.CommandText = "UPDATE Angler SET Name = @name WHERE Id = '" + aktuellerFischer.ID + "'";
+                                command.Parameters.Add("name", SqlDbType.VarChar, 0).Value = tbx_kürzel.Text;
 
-                            connection.Close();
+                                connection.Open();
+
+                                command.ExecuteNonQuery();
+
+                                connection.Close();
+                            }
+
                         }
-
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.ToString());
+                        MessageBox.Show(string.Format("Es existiert bereits ein Angler mit dem Namen '{0}'\nBitte versuchen Sie einen anderen Namen.", tbx_kürzel.Text), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 

@@ -13,10 +13,9 @@ namespace Fangliste_2016
 {
     public partial class Frm_PersönlFangliste_Detail : Form
     {
-        #region Variablen
+        #region Membervariablen
 
         Angler1 angler;
-        //int[] jahre = null;
 
         #endregion
 

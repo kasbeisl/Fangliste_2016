@@ -47,6 +47,7 @@ namespace Fangliste_2016
 
             textBox1.Text = eintrag.Kommentar;
             cb_ordner.Text = eintrag.Ordner_ID.ToString();
+            edit = true;
         }
 
         #endregion
@@ -95,16 +96,19 @@ namespace Fangliste_2016
             if (r == DialogResult.OK)
             {
                 eintrag = new Foto1(0, Convert.ToInt16(frm_alleFänge.Row.Cells[1].Value), Convert.ToInt16(frm_alleFänge.Row.Cells[0].Value), 1, textBox1.Text);
-                richTextBox1.Text = "ID: " + frm_alleFänge.Row.Cells[1].Value.ToString() + "\n" +
+                /*richTextBox1.Text = "ID: " + frm_alleFänge.Row.Cells[1].Value.ToString() + "\n" +
                                      "Name: " + frm_alleFänge.Row.Cells[3].Value.ToString() + "\n" +
                                      "Fischart: " + frm_alleFänge.Row.Cells[4].Value.ToString() + "\n" +
                                      "Größe: " + frm_alleFänge.Row.Cells[5].Value.ToString() + " cm\n" +
                                      "Gewicht: " + frm_alleFänge.Row.Cells[6].Value.ToString() + " kg\n" +
                                      "Gewässer: " + frm_alleFänge.Row.Cells[7].Value.ToString() + "\n" +
                                      "Datum: " + frm_alleFänge.Row.Cells[8].Value.ToString() + "\n" +
-                                     "Uhrzeit: " + frm_alleFänge.Row.Cells[9].Value.ToString(); //, , frm_alleFänge.Row.Cells[9].Value.ToString(), frm_alleFänge.Row.Cells[10].Value.ToString(), Convert.ToDouble(frm_alleFänge.Row.Cells[11].Value), Convert.ToDouble(frm_alleFänge.Row.Cells[12].Value), Convert.ToDouble(frm_alleFänge.Row.Cells[13].Value), frm_alleFänge.Row.Cells[14].Value.ToString(), Convert.ToBoolean(frm_alleFänge.Row.Cells[15].Value), frm_alleFänge.Row.Cells[16].Value.ToString());
+                                     "Uhrzeit: " + frm_alleFänge.Row.Cells[9].Value.ToString(); //, , frm_alleFänge.Row.Cells[9].Value.ToString(), frm_alleFänge.Row.Cells[10].Value.ToString(), Convert.ToDouble(frm_alleFänge.Row.Cells[11].Value), Convert.ToDouble(frm_alleFänge.Row.Cells[12].Value), Convert.ToDouble(frm_alleFänge.Row.Cells[13].Value), frm_alleFänge.Row.Cells[14].Value.ToString(), Convert.ToBoolean(frm_alleFänge.Row.Cells[15].Value), frm_alleFänge.Row.Cells[16].Value.ToString());*/
 
-                
+                richTextBox1.Text = "ID: " + eintrag.ID + "\n" +
+                                     "Angler ID: " + eintrag.Angler_ID + "\n" +
+                                     "Fang ID: " + eintrag.Fang_ID;
+
 
                 btn_entfernen.Enabled = true;
                 
@@ -116,6 +120,8 @@ namespace Fangliste_2016
         {
             if (ordnerliste != null)
                 eintrag.Ordner_ID = ordnerliste[cb_ordner.SelectedIndex].ID;
+
+            eintrag.Kommentar = textBox1.Text;
 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
@@ -165,11 +171,12 @@ namespace Fangliste_2016
                 btn_löschen.Enabled = false;
             }
 
-             this.ordnerliste = LeseOrdnerTabelleaus();
+            this.ordnerliste = LeseOrdnerTabelleaus();
 
             for (int i = 0; i < ordnerliste.Count; i++)
             {
                 cb_ordner.Items.Add(ordnerliste[i].Name);
+                
             }
 
             /*if(fang != null)
@@ -275,6 +282,50 @@ namespace Fangliste_2016
             {
                 MessageBox.Show(ex.ToString(), "Fehler");
             }
+        }
+
+        private void btn_neuerOrdner_Click(object sender, EventArgs e)
+        {
+            Frm_NeuerFotoOrdner frm_neuerFotoOrdner = new Frm_NeuerFotoOrdner();
+            DialogResult r = frm_neuerFotoOrdner.ShowDialog();
+
+            if (r == DialogResult.OK)
+            {
+                cb_ordner.Items.Clear();
+
+                this.ordnerliste = LeseOrdnerTabelleaus();
+
+                for (int i = 0; i < ordnerliste.Count; i++)
+                {
+                    cb_ordner.Items.Add(ordnerliste[i].Name);
+                }
+            }
+        }
+
+        private void cb_ordner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (eintrag != null)
+            {
+                eintrag.Ordner_ID = GetFotoOrdnerID(cb_ordner.Text);
+            }
+        }
+
+        private int GetFotoOrdnerID(string ordnername)
+        {
+            int id = 0;
+
+            if (ordnerliste != null || ordnerliste.Count != 0)
+            {
+                for (int i = 0; i < ordnerliste.Count; i++)
+                {
+                    if (ordnerliste[i].Name == ordnername)
+                    {
+                        id = ordnerliste[i].ID;
+                    }
+                }
+            }
+
+            return id;
         }
     }
 }

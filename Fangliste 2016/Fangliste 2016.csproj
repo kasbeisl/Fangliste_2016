@@ -292,6 +292,12 @@
     <Compile Include="Frm_NeuerFischer.designer.cs">
       <DependentUpon>Frm_NeuerFischer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_NeuerFotoOrdner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_NeuerFotoOrdner.Designer.cs">
+      <DependentUpon>Frm_NeuerFotoOrdner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_PersönlFangliste_Detail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_NeuerFischer.resx">
       <DependentUpon>Frm_NeuerFischer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_NeuerFotoOrdner.resx">
+      <DependentUpon>Frm_NeuerFotoOrdner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_PersönlFangliste_Detail.resx">
       <DependentUpon>Frm_PersönlFangliste_Detail.cs</DependentUpon>

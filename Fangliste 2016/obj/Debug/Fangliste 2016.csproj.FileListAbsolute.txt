@@ -242,3 +242,4 @@ C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft
 C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
 C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
 C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
+C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeuerFotoOrdner.resources

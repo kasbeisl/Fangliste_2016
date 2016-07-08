@@ -865,6 +865,38 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FanglisteEditTableAdapter" GeneratorDataComponentClassName="FanglisteEditTableAdapter" Name="FanglisteEdit" UserDataComponentName="FanglisteEditTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FanglisteDBConnectionString (Settings)" DbObjectName="dbo.FanglisteEdit" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Icon, Angler_ID, Fischart_ID, Länge, Gewicht, Gewässer_ID, Köder, Angelplatz, Tiefe, Lufttemperatur, Wassertemperatur, Datum, Uhrzeit, Zurückgesetzt, Wetter, Kommentar FROM dbo.FanglisteEdit</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Icon" DataSetColumn="Icon" />
+              <Mapping SourceColumn="Angler_ID" DataSetColumn="Angler_ID" />
+              <Mapping SourceColumn="Fischart_ID" DataSetColumn="Fischart_ID" />
+              <Mapping SourceColumn="Länge" DataSetColumn="Länge" />
+              <Mapping SourceColumn="Gewicht" DataSetColumn="Gewicht" />
+              <Mapping SourceColumn="Gewässer_ID" DataSetColumn="Gewässer_ID" />
+              <Mapping SourceColumn="Köder" DataSetColumn="Köder" />
+              <Mapping SourceColumn="Angelplatz" DataSetColumn="Angelplatz" />
+              <Mapping SourceColumn="Tiefe" DataSetColumn="Tiefe" />
+              <Mapping SourceColumn="Lufttemperatur" DataSetColumn="Lufttemperatur" />
+              <Mapping SourceColumn="Wassertemperatur" DataSetColumn="Wassertemperatur" />
+              <Mapping SourceColumn="Datum" DataSetColumn="Datum" />
+              <Mapping SourceColumn="Uhrzeit" DataSetColumn="Uhrzeit" />
+              <Mapping SourceColumn="Zurückgesetzt" DataSetColumn="Zurückgesetzt" />
+              <Mapping SourceColumn="Wetter" DataSetColumn="Wetter" />
+              <Mapping SourceColumn="Kommentar" DataSetColumn="Kommentar" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -873,7 +905,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
   <xs:element name="FanglisteDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FanglisteDBDataSet" msprop:Generator_UserDSName="FanglisteDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Angler" msprop:Generator_TableClassName="AnglerDataTable" msprop:Generator_TableVarName="tableAngler" msprop:Generator_TablePropName="Angler" msprop:Generator_RowDeletingName="AnglerRowDeleting" msprop:Generator_RowChangingName="AnglerRowChanging" msprop:Generator_RowEvHandlerName="AnglerRowChangeEventHandler" msprop:Generator_RowDeletedName="AnglerRowDeleted" msprop:Generator_UserTableName="Angler" msprop:Generator_RowChangedName="AnglerRowChanged" msprop:Generator_RowEvArgName="AnglerRowChangeEvent" msprop:Generator_RowClassName="AnglerRow">
+        <xs:element name="Angler" msprop:Generator_TableClassName="AnglerDataTable" msprop:Generator_TableVarName="tableAngler" msprop:Generator_RowChangedName="AnglerRowChanged" msprop:Generator_TablePropName="Angler" msprop:Generator_RowDeletingName="AnglerRowDeleting" msprop:Generator_RowChangingName="AnglerRowChanging" msprop:Generator_RowEvHandlerName="AnglerRowChangeEventHandler" msprop:Generator_RowDeletedName="AnglerRowDeleted" msprop:Generator_RowClassName="AnglerRow" msprop:Generator_UserTableName="Angler" msprop:Generator_RowEvArgName="AnglerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -888,7 +920,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Fisch" msprop:Generator_TableClassName="FischDataTable" msprop:Generator_TableVarName="tableFisch" msprop:Generator_TablePropName="Fisch" msprop:Generator_RowDeletingName="FischRowDeleting" msprop:Generator_RowChangingName="FischRowChanging" msprop:Generator_RowEvHandlerName="FischRowChangeEventHandler" msprop:Generator_RowDeletedName="FischRowDeleted" msprop:Generator_UserTableName="Fisch" msprop:Generator_RowChangedName="FischRowChanged" msprop:Generator_RowEvArgName="FischRowChangeEvent" msprop:Generator_RowClassName="FischRow">
+        <xs:element name="Fisch" msprop:Generator_TableClassName="FischDataTable" msprop:Generator_TableVarName="tableFisch" msprop:Generator_RowChangedName="FischRowChanged" msprop:Generator_TablePropName="Fisch" msprop:Generator_RowDeletingName="FischRowDeleting" msprop:Generator_RowChangingName="FischRowChanging" msprop:Generator_RowEvHandlerName="FischRowChangeEventHandler" msprop:Generator_RowDeletedName="FischRowDeleted" msprop:Generator_RowClassName="FischRow" msprop:Generator_UserTableName="Fisch" msprop:Generator_RowEvArgName="FischRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -903,7 +935,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Gewässer" msprop:Generator_TableClassName="GewässerDataTable" msprop:Generator_TableVarName="tableGewässer" msprop:Generator_TablePropName="Gewässer" msprop:Generator_RowDeletingName="GewässerRowDeleting" msprop:Generator_RowChangingName="GewässerRowChanging" msprop:Generator_RowEvHandlerName="GewässerRowChangeEventHandler" msprop:Generator_RowDeletedName="GewässerRowDeleted" msprop:Generator_UserTableName="Gewässer" msprop:Generator_RowChangedName="GewässerRowChanged" msprop:Generator_RowEvArgName="GewässerRowChangeEvent" msprop:Generator_RowClassName="GewässerRow">
+        <xs:element name="Gewässer" msprop:Generator_TableClassName="GewässerDataTable" msprop:Generator_TableVarName="tableGewässer" msprop:Generator_RowChangedName="GewässerRowChanged" msprop:Generator_TablePropName="Gewässer" msprop:Generator_RowDeletingName="GewässerRowDeleting" msprop:Generator_RowChangingName="GewässerRowChanging" msprop:Generator_RowEvHandlerName="GewässerRowChangeEventHandler" msprop:Generator_RowDeletedName="GewässerRowDeleted" msprop:Generator_RowClassName="GewässerRow" msprop:Generator_UserTableName="Gewässer" msprop:Generator_RowEvArgName="GewässerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -917,7 +949,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FanglisteBearbeiten" msprop:Generator_TableClassName="FanglisteBearbeitenDataTable" msprop:Generator_TableVarName="tableFanglisteBearbeiten" msprop:Generator_RowChangedName="FanglisteBearbeitenRowChanged" msprop:Generator_TablePropName="FanglisteBearbeiten" msprop:Generator_RowDeletingName="FanglisteBearbeitenRowDeleting" msprop:Generator_RowChangingName="FanglisteBearbeitenRowChanging" msprop:Generator_RowEvHandlerName="FanglisteBearbeitenRowChangeEventHandler" msprop:Generator_RowDeletedName="FanglisteBearbeitenRowDeleted" msprop:Generator_RowClassName="FanglisteBearbeitenRow" msprop:Generator_UserTableName="FanglisteBearbeiten" msprop:Generator_RowEvArgName="FanglisteBearbeitenRowChangeEvent">
+        <xs:element name="FanglisteBearbeiten" msprop:Generator_TableClassName="FanglisteBearbeitenDataTable" msprop:Generator_TableVarName="tableFanglisteBearbeiten" msprop:Generator_TablePropName="FanglisteBearbeiten" msprop:Generator_RowDeletingName="FanglisteBearbeitenRowDeleting" msprop:Generator_RowChangingName="FanglisteBearbeitenRowChanging" msprop:Generator_RowEvHandlerName="FanglisteBearbeitenRowChangeEventHandler" msprop:Generator_RowDeletedName="FanglisteBearbeitenRowDeleted" msprop:Generator_UserTableName="FanglisteBearbeiten" msprop:Generator_RowChangedName="FanglisteBearbeitenRowChanged" msprop:Generator_RowEvArgName="FanglisteBearbeitenRowChangeEvent" msprop:Generator_RowClassName="FanglisteBearbeitenRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -963,7 +995,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Fang" msprop:Generator_TableClassName="FangDataTable" msprop:Generator_TableVarName="tableFang" msprop:Generator_RowChangedName="FangRowChanged" msprop:Generator_TablePropName="Fang" msprop:Generator_RowDeletingName="FangRowDeleting" msprop:Generator_RowChangingName="FangRowChanging" msprop:Generator_RowEvHandlerName="FangRowChangeEventHandler" msprop:Generator_RowDeletedName="FangRowDeleted" msprop:Generator_RowClassName="FangRow" msprop:Generator_UserTableName="Fang" msprop:Generator_RowEvArgName="FangRowChangeEvent">
+        <xs:element name="Fang" msprop:Generator_TableClassName="FangDataTable" msprop:Generator_TableVarName="tableFang" msprop:Generator_TablePropName="Fang" msprop:Generator_RowDeletingName="FangRowDeleting" msprop:Generator_RowChangingName="FangRowChanging" msprop:Generator_RowEvHandlerName="FangRowChangeEventHandler" msprop:Generator_RowDeletedName="FangRowDeleted" msprop:Generator_UserTableName="Fang" msprop:Generator_RowChangedName="FangRowChanged" msprop:Generator_RowEvArgName="FangRowChangeEvent" msprop:Generator_RowClassName="FangRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1010,7 +1042,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Ordner" msprop:Generator_TableClassName="OrdnerDataTable" msprop:Generator_TableVarName="tableOrdner" msprop:Generator_TablePropName="Ordner" msprop:Generator_RowDeletingName="OrdnerRowDeleting" msprop:Generator_RowChangingName="OrdnerRowChanging" msprop:Generator_RowEvHandlerName="OrdnerRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdnerRowDeleted" msprop:Generator_UserTableName="Ordner" msprop:Generator_RowChangedName="OrdnerRowChanged" msprop:Generator_RowEvArgName="OrdnerRowChangeEvent" msprop:Generator_RowClassName="OrdnerRow">
+        <xs:element name="Ordner" msprop:Generator_TableClassName="OrdnerDataTable" msprop:Generator_TableVarName="tableOrdner" msprop:Generator_RowChangedName="OrdnerRowChanged" msprop:Generator_TablePropName="Ordner" msprop:Generator_RowDeletingName="OrdnerRowDeleting" msprop:Generator_RowChangingName="OrdnerRowChanging" msprop:Generator_RowEvHandlerName="OrdnerRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdnerRowDeleted" msprop:Generator_RowClassName="OrdnerRow" msprop:Generator_UserTableName="Ordner" msprop:Generator_RowEvArgName="OrdnerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1024,7 +1056,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Foto" msprop:Generator_TableClassName="FotoDataTable" msprop:Generator_TableVarName="tableFoto" msprop:Generator_TablePropName="Foto" msprop:Generator_RowDeletingName="FotoRowDeleting" msprop:Generator_RowChangingName="FotoRowChanging" msprop:Generator_RowEvHandlerName="FotoRowChangeEventHandler" msprop:Generator_RowDeletedName="FotoRowDeleted" msprop:Generator_UserTableName="Foto" msprop:Generator_RowChangedName="FotoRowChanged" msprop:Generator_RowEvArgName="FotoRowChangeEvent" msprop:Generator_RowClassName="FotoRow">
+        <xs:element name="Foto" msprop:Generator_TableClassName="FotoDataTable" msprop:Generator_TableVarName="tableFoto" msprop:Generator_RowChangedName="FotoRowChanged" msprop:Generator_TablePropName="Foto" msprop:Generator_RowDeletingName="FotoRowDeleting" msprop:Generator_RowChangingName="FotoRowChanging" msprop:Generator_RowEvHandlerName="FotoRowChangeEventHandler" msprop:Generator_RowDeletedName="FotoRowDeleted" msprop:Generator_RowClassName="FotoRow" msprop:Generator_UserTableName="Foto" msprop:Generator_RowEvArgName="FotoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1042,7 +1074,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Hecht" msprop:Generator_TableClassName="Hitparade_HechtDataTable" msprop:Generator_TableVarName="tableHitparade_Hecht" msprop:Generator_TablePropName="Hitparade_Hecht" msprop:Generator_RowDeletingName="Hitparade_HechtRowDeleting" msprop:Generator_RowChangingName="Hitparade_HechtRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_HechtRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_HechtRowDeleted" msprop:Generator_UserTableName="Hitparade_Hecht" msprop:Generator_RowChangedName="Hitparade_HechtRowChanged" msprop:Generator_RowEvArgName="Hitparade_HechtRowChangeEvent" msprop:Generator_RowClassName="Hitparade_HechtRow">
+        <xs:element name="Hitparade_Hecht" msprop:Generator_TableClassName="Hitparade_HechtDataTable" msprop:Generator_TableVarName="tableHitparade_Hecht" msprop:Generator_RowChangedName="Hitparade_HechtRowChanged" msprop:Generator_TablePropName="Hitparade_Hecht" msprop:Generator_RowDeletingName="Hitparade_HechtRowDeleting" msprop:Generator_RowChangingName="Hitparade_HechtRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_HechtRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_HechtRowDeleted" msprop:Generator_RowClassName="Hitparade_HechtRow" msprop:Generator_UserTableName="Hitparade_Hecht" msprop:Generator_RowEvArgName="Hitparade_HechtRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1075,7 +1107,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AlleFängeNurListe" msprop:Generator_TableClassName="AlleFängeNurListeDataTable" msprop:Generator_TableVarName="tableAlleFängeNurListe" msprop:Generator_RowChangedName="AlleFängeNurListeRowChanged" msprop:Generator_TablePropName="AlleFängeNurListe" msprop:Generator_RowDeletingName="AlleFängeNurListeRowDeleting" msprop:Generator_RowChangingName="AlleFängeNurListeRowChanging" msprop:Generator_RowEvHandlerName="AlleFängeNurListeRowChangeEventHandler" msprop:Generator_RowDeletedName="AlleFängeNurListeRowDeleted" msprop:Generator_RowClassName="AlleFängeNurListeRow" msprop:Generator_UserTableName="AlleFängeNurListe" msprop:Generator_RowEvArgName="AlleFängeNurListeRowChangeEvent">
+        <xs:element name="AlleFängeNurListe" msprop:Generator_TableClassName="AlleFängeNurListeDataTable" msprop:Generator_TableVarName="tableAlleFängeNurListe" msprop:Generator_TablePropName="AlleFängeNurListe" msprop:Generator_RowDeletingName="AlleFängeNurListeRowDeleting" msprop:Generator_RowChangingName="AlleFängeNurListeRowChanging" msprop:Generator_RowEvHandlerName="AlleFängeNurListeRowChangeEventHandler" msprop:Generator_RowDeletedName="AlleFängeNurListeRowDeleted" msprop:Generator_UserTableName="AlleFängeNurListe" msprop:Generator_RowChangedName="AlleFängeNurListeRowChanged" msprop:Generator_RowEvArgName="AlleFängeNurListeRowChangeEvent" msprop:Generator_RowClassName="AlleFängeNurListeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Fang_ID" msprop:Generator_ColumnVarNameInTable="columnFang_ID" msprop:Generator_ColumnPropNameInRow="Fang_ID" msprop:Generator_ColumnPropNameInTable="Fang_IDColumn" msprop:Generator_UserColumnName="Fang_ID" type="xs:int" />
@@ -1140,7 +1172,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Link" msprop:Generator_TableClassName="LinkDataTable" msprop:Generator_TableVarName="tableLink" msprop:Generator_TablePropName="Link" msprop:Generator_RowDeletingName="LinkRowDeleting" msprop:Generator_RowChangingName="LinkRowChanging" msprop:Generator_RowEvHandlerName="LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="LinkRowDeleted" msprop:Generator_UserTableName="Link" msprop:Generator_RowChangedName="LinkRowChanged" msprop:Generator_RowEvArgName="LinkRowChangeEvent" msprop:Generator_RowClassName="LinkRow">
+        <xs:element name="Link" msprop:Generator_TableClassName="LinkDataTable" msprop:Generator_TableVarName="tableLink" msprop:Generator_RowChangedName="LinkRowChanged" msprop:Generator_TablePropName="Link" msprop:Generator_RowDeletingName="LinkRowDeleting" msprop:Generator_RowChangingName="LinkRowChanging" msprop:Generator_RowEvHandlerName="LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="LinkRowDeleted" msprop:Generator_RowClassName="LinkRow" msprop:Generator_UserTableName="Link" msprop:Generator_RowEvArgName="LinkRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1161,7 +1193,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AlleFänge" msprop:Generator_TableClassName="AlleFängeDataTable" msprop:Generator_TableVarName="tableAlleFänge" msprop:Generator_RowChangedName="AlleFängeRowChanged" msprop:Generator_TablePropName="AlleFänge" msprop:Generator_RowDeletingName="AlleFängeRowDeleting" msprop:Generator_RowChangingName="AlleFängeRowChanging" msprop:Generator_RowEvHandlerName="AlleFängeRowChangeEventHandler" msprop:Generator_RowDeletedName="AlleFängeRowDeleted" msprop:Generator_RowClassName="AlleFängeRow" msprop:Generator_UserTableName="AlleFänge" msprop:Generator_RowEvArgName="AlleFängeRowChangeEvent">
+        <xs:element name="AlleFänge" msprop:Generator_TableClassName="AlleFängeDataTable" msprop:Generator_TableVarName="tableAlleFänge" msprop:Generator_TablePropName="AlleFänge" msprop:Generator_RowDeletingName="AlleFängeRowDeleting" msprop:Generator_RowChangingName="AlleFängeRowChanging" msprop:Generator_RowEvHandlerName="AlleFängeRowChangeEventHandler" msprop:Generator_RowDeletedName="AlleFängeRowDeleted" msprop:Generator_UserTableName="AlleFänge" msprop:Generator_RowChangedName="AlleFängeRowChanged" msprop:Generator_RowEvArgName="AlleFängeRowChangeEvent" msprop:Generator_RowClassName="AlleFängeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
@@ -1225,7 +1257,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Fänge_Je_Jahr" msprop:Generator_TableClassName="Fänge_Je_JahrDataTable" msprop:Generator_TableVarName="tableFänge_Je_Jahr" msprop:Generator_TablePropName="Fänge_Je_Jahr" msprop:Generator_RowDeletingName="Fänge_Je_JahrRowDeleting" msprop:Generator_RowChangingName="Fänge_Je_JahrRowChanging" msprop:Generator_RowEvHandlerName="Fänge_Je_JahrRowChangeEventHandler" msprop:Generator_RowDeletedName="Fänge_Je_JahrRowDeleted" msprop:Generator_UserTableName="Fänge_Je_Jahr" msprop:Generator_RowChangedName="Fänge_Je_JahrRowChanged" msprop:Generator_RowEvArgName="Fänge_Je_JahrRowChangeEvent" msprop:Generator_RowClassName="Fänge_Je_JahrRow">
+        <xs:element name="Fänge_Je_Jahr" msprop:Generator_TableClassName="Fänge_Je_JahrDataTable" msprop:Generator_TableVarName="tableFänge_Je_Jahr" msprop:Generator_RowChangedName="Fänge_Je_JahrRowChanged" msprop:Generator_TablePropName="Fänge_Je_Jahr" msprop:Generator_RowDeletingName="Fänge_Je_JahrRowDeleting" msprop:Generator_RowChangingName="Fänge_Je_JahrRowChanging" msprop:Generator_RowEvHandlerName="Fänge_Je_JahrRowChangeEventHandler" msprop:Generator_RowDeletedName="Fänge_Je_JahrRowDeleted" msprop:Generator_RowClassName="Fänge_Je_JahrRow" msprop:Generator_UserTableName="Fänge_Je_Jahr" msprop:Generator_RowEvArgName="Fänge_Je_JahrRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
@@ -1289,7 +1321,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Andere" msprop:Generator_TableClassName="Hitparade_AndereDataTable" msprop:Generator_TableVarName="tableHitparade_Andere" msprop:Generator_RowChangedName="Hitparade_AndereRowChanged" msprop:Generator_TablePropName="Hitparade_Andere" msprop:Generator_RowDeletingName="Hitparade_AndereRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereRowDeleted" msprop:Generator_RowClassName="Hitparade_AndereRow" msprop:Generator_UserTableName="Hitparade_Andere" msprop:Generator_RowEvArgName="Hitparade_AndereRowChangeEvent">
+        <xs:element name="Hitparade_Andere" msprop:Generator_TableClassName="Hitparade_AndereDataTable" msprop:Generator_TableVarName="tableHitparade_Andere" msprop:Generator_TablePropName="Hitparade_Andere" msprop:Generator_RowDeletingName="Hitparade_AndereRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereRowDeleted" msprop:Generator_UserTableName="Hitparade_Andere" msprop:Generator_RowChangedName="Hitparade_AndereRowChanged" msprop:Generator_RowEvArgName="Hitparade_AndereRowChangeEvent" msprop:Generator_RowClassName="Hitparade_AndereRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1322,7 +1354,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Barsch" msprop:Generator_TableClassName="Hitparade_BarschDataTable" msprop:Generator_TableVarName="tableHitparade_Barsch" msprop:Generator_RowChangedName="Hitparade_BarschRowChanged" msprop:Generator_TablePropName="Hitparade_Barsch" msprop:Generator_RowDeletingName="Hitparade_BarschRowDeleting" msprop:Generator_RowChangingName="Hitparade_BarschRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_BarschRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_BarschRowDeleted" msprop:Generator_RowClassName="Hitparade_BarschRow" msprop:Generator_UserTableName="Hitparade_Barsch" msprop:Generator_RowEvArgName="Hitparade_BarschRowChangeEvent">
+        <xs:element name="Hitparade_Barsch" msprop:Generator_TableClassName="Hitparade_BarschDataTable" msprop:Generator_TableVarName="tableHitparade_Barsch" msprop:Generator_TablePropName="Hitparade_Barsch" msprop:Generator_RowDeletingName="Hitparade_BarschRowDeleting" msprop:Generator_RowChangingName="Hitparade_BarschRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_BarschRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_BarschRowDeleted" msprop:Generator_UserTableName="Hitparade_Barsch" msprop:Generator_RowChangedName="Hitparade_BarschRowChanged" msprop:Generator_RowEvArgName="Hitparade_BarschRowChangeEvent" msprop:Generator_RowClassName="Hitparade_BarschRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1348,7 +1380,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Zander" msprop:Generator_TableClassName="Hitparade_ZanderDataTable" msprop:Generator_TableVarName="tableHitparade_Zander" msprop:Generator_RowChangedName="Hitparade_ZanderRowChanged" msprop:Generator_TablePropName="Hitparade_Zander" msprop:Generator_RowDeletingName="Hitparade_ZanderRowDeleting" msprop:Generator_RowChangingName="Hitparade_ZanderRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_ZanderRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_ZanderRowDeleted" msprop:Generator_RowClassName="Hitparade_ZanderRow" msprop:Generator_UserTableName="Hitparade_Zander" msprop:Generator_RowEvArgName="Hitparade_ZanderRowChangeEvent">
+        <xs:element name="Hitparade_Zander" msprop:Generator_TableClassName="Hitparade_ZanderDataTable" msprop:Generator_TableVarName="tableHitparade_Zander" msprop:Generator_TablePropName="Hitparade_Zander" msprop:Generator_RowDeletingName="Hitparade_ZanderRowDeleting" msprop:Generator_RowChangingName="Hitparade_ZanderRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_ZanderRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_ZanderRowDeleted" msprop:Generator_UserTableName="Hitparade_Zander" msprop:Generator_RowChangedName="Hitparade_ZanderRowChanged" msprop:Generator_RowEvArgName="Hitparade_ZanderRowChangeEvent" msprop:Generator_RowClassName="Hitparade_ZanderRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1374,7 +1406,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Karpfen" msprop:Generator_TableClassName="Hitparade_KarpfenDataTable" msprop:Generator_TableVarName="tableHitparade_Karpfen" msprop:Generator_RowChangedName="Hitparade_KarpfenRowChanged" msprop:Generator_TablePropName="Hitparade_Karpfen" msprop:Generator_RowDeletingName="Hitparade_KarpfenRowDeleting" msprop:Generator_RowChangingName="Hitparade_KarpfenRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_KarpfenRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_KarpfenRowDeleted" msprop:Generator_RowClassName="Hitparade_KarpfenRow" msprop:Generator_UserTableName="Hitparade_Karpfen" msprop:Generator_RowEvArgName="Hitparade_KarpfenRowChangeEvent">
+        <xs:element name="Hitparade_Karpfen" msprop:Generator_TableClassName="Hitparade_KarpfenDataTable" msprop:Generator_TableVarName="tableHitparade_Karpfen" msprop:Generator_TablePropName="Hitparade_Karpfen" msprop:Generator_RowDeletingName="Hitparade_KarpfenRowDeleting" msprop:Generator_RowChangingName="Hitparade_KarpfenRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_KarpfenRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_KarpfenRowDeleted" msprop:Generator_UserTableName="Hitparade_Karpfen" msprop:Generator_RowChangedName="Hitparade_KarpfenRowChanged" msprop:Generator_RowEvArgName="Hitparade_KarpfenRowChangeEvent" msprop:Generator_RowClassName="Hitparade_KarpfenRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1407,7 +1439,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Amur" msprop:Generator_TableClassName="Hitparade_AmurDataTable" msprop:Generator_TableVarName="tableHitparade_Amur" msprop:Generator_RowChangedName="Hitparade_AmurRowChanged" msprop:Generator_TablePropName="Hitparade_Amur" msprop:Generator_RowDeletingName="Hitparade_AmurRowDeleting" msprop:Generator_RowChangingName="Hitparade_AmurRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AmurRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AmurRowDeleted" msprop:Generator_RowClassName="Hitparade_AmurRow" msprop:Generator_UserTableName="Hitparade_Amur" msprop:Generator_RowEvArgName="Hitparade_AmurRowChangeEvent">
+        <xs:element name="Hitparade_Amur" msprop:Generator_TableClassName="Hitparade_AmurDataTable" msprop:Generator_TableVarName="tableHitparade_Amur" msprop:Generator_TablePropName="Hitparade_Amur" msprop:Generator_RowDeletingName="Hitparade_AmurRowDeleting" msprop:Generator_RowChangingName="Hitparade_AmurRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AmurRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AmurRowDeleted" msprop:Generator_UserTableName="Hitparade_Amur" msprop:Generator_RowChangedName="Hitparade_AmurRowChanged" msprop:Generator_RowEvArgName="Hitparade_AmurRowChangeEvent" msprop:Generator_RowClassName="Hitparade_AmurRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1440,7 +1472,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Stör" msprop:Generator_TableClassName="Hitparade_StörDataTable" msprop:Generator_TableVarName="tableHitparade_Stör" msprop:Generator_RowChangedName="Hitparade_StörRowChanged" msprop:Generator_TablePropName="Hitparade_Stör" msprop:Generator_RowDeletingName="Hitparade_StörRowDeleting" msprop:Generator_RowChangingName="Hitparade_StörRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_StörRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_StörRowDeleted" msprop:Generator_RowClassName="Hitparade_StörRow" msprop:Generator_UserTableName="Hitparade_Stör" msprop:Generator_RowEvArgName="Hitparade_StörRowChangeEvent">
+        <xs:element name="Hitparade_Stör" msprop:Generator_TableClassName="Hitparade_StörDataTable" msprop:Generator_TableVarName="tableHitparade_Stör" msprop:Generator_TablePropName="Hitparade_Stör" msprop:Generator_RowDeletingName="Hitparade_StörRowDeleting" msprop:Generator_RowChangingName="Hitparade_StörRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_StörRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_StörRowDeleted" msprop:Generator_UserTableName="Hitparade_Stör" msprop:Generator_RowChangedName="Hitparade_StörRowChanged" msprop:Generator_RowEvArgName="Hitparade_StörRowChangeEvent" msprop:Generator_RowClassName="Hitparade_StörRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1473,7 +1505,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Regenbogenforelle" msprop:Generator_TableClassName="Hitparade_RegenbogenforelleDataTable" msprop:Generator_TableVarName="tableHitparade_Regenbogenforelle" msprop:Generator_RowChangedName="Hitparade_RegenbogenforelleRowChanged" msprop:Generator_TablePropName="Hitparade_Regenbogenforelle" msprop:Generator_RowDeletingName="Hitparade_RegenbogenforelleRowDeleting" msprop:Generator_RowChangingName="Hitparade_RegenbogenforelleRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_RegenbogenforelleRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_RegenbogenforelleRowDeleted" msprop:Generator_RowClassName="Hitparade_RegenbogenforelleRow" msprop:Generator_UserTableName="Hitparade_Regenbogenforelle" msprop:Generator_RowEvArgName="Hitparade_RegenbogenforelleRowChangeEvent">
+        <xs:element name="Hitparade_Regenbogenforelle" msprop:Generator_TableClassName="Hitparade_RegenbogenforelleDataTable" msprop:Generator_TableVarName="tableHitparade_Regenbogenforelle" msprop:Generator_TablePropName="Hitparade_Regenbogenforelle" msprop:Generator_RowDeletingName="Hitparade_RegenbogenforelleRowDeleting" msprop:Generator_RowChangingName="Hitparade_RegenbogenforelleRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_RegenbogenforelleRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_RegenbogenforelleRowDeleted" msprop:Generator_UserTableName="Hitparade_Regenbogenforelle" msprop:Generator_RowChangedName="Hitparade_RegenbogenforelleRowChanged" msprop:Generator_RowEvArgName="Hitparade_RegenbogenforelleRowChangeEvent" msprop:Generator_RowClassName="Hitparade_RegenbogenforelleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1506,7 +1538,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Bachforelle" msprop:Generator_TableClassName="Hitparade_BachforelleDataTable" msprop:Generator_TableVarName="tableHitparade_Bachforelle" msprop:Generator_RowChangedName="Hitparade_BachforelleRowChanged" msprop:Generator_TablePropName="Hitparade_Bachforelle" msprop:Generator_RowDeletingName="Hitparade_BachforelleRowDeleting" msprop:Generator_RowChangingName="Hitparade_BachforelleRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_BachforelleRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_BachforelleRowDeleted" msprop:Generator_RowClassName="Hitparade_BachforelleRow" msprop:Generator_UserTableName="Hitparade_Bachforelle" msprop:Generator_RowEvArgName="Hitparade_BachforelleRowChangeEvent">
+        <xs:element name="Hitparade_Bachforelle" msprop:Generator_TableClassName="Hitparade_BachforelleDataTable" msprop:Generator_TableVarName="tableHitparade_Bachforelle" msprop:Generator_TablePropName="Hitparade_Bachforelle" msprop:Generator_RowDeletingName="Hitparade_BachforelleRowDeleting" msprop:Generator_RowChangingName="Hitparade_BachforelleRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_BachforelleRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_BachforelleRowDeleted" msprop:Generator_UserTableName="Hitparade_Bachforelle" msprop:Generator_RowChangedName="Hitparade_BachforelleRowChanged" msprop:Generator_RowEvArgName="Hitparade_BachforelleRowChangeEvent" msprop:Generator_RowClassName="Hitparade_BachforelleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1539,7 +1571,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_Seeforelle" msprop:Generator_TableClassName="Hitparade_SeeforelleDataTable" msprop:Generator_TableVarName="tableHitparade_Seeforelle" msprop:Generator_RowChangedName="Hitparade_SeeforelleRowChanged" msprop:Generator_TablePropName="Hitparade_Seeforelle" msprop:Generator_RowDeletingName="Hitparade_SeeforelleRowDeleting" msprop:Generator_RowChangingName="Hitparade_SeeforelleRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_SeeforelleRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_SeeforelleRowDeleted" msprop:Generator_RowClassName="Hitparade_SeeforelleRow" msprop:Generator_UserTableName="Hitparade_Seeforelle" msprop:Generator_RowEvArgName="Hitparade_SeeforelleRowChangeEvent">
+        <xs:element name="Hitparade_Seeforelle" msprop:Generator_TableClassName="Hitparade_SeeforelleDataTable" msprop:Generator_TableVarName="tableHitparade_Seeforelle" msprop:Generator_TablePropName="Hitparade_Seeforelle" msprop:Generator_RowDeletingName="Hitparade_SeeforelleRowDeleting" msprop:Generator_RowChangingName="Hitparade_SeeforelleRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_SeeforelleRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_SeeforelleRowDeleted" msprop:Generator_UserTableName="Hitparade_Seeforelle" msprop:Generator_RowChangedName="Hitparade_SeeforelleRowChanged" msprop:Generator_RowEvArgName="Hitparade_SeeforelleRowChangeEvent" msprop:Generator_RowClassName="Hitparade_SeeforelleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1572,7 +1604,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_AndereKarpfen" msprop:Generator_TableClassName="Hitparade_AndereKarpfenDataTable" msprop:Generator_TableVarName="tableHitparade_AndereKarpfen" msprop:Generator_TablePropName="Hitparade_AndereKarpfen" msprop:Generator_RowDeletingName="Hitparade_AndereKarpfenRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereKarpfenRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereKarpfenRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereKarpfenRowDeleted" msprop:Generator_UserTableName="Hitparade_AndereKarpfen" msprop:Generator_RowChangedName="Hitparade_AndereKarpfenRowChanged" msprop:Generator_RowEvArgName="Hitparade_AndereKarpfenRowChangeEvent" msprop:Generator_RowClassName="Hitparade_AndereKarpfenRow">
+        <xs:element name="Hitparade_AndereKarpfen" msprop:Generator_TableClassName="Hitparade_AndereKarpfenDataTable" msprop:Generator_TableVarName="tableHitparade_AndereKarpfen" msprop:Generator_RowChangedName="Hitparade_AndereKarpfenRowChanged" msprop:Generator_TablePropName="Hitparade_AndereKarpfen" msprop:Generator_RowDeletingName="Hitparade_AndereKarpfenRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereKarpfenRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereKarpfenRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereKarpfenRowDeleted" msprop:Generator_RowClassName="Hitparade_AndereKarpfenRow" msprop:Generator_UserTableName="Hitparade_AndereKarpfen" msprop:Generator_RowEvArgName="Hitparade_AndereKarpfenRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1605,7 +1637,7 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hitparade_AndereForellen" msprop:Generator_TableClassName="Hitparade_AndereForellenDataTable" msprop:Generator_TableVarName="tableHitparade_AndereForellen" msprop:Generator_TablePropName="Hitparade_AndereForellen" msprop:Generator_RowDeletingName="Hitparade_AndereForellenRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereForellenRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereForellenRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereForellenRowDeleted" msprop:Generator_UserTableName="Hitparade_AndereForellen" msprop:Generator_RowChangedName="Hitparade_AndereForellenRowChanged" msprop:Generator_RowEvArgName="Hitparade_AndereForellenRowChangeEvent" msprop:Generator_RowClassName="Hitparade_AndereForellenRow">
+        <xs:element name="Hitparade_AndereForellen" msprop:Generator_TableClassName="Hitparade_AndereForellenDataTable" msprop:Generator_TableVarName="tableHitparade_AndereForellen" msprop:Generator_RowChangedName="Hitparade_AndereForellenRowChanged" msprop:Generator_TablePropName="Hitparade_AndereForellen" msprop:Generator_RowDeletingName="Hitparade_AndereForellenRowDeleting" msprop:Generator_RowChangingName="Hitparade_AndereForellenRowChanging" msprop:Generator_RowEvHandlerName="Hitparade_AndereForellenRowChangeEventHandler" msprop:Generator_RowDeletedName="Hitparade_AndereForellenRowDeleted" msprop:Generator_RowClassName="Hitparade_AndereForellenRow" msprop:Generator_UserTableName="Hitparade_AndereForellen" msprop:Generator_RowEvArgName="Hitparade_AndereForellenRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Platz" msprop:Generator_ColumnVarNameInTable="columnPlatz" msprop:Generator_ColumnPropNameInRow="Platz" msprop:Generator_ColumnPropNameInTable="PlatzColumn" msprop:Generator_UserColumnName="Platz" type="xs:long" minOccurs="0" />
@@ -1635,6 +1667,53 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
               </xs:element>
               <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FanglisteEdit" msprop:Generator_TableClassName="FanglisteEditDataTable" msprop:Generator_TableVarName="tableFanglisteEdit" msprop:Generator_TablePropName="FanglisteEdit" msprop:Generator_RowDeletingName="FanglisteEditRowDeleting" msprop:Generator_RowChangingName="FanglisteEditRowChanging" msprop:Generator_RowEvHandlerName="FanglisteEditRowChangeEventHandler" msprop:Generator_RowDeletedName="FanglisteEditRowDeleted" msprop:Generator_UserTableName="FanglisteEdit" msprop:Generator_RowChangedName="FanglisteEditRowChanged" msprop:Generator_RowEvArgName="FanglisteEditRowChangeEvent" msprop:Generator_RowClassName="FanglisteEditRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Icon" msprop:Generator_ColumnVarNameInTable="columnIcon" msprop:Generator_ColumnPropNameInRow="Icon" msprop:Generator_ColumnPropNameInTable="IconColumn" msprop:Generator_UserColumnName="Icon" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Angler_ID" msprop:Generator_ColumnVarNameInTable="columnAngler_ID" msprop:Generator_ColumnPropNameInRow="Angler_ID" msprop:Generator_ColumnPropNameInTable="Angler_IDColumn" msprop:Generator_UserColumnName="Angler_ID" type="xs:int" />
+              <xs:element name="Fischart_ID" msprop:Generator_ColumnVarNameInTable="columnFischart_ID" msprop:Generator_ColumnPropNameInRow="Fischart_ID" msprop:Generator_ColumnPropNameInTable="Fischart_IDColumn" msprop:Generator_UserColumnName="Fischart_ID" type="xs:int" />
+              <xs:element name="Länge" msprop:Generator_ColumnVarNameInTable="columnLänge" msprop:Generator_ColumnPropNameInRow="Länge" msprop:Generator_ColumnPropNameInTable="LängeColumn" msprop:Generator_UserColumnName="Länge" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewicht" msprop:Generator_ColumnVarNameInTable="columnGewicht" msprop:Generator_ColumnPropNameInRow="Gewicht" msprop:Generator_ColumnPropNameInTable="GewichtColumn" msprop:Generator_UserColumnName="Gewicht" type="xs:double" minOccurs="0" />
+              <xs:element name="Gewässer_ID" msprop:Generator_ColumnVarNameInTable="columnGewässer_ID" msprop:Generator_ColumnPropNameInRow="Gewässer_ID" msprop:Generator_ColumnPropNameInTable="Gewässer_IDColumn" msprop:Generator_UserColumnName="Gewässer_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Köder" msprop:Generator_ColumnVarNameInTable="columnKöder" msprop:Generator_ColumnPropNameInRow="Köder" msprop:Generator_ColumnPropNameInTable="KöderColumn" msprop:Generator_UserColumnName="Köder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Angelplatz" msprop:Generator_ColumnVarNameInTable="columnAngelplatz" msprop:Generator_ColumnPropNameInRow="Angelplatz" msprop:Generator_ColumnPropNameInTable="AngelplatzColumn" msprop:Generator_UserColumnName="Angelplatz" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tiefe" msprop:Generator_ColumnVarNameInTable="columnTiefe" msprop:Generator_ColumnPropNameInRow="Tiefe" msprop:Generator_ColumnPropNameInTable="TiefeColumn" msprop:Generator_UserColumnName="Tiefe" type="xs:double" minOccurs="0" />
+              <xs:element name="Lufttemperatur" msprop:Generator_ColumnVarNameInTable="columnLufttemperatur" msprop:Generator_ColumnPropNameInRow="Lufttemperatur" msprop:Generator_ColumnPropNameInTable="LufttemperaturColumn" msprop:Generator_UserColumnName="Lufttemperatur" type="xs:double" minOccurs="0" />
+              <xs:element name="Wassertemperatur" msprop:Generator_ColumnVarNameInTable="columnWassertemperatur" msprop:Generator_ColumnPropNameInRow="Wassertemperatur" msprop:Generator_ColumnPropNameInTable="WassertemperaturColumn" msprop:Generator_UserColumnName="Wassertemperatur" type="xs:double" minOccurs="0" />
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Uhrzeit" msprop:Generator_ColumnVarNameInTable="columnUhrzeit" msprop:Generator_ColumnPropNameInRow="Uhrzeit" msprop:Generator_ColumnPropNameInTable="UhrzeitColumn" msprop:Generator_UserColumnName="Uhrzeit" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Zurückgesetzt" msprop:Generator_ColumnVarNameInTable="columnZurückgesetzt" msprop:Generator_ColumnPropNameInRow="Zurückgesetzt" msprop:Generator_ColumnPropNameInTable="ZurückgesetztColumn" msprop:Generator_UserColumnName="Zurückgesetzt" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Wetter" msprop:Generator_ColumnVarNameInTable="columnWetter" msprop:Generator_ColumnPropNameInRow="Wetter" msprop:Generator_ColumnPropNameInTable="WetterColumn" msprop:Generator_UserColumnName="Wetter" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Kommentar" msprop:Generator_ColumnVarNameInTable="columnKommentar" msprop:Generator_ColumnPropNameInRow="Kommentar" msprop:Generator_ColumnPropNameInTable="KommentarColumn" msprop:Generator_UserColumnName="Kommentar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1728,14 +1807,18 @@ SELECT Id, Name, Link FROM Link WHERE (Id = @Id)</CommandText>
       <xs:selector xpath=".//mstns:Hitparade_AndereForellen" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
+    <xs:unique name="FanglisteEdit_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FanglisteEdit" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Angler_Fang" msdata:parent="Angler" msdata:child="Fang" msdata:parentkey="Id" msdata:childkey="Angler_ID" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Angler_Fang" msprop:Generator_RelationVarName="relationAngler_Fang" msprop:Generator_UserParentTable="Angler" msprop:Generator_ParentPropName="AnglerRow" />
-      <msdata:Relationship name="Fang_Gewässer" msdata:parent="Fang" msdata:child="Gewässer" msdata:parentkey="Gewässer_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Gewässer" msprop:Generator_ChildPropName="GetGewässerRows" msprop:Generator_UserRelationName="Fang_Gewässer" msprop:Generator_ParentPropName="FangRow" msprop:Generator_RelationVarName="relationFang_Gewässer" msprop:Generator_UserParentTable="Fang" />
-      <msdata:Relationship name="Fang_Fisch" msdata:parent="Fang" msdata:child="Fisch" msdata:parentkey="Fischart_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fisch" msprop:Generator_ChildPropName="GetFischRows" msprop:Generator_UserRelationName="Fang_Fisch" msprop:Generator_ParentPropName="FangRow" msprop:Generator_RelationVarName="relationFang_Fisch" msprop:Generator_UserParentTable="Fang" />
-      <msdata:Relationship name="Foto_Fang" msdata:parent="Foto" msdata:child="Fang" msdata:parentkey="Fang_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Foto_Fang" msprop:Generator_RelationVarName="relationFoto_Fang" msprop:Generator_UserParentTable="Foto" msprop:Generator_ParentPropName="FotoRow" />
-      <msdata:Relationship name="Foto_Ordner" msdata:parent="Foto" msdata:child="Ordner" msdata:parentkey="Ordner_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Ordner" msprop:Generator_ChildPropName="GetOrdnerRows" msprop:Generator_UserRelationName="Foto_Ordner" msprop:Generator_RelationVarName="relationFoto_Ordner" msprop:Generator_UserParentTable="Foto" msprop:Generator_ParentPropName="FotoRow" />
+      <msdata:Relationship name="Angler_Fang" msdata:parent="Angler" msdata:child="Fang" msdata:parentkey="Id" msdata:childkey="Angler_ID" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Angler_Fang" msprop:Generator_ParentPropName="AnglerRow" msprop:Generator_RelationVarName="relationAngler_Fang" msprop:Generator_UserParentTable="Angler" />
+      <msdata:Relationship name="Fang_Gewässer" msdata:parent="Fang" msdata:child="Gewässer" msdata:parentkey="Gewässer_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Gewässer" msprop:Generator_ChildPropName="GetGewässerRows" msprop:Generator_UserRelationName="Fang_Gewässer" msprop:Generator_RelationVarName="relationFang_Gewässer" msprop:Generator_UserParentTable="Fang" msprop:Generator_ParentPropName="FangRow" />
+      <msdata:Relationship name="Fang_Fisch" msdata:parent="Fang" msdata:child="Fisch" msdata:parentkey="Fischart_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fisch" msprop:Generator_ChildPropName="GetFischRows" msprop:Generator_UserRelationName="Fang_Fisch" msprop:Generator_RelationVarName="relationFang_Fisch" msprop:Generator_UserParentTable="Fang" msprop:Generator_ParentPropName="FangRow" />
+      <msdata:Relationship name="Foto_Fang" msdata:parent="Foto" msdata:child="Fang" msdata:parentkey="Fang_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Fang" msprop:Generator_ChildPropName="GetFangRows" msprop:Generator_UserRelationName="Foto_Fang" msprop:Generator_ParentPropName="FotoRow" msprop:Generator_RelationVarName="relationFoto_Fang" msprop:Generator_UserParentTable="Foto" />
+      <msdata:Relationship name="Foto_Ordner" msdata:parent="Foto" msdata:child="Ordner" msdata:parentkey="Ordner_ID" msdata:childkey="Id" msprop:Generator_UserChildTable="Ordner" msprop:Generator_ChildPropName="GetOrdnerRows" msprop:Generator_UserRelationName="Foto_Ordner" msprop:Generator_ParentPropName="FotoRow" msprop:Generator_RelationVarName="relationFoto_Ordner" msprop:Generator_UserParentTable="Foto" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

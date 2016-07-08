@@ -26,6 +26,10 @@ namespace Fangliste_2016
             InitializeComponent();
         }
 
+        #endregion
+
+        #region Events
+
         private void Frm_Einstellungen_Load(object sender, EventArgs e)
         {
             TextBox_mit_Daten_füllen();
@@ -34,11 +38,6 @@ namespace Fangliste_2016
         private void Frm_Einstellungen_FormClosed(object sender, FormClosedEventArgs e)
         {
         }
-
-        #endregion
-
-        #region Events
-
 
         #endregion
 

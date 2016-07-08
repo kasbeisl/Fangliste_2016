@@ -33,8 +33,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fotoAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox_name = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label_ges_anzahl = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -88,8 +86,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.textBox_name);
-            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label_ges_anzahl);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -97,33 +93,10 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // textBox_name
-            // 
-            this.textBox_name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.textBox_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox_name.FormattingEnabled = true;
-            this.textBox_name.Location = new System.Drawing.Point(79, 9);
-            this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(153, 25);
-            this.textBox_name.Sorted = true;
-            this.textBox_name.TabIndex = 12;
-            this.textBox_name.SelectionChangeCommitted += new System.EventHandler(this.textBox_name_SelectionChangeCommitted);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 14);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(77, 17);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Fänge von";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
-            // 
             // label_ges_anzahl
             // 
             this.label_ges_anzahl.AutoSize = true;
-            this.label_ges_anzahl.Location = new System.Drawing.Point(238, 16);
+            this.label_ges_anzahl.Location = new System.Drawing.Point(6, 16);
             this.label_ges_anzahl.Name = "label_ges_anzahl";
             this.label_ges_anzahl.Size = new System.Drawing.Size(61, 13);
             this.label_ges_anzahl.TabIndex = 11;
@@ -367,8 +340,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fotoAnzeigenToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox textBox_name;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label_ges_anzahl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ImageList imageList1;

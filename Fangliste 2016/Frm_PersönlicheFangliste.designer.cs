@@ -37,7 +37,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lb_gesAnzahlAktuell = new System.Windows.Forms.Label();
             this.lb_gesAnzahlAktuell_Info = new System.Windows.Forms.Label();
             this.btn_details = new System.Windows.Forms.Button();
@@ -94,7 +93,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lb_gesAnzahlAktuell);
             this.groupBox1.Controls.Add(this.lb_gesAnzahlAktuell_Info);
             this.groupBox1.Controls.Add(this.btn_details);
@@ -104,17 +102,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1240, 45);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(516, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.Sorted = true;
-            this.comboBox1.TabIndex = 14;
-            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             // 
             // lb_gesAnzahlAktuell
             // 
@@ -207,7 +194,6 @@
         private System.Windows.Forms.Label lb_gesAnzahlAktuell;
         private System.Windows.Forms.Label lb_gesAnzahlAktuell_Info;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

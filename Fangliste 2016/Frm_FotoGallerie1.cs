@@ -695,9 +695,13 @@ namespace Fangliste_2016
 
             if (frm_fotoEditor.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                Aktualisieren();
-                Label_foto_nr_setzen();
-                FotoInfos_Set();
+                if (frm_fotoEditor.Edit)
+                {
+                    Aktualisieren();
+                    Label_foto_nr_setzen();
+                    FotoInfos_Set();
+                }
+                
 
                 /*File.Copy(Frm_Hauptmenu.DatenOrdner + "\\" + Properties.Settings.Default.Fotoliste + Properties.Settings.Default.Datentyp,
                     Frm_Hauptmenu.DatenOrdner + "\\" + "Backup\\" + Properties.Settings.Default.Fotoliste + "_" + DateTime.Now.ToShortDateString() + Properties.Settings.Default.Datentyp, true);
@@ -1012,7 +1016,7 @@ namespace Fangliste_2016
 
             if (r == DialogResult.OK)
             {
-                DialogResult f = MessageBox.Show("Info eintragen?", "Foto", MessageBoxButtons.YesNo);
+                DialogResult f = MessageBox.Show("Info eintragen?", "Foto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = SQLCollection.GetConnectionString();
@@ -1036,7 +1040,7 @@ namespace Fangliste_2016
                             {
                                 con.Open();
                             SqlCommand insertCommand = new SqlCommand(
-                        "Insert into Foto (Angler_ID, Fang_ID, Kommentar, Bild) Values ('" + fie.NeuerEintrag.Angler_ID + "', '" + fie.NeuerEintrag.Fang_ID + "', '" + fie.NeuerEintrag.Kommentar + "', @Pic)", con);
+                        "Insert into Foto (Angler_ID, Fang_ID, Kommentar, Bild, Ordner_ID) Values ('" + fie.NeuerEintrag.Angler_ID + "', '" + fie.NeuerEintrag.Fang_ID + "', '" + fie.NeuerEintrag.Kommentar + "', @Pic)" + "'" + fie.NeuerEintrag.Ordner_ID + "'", con);
                             insertCommand.Parameters.Add("Pic", SqlDbType.Image, 0).Value =
                                 ConvertImageToByteArray(imag, ImageFormat.Jpeg);
                             int queryResult = insertCommand.ExecuteNonQuery();

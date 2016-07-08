@@ -40,7 +40,7 @@ namespace Fangliste_2016
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.AlleFänge' table. You can move, or remove it, as needed.
             this.alleFängeTableAdapter.Fill(this.fanglisteDBDataSet.AlleFänge);
             fotoAnzeigenToolStripMenuItem.Enabled = false;
-            textBox_name.Enabled = false;
+            //textBox_name.Enabled = false;
 
             label_ges_anzahl.Text = "(" + alleFängeDataGridView.RowCount + " Eintrag)";
             //SpezifischeFotolisteErstellen();

@@ -36,9 +36,10 @@
             this.btn_fertig = new System.Windows.Forms.Button();
             this.btn_löschen = new System.Windows.Forms.Button();
             this.btn_entfernen = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cb_ordner = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_neuerOrdner = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,23 +122,15 @@
             this.btn_entfernen.UseVisualStyleBackColor = true;
             this.btn_entfernen.Click += new System.EventHandler(this.btn_entfernen_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(389, 212);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // cb_ordner
             // 
             this.cb_ordner.FormattingEnabled = true;
             this.cb_ordner.Location = new System.Drawing.Point(57, 549);
             this.cb_ordner.Name = "cb_ordner";
-            this.cb_ordner.Size = new System.Drawing.Size(238, 21);
+            this.cb_ordner.Size = new System.Drawing.Size(172, 21);
             this.cb_ordner.TabIndex = 9;
+            this.cb_ordner.Text = "Sonstige";
+            this.cb_ordner.SelectedIndexChanged += new System.EventHandler(this.cb_ordner_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -148,12 +141,33 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Ordner";
             // 
+            // btn_neuerOrdner
+            // 
+            this.btn_neuerOrdner.Location = new System.Drawing.Point(235, 547);
+            this.btn_neuerOrdner.Name = "btn_neuerOrdner";
+            this.btn_neuerOrdner.Size = new System.Drawing.Size(37, 23);
+            this.btn_neuerOrdner.TabIndex = 11;
+            this.btn_neuerOrdner.Text = "+";
+            this.btn_neuerOrdner.UseVisualStyleBackColor = true;
+            this.btn_neuerOrdner.Click += new System.EventHandler(this.btn_neuerOrdner_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(389, 212);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // Frm_FotoinfoEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(415, 587);
+            this.Controls.Add(this.btn_neuerOrdner);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cb_ordner);
             this.Controls.Add(this.pictureBox1);
@@ -192,5 +206,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cb_ordner;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_neuerOrdner;
     }
 }

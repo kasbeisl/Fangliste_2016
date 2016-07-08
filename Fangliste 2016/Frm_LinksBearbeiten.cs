@@ -12,10 +12,20 @@ namespace Fangliste_2016
 {
     public partial class Frm_LinksBearbeiten : Form
     {
+        #region Membervariablen
+
+        #endregion
+
+        #region Konstruktor
+
         public Frm_LinksBearbeiten()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Events
 
         private void linkBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -31,5 +41,7 @@ namespace Fangliste_2016
             this.linkTableAdapter.Fill(this.fanglisteDBDataSet.Link);
 
         }
+
+        #endregion
     }
 }

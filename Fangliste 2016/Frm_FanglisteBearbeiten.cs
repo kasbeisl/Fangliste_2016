@@ -45,6 +45,8 @@ namespace Fangliste_2016
 
         private void Frm_FanglisteBearbeiten_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'fanglisteDBDataSet.FanglisteEdit' table. You can move, or remove it, as needed.
+            this.fanglisteEditTableAdapter.Fill(this.fanglisteDBDataSet.FanglisteEdit);
             // TODO: This line of code loads data into the 'fanglisteDBDataSet.AlleFänge' table. You can move, or remove it, as needed.
             this.alleFängeTableAdapter.Fill(this.fanglisteDBDataSet.AlleFänge);
             //alleFänge_Kopie = Fangliste.Kopiere_ObjektarrayAslist(alleFänge);
@@ -255,8 +257,7 @@ namespace Fangliste_2016
             löschenToolStripButton_Click(sender, e);
         }
 
+
         #endregion
-
-
     }
 }

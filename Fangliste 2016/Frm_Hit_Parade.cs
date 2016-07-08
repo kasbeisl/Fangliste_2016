@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Media;
 using FanglisteLibrary;
@@ -81,6 +76,8 @@ namespace Fangliste_2016
 
         #endregion
 
+        #region Methoden
+
         private void ZeichneListe()
         {
             /*listHecht.Items.Clear();
@@ -147,39 +144,6 @@ namespace Fangliste_2016
             }*/
         }
 
-        #region Events
-
-        private void Frm_Hit_Parade_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //wmp.controls.stop();
-            simpleSound_Hitparade.Stop();
-        }
-
-        private void listHecht_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-
-
-                /*int index = listHecht.SelectedIndices[0];
-                List<Foto> fangFotos = new List<Foto>();
-
-                for (int i = 0; i < fotoliste.Count; i++)
-                {
-                    if (fotoliste[i].ID == spezialliste[index].ID)
-                        fangFotos.Add(fotoliste[i]);
-                }
-
-                if ((fangFotos != null) && (fangFotos.Count != 0))
-                {
-                    frm_fotosVonFang = new Frm_FotosVonFang(0);
-                    frm_fotosVonFang.ShowDialog();
-                }*/
-            }
-        }
-
-        #endregion
-
         private void SpezifischeFotolisteErstellen()
         {
             /*try
@@ -227,6 +191,65 @@ namespace Fangliste_2016
             }
 
             return liste;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void SetFischAuswahl()
+        {
+            tbx_fischart.Items.Clear();
+
+            switch (Properties.Settings.Default.HitparadeFischAuswahl)
+            {
+                case "Best of Three":
+                    fischAuswahl = new string[] { "Hecht", "Zander", "Barsch", "Andere" };
+                    break;
+                case "Karpfen Freaks":
+                    fischAuswahl = new string[] { "Karpfen", "Amur", "Stör", "Andere" };
+                    break;
+                case "Salmoniden Profis":
+                    fischAuswahl = new string[] { "Regenbogenforelle", "Bachforelle", "Seeforelle", "Andere" };
+                    break;
+                default:
+                    fischAuswahl = new string[] { "Hecht", "Zander", "Barsch", "Andere" };
+                    break;
+            }
+
+            tbx_fischart.Items.AddRange(fischAuswahl);
+        }
+
+        #endregion
+
+        #region Events
+
+        private void Frm_Hit_Parade_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //wmp.controls.stop();
+            simpleSound_Hitparade.Stop();
+        }
+
+        private void listHecht_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+
+
+                /*int index = listHecht.SelectedIndices[0];
+                List<Foto> fangFotos = new List<Foto>();
+
+                for (int i = 0; i < fotoliste.Count; i++)
+                {
+                    if (fotoliste[i].ID == spezialliste[index].ID)
+                        fangFotos.Add(fotoliste[i]);
+                }
+
+                if ((fangFotos != null) && (fangFotos.Count != 0))
+                {
+                    frm_fotosVonFang = new Frm_FotosVonFang(0);
+                    frm_fotosVonFang.ShowDialog();
+                }*/
+            }
         }
 
         private void tbx_fischart_SelectedIndexChanged(object sender, EventArgs e)
@@ -324,32 +347,6 @@ namespace Fangliste_2016
             //ZeichneListe();*/
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private void SetFischAuswahl()
-        {
-            tbx_fischart.Items.Clear();
-            
-            switch (Properties.Settings.Default.HitparadeFischAuswahl)
-            {
-                case "Best of Three":
-                    fischAuswahl = new string[] { "Hecht", "Zander", "Barsch", "Andere" };
-                    break;
-                case "Karpfen Freaks":
-                    fischAuswahl = new string[] { "Karpfen", "Amur", "Stör", "Andere" };
-                    break;
-                case "Salmoniden Profis":
-                    fischAuswahl = new string[] { "Regenbogenforelle", "Bachforelle", "Seeforelle", "Andere" };
-                    break;
-                default:
-                    fischAuswahl = new string[] { "Hecht", "Zander", "Barsch", "Andere" };
-                    break;
-            }
-
-            tbx_fischart.Items.AddRange(fischAuswahl);
-        }
-
         private void hitparade_HechtDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = hitparade_HechtDataGridView.SelectedRows[0];
@@ -429,5 +426,7 @@ namespace Fangliste_2016
                 frm_fotosVonFang.ShowDialog();
             }
         }
+
+        #endregion
     }
 }
