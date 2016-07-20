@@ -243,3 +243,12 @@ C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft
 C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
 C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
 C:\Users\Kasi\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeuerFotoOrdner.resources
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_LinksBearbeiten.resources
+C:\Users\Hofer\Documents\GitHub\Fangliste_2016\Fangliste 2016\obj\Debug\Fangliste_2016.Frm_NeuerFotoOrdner.resources
